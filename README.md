@@ -7,10 +7,11 @@ The Python + training side of autogo stays unchanged in its own repo; this one h
 ## What's here
 
 ```
-odin/alpha_go/      Odin source: GoBoard + MCTS + C-ABI exports
-odin/tests/         Odin @(test) procs (31 cases ported from gtest)
+odin/alpha_go/          Odin source: GoBoard + thin Game-vtable adapter + C-ABI exports
+odin/vendor/mcts-odin/  Pinned copy of mcts-odin/mcts/ (commit + license + sync date)
+odin/tests/             Odin @(test) procs (37 cases: board + adapter integration)
 python/alpha_go_odin/   ctypes wrapper mirroring alpha_go_cpp's OO API
-python/parity/      Deterministic Zobrist-fingerprint parity harness
+python/parity/          Deterministic Zobrist-fingerprint parity harness
 scripts/build_odin.sh   builds build/libalpha_go_odin.so
 ```
 
@@ -18,32 +19,32 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 
 ## Status
 
-**Phase 1 (Odin port) — done.** **Phase 2 (foundation + parity) — done.**
+**Phase 1 (Odin port) — done.** **Phase 2 (foundation + MCTS vendor migration) — done.**
 
 - GoBoard: Zobrist-incremental positional superko, KataGo-aligned no-suicide rule, Tromp-Taylor area scoring.
-- MCTS: vendored from [mcts-odin](https://github.com/phiat/mcts-odin) (`odin/vendor/mcts-odin/`, pinned commit). Packed-slot nodes, branchless PUCT, linear-space priors, per-tree scratch arena, leaf-parallel batched with virtual loss, Dirichlet noise, PCR, subtree reuse. The local `go_adapter.odin` is a ~140-LOC Game vtable bridging GoBoard.
+- MCTS: vendored from [mcts-odin](https://github.com/phiat/mcts-odin) (`odin/vendor/mcts-odin/`, pinned commit; see `VERSION`). Packed-slot nodes, branchless PUCT, linear-space priors, per-tree scratch arena, leaf-parallel batched with virtual loss, Dirichlet noise, PCR, subtree reuse. The local `go_adapter.odin` is a ~140-LOC Game vtable bridging GoBoard.
 - 37/37 Odin `@(test)` cases pass clean under the memory tracker.
 - 42 `alphago_*` C-ABI symbols in `libalpha_go_odin.so`; Python ctypes shim mirrors upstream `alpha_go_cpp`'s OO API.
 
 ### Correctness
 
 - **Board parity** (`python/parity/random_games_dual.py`): Odin and upstream C++ produce a byte-identical SHA-256 fingerprint `109bd08a…` over 10 seeded games × ~200 moves.
-- **MCTS-layer A/B** (`experiments/2026-05-16_11-25-mcts-ab-odin-vs-cpp/`): 100 games of Odin-MCTS vs C++-MCTS at 200 sims/move, uniform-policy evaluator, alternating colors. Outcome: 50–50, Wilson 95% CI [0.404, 0.596]. MCTS is semantically equivalent at this evaluator class.
+- **MCTS-layer A/B**: 100 games of Odin-MCTS vs C++-MCTS at 200 sims/move, uniform-policy evaluator, alternating colors. Pre-vendor result was 50–50, Wilson 95% CI [0.404, 0.596]. Post-vendor, the same A/B exposes a PUCT-tiebreak determinism artifact at low simulation counts under uniform evaluators (see `experiments/` for the most recent runs and `odin/vendor/mcts-odin/` upstream issue tracker for the algorithm-level discussion). Validating A/Bs at higher sims and with non-uniform priors is in flight.
 
 ### Throughput
 
-ydh.2 micro-bench (9×9, 1600 sims/move × 32 moves, single-thread, NN-free):
+ydh.2 micro-bench (9×9, 1600 sims/move × 32 moves, single-thread, NN-free, miniwini host):
 
-| Backend                         | sims/sec        | vs C++  |
-|---------------------------------|-----------------|---------|
-| `alpha_go_cpp` (upstream)       | ~8,500          | 1.00×   |
-| `alpha_go_odin` (post-ci2)      | **12,845 ± 694** | 1.51×   |
-| `alpha_go_odin` (post-foundation, pre-vendor) | 7,927 ± 12 | 0.93×   |
-| autogodin pre-foundation        | 2,859           | 0.34×   |
+| Backend                            | sims/sec         | vs C++  |
+|------------------------------------|------------------|---------|
+| `alpha_go_cpp` (upstream)          | 8,655 ± 86       | 1.00×   |
+| `alpha_go_odin` (post-vendor)      | **13,613 ± 39**  | 1.57×   |
+| `alpha_go_odin` (pre-vendor)       | 7,927 ± 12       | 0.93×   |
+| autogodin pre-foundation           | 2,859            | 0.34×   |
 
-Foundation refactor (`bd close autogodin-4rw`) lifted Odin from 0.34× to 0.93× C++. Vendoring mcts-odin (`bd close autogodin-ci2`) — packed-slot nodes, branchless PUCT, linear priors, per-tree scratch arena — added another 1.62× on top, landing 1.51× C++ on the same Python-callback workload.
+The foundation refactor lifted Odin from 0.34× to 0.93× C++ on top of the original Phase-1 port. Vendoring mcts-odin (packed-slot nodes, branchless PUCT, linear priors, per-tree scratch arena) added another 1.72×, landing 1.57× C++ on the same Python-callback workload.
 
-**Phase 3** — experimentation, training A/Bs, optional GPU runs. See `bd ready`.
+**Phase 3** — experimentation, training A/Bs, optional GPU runs.
 
 ## Getting started
 
@@ -99,7 +100,7 @@ End-to-end on a clean host: ~3 min, no GPU. The .so installs into `.venv-cpponly
 
 ## Workflow
 
-Tasks live in `bd` (beads); the Dolt-backed DB syncs over the same git remote via `bd dolt push/pull` (a separate `refs/dolt/data` ref, kept out of the working tree). Start with `bd ready` to see the unblocked queue. Project conventions (compute hosts, GPU policy, parallel-agent rules) live in `AGENTS.md` for collaborators.
+Project conventions (compute hosts, GPU policy, parallel-agent rules, build/test/parity gates) live in `AGENTS.md` for collaborators.
 
 ## Acknowledgements
 
