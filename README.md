@@ -29,7 +29,7 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 ### Correctness
 
 - **Board parity** (`python/parity/random_games_dual.py`): Odin and upstream C++ produce a byte-identical SHA-256 fingerprint `109bd08a…` over 10 seeded games × ~200 moves.
-- **MCTS-layer A/B**: 100 games of Odin-MCTS vs C++-MCTS at 200 sims/move, uniform-policy evaluator, alternating colors. Pre-vendor result was 50–50, Wilson 95% CI [0.404, 0.596]. Post-vendor, the same A/B exposes a PUCT-tiebreak determinism artifact at low simulation counts under uniform evaluators (see `experiments/` for the most recent runs and `odin/vendor/mcts-odin/` upstream issue tracker for the algorithm-level discussion). Validating A/Bs at higher sims and with non-uniform priors is in flight.
+- **MCTS-layer A/B**: 100 games of Odin-MCTS vs C++-MCTS at 200 sims/move, uniform-policy evaluator. Pre-vendor result was 50–50, Wilson 95% CI [0.404, 0.596]. Post-vendor, this regime is dominated by the FPU concentration-vs-spread tradeoff documented in `odin/vendor/mcts-odin/mcts/mcts.odin` (Config.fpu_reduction): under uniform priors with very low sim budgets, FPU's correct-but-thin spread can lose to C++'s accidental concentration. A/B parity is the gate that matters under NN evaluators (where priors are informative); this is queued under `experiments/` for the next NN-eval pass.
 
 ### Throughput
 
