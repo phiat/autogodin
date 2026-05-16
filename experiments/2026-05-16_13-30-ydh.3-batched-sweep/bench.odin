@@ -56,17 +56,19 @@ batched_uniform :: proc(
 	}
 	// Fill each batch member with a uniform-over-legal policy and value=0.
 	// All slots are computed identically; the goal is throughput, not strength.
+	// Stack scratch sized for max board (19x19); avoids per-leaf [dynamic]int
+	// allocation (autogodin-5km).
+	scratch: [19 * 19]int = ---
 	for i in 0 ..< len(states) {
 		b := cast(^ag.GoBoard)states[i]
-		legal := ag.get_legal_moves_flat(b, context.temp_allocator)
-		defer delete(legal)
+		count := ag.fill_legal_moves_flat(b, scratch[:b.size * b.size])
 		pass_id := b.size * b.size
-		n := len(legal) + 1
+		n := count + 1
 		uniform := f32(1.0) / f32(n)
 		w := 0
-		for m in legal {
+		for j in 0 ..< count {
 			if w >= len(out_actions[i]) {break}
-			out_actions[i][w] = m
+			out_actions[i][w] = scratch[j]
 			out_probs[i][w]   = uniform
 			w += 1
 		}

@@ -43,15 +43,15 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 | `alpha_go_odin` Python ctypes shim        | 48,019 ± 307    | 5.51×   |
 | `alpha_go_odin` in-process Odin evaluator | **76,159 ± 481**  | **8.74×** |
 
-**Batched evaluator** (`run_simulations_batched`, key cells; full grid in `experiments/2026-05-16_13-30-ydh.3-batched-sweep/`):
+**Batched evaluator** (`run_simulations_batched`, in-process key cells; full grid in `experiments/2026-05-16_13-30-ydh.3-batched-sweep/`):
 
 | latency      | batch=1 | batch=128 | speedup | Python tax |
 |--------------|---------|-----------|---------|------------|
-| 0us          | 23,268  | 32,132    | 1.4×    | 29%        |
-| 100us        | 4,499   | 30,504    | 6.8×    | 28%        |
-| 1ms          | 771     | 24,065    | **31×** | 24%        |
+| 0us          | 62,482  | 87,281    | 1.4×    | 40%        |
+| 100us        | 5,313   | 78,889    | 14.9×   | 37%        |
+| 1ms          | 828     | 47,284    | **57×** | 23%        |
 
-Sequential numbers track the phase-2 progression: pre-foundation 2,859 / pre-vendor 7,927 / pre-FPU 13,613 / post-FPU 25,618 / post-`zkq` 69,234 / post-`373` 74,899 → post-`5km` 76,159 in-process. The ydh.6 perf profile identified three hot-paths in legality; all three fixed: `zkq` (commit `25e0230`) replaced `is_legal_flat`'s clone-and-simulate with in-place probe + restore; `373` (commit `a700960`) replaced the capture-probe's full liberty enumeration with `would_capture_group_at` (bail on first off-candidate liberty); `5km` (commit `pending`) added `fill_legal_moves_flat` for caller-owned-buffer legal enumeration, eliminating per-leaf `[dynamic]int` allocation. The batched table below predates these; expect similar uplift on a re-run.
+Sequential numbers track the phase-2 progression: pre-foundation 2,859 / pre-vendor 7,927 / pre-FPU 13,613 / post-FPU 25,618 / post-`zkq` 69,234 / post-`373` 74,899 → post-`5km` 76,159 in-process. The ydh.6 perf profile identified three hot-paths in legality; all three fixed: `zkq` (commit `25e0230`) replaced `is_legal_flat`'s clone-and-simulate with in-place probe + restore; `373` (commit `a700960`) replaced the capture-probe's full liberty enumeration with `would_capture_group_at` (bail on first off-candidate liberty); `5km` (commit `0c52ea8`) added `fill_legal_moves_flat` for caller-owned-buffer legal enumeration. Batched table re-run post-ydh.6: 1ms × batch=128 went 24,065 → 47,284 sims/sec (+96%); 1ms × batch=1 barely moved (771 → 828, dominated by sleep), so the within-row amortization speedup grew from 31× to 57×. Python tax (in-process vs ctypes) widened at low latency because Python's per-batch callback overhead didn't shrink with the Odin work — see `experiments/2026-05-16_13-30-ydh.3-batched-sweep/results_python.md`.
 
 **Phase 3** — experimentation, training A/Bs, optional GPU runs.
 
