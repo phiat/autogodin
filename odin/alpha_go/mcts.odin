@@ -38,12 +38,12 @@ MCTSNode :: struct {
 	Q:                  f32,
 	first_eval_value:   f32,
 	has_eval:           bool,
-	parent_idx:         int,    // -1 for root
-	player_at_parent:   i8,     // 0=BLACK, 1=WHITE (MCTS convention; differs from board)
+	parent_idx:         int,         // -1 for root
+	player_at_parent:   i8,          // 0=BLACK, 1=WHITE (MCTS convention; differs from board)
 	depth:              int,
-	children:           map[int]int,
-	logP_A:             map[int]f32,
-	state:              GoBoard,
+	move_played:        int,         // -1 for root; PASS_ACTION for pass; else flat board index
+	children:           map[int]int, // action -> child node_idx
+	logP_A:             map[int]f32, // action -> log prior
 }
 
 MCTSTree :: struct {
@@ -51,10 +51,17 @@ MCTSTree :: struct {
 	config:    MCTSConfig,
 	rng_state: rand.Default_Random_State,
 	// Per-tree growing arena. All tree-owned allocations (nodes, per-node
-	// children/logP_A maps, cloned GoBoards) live here; destroy_mcts_tree
-	// frees the whole arena in one shot.
+	// children/logP_A maps, working_board's seen_hashes + board slice, capture
+	// stack) live here; destroy_mcts_tree frees the whole arena in one shot.
 	arena:     virtual.Arena,
 	allocator: runtime.Allocator,
+
+	// Single board mutated during traversal: do_move down, undo_move up. This
+	// replaces the per-node inline GoBoard that piece 3 of autogodin-4rw
+	// removed. INVARIANT: working_board is at the root's state whenever no
+	// traversal is in progress.
+	working_board: GoBoard,
+	capture_stack: [dynamic]CaptureRecord,
 }
 
 // Bind t's RNG state into the current context. Call once at the start of any
@@ -96,12 +103,14 @@ init_mcts_tree :: proc(t: ^MCTSTree, root_state: ^GoBoard, config: MCTSConfig, s
 
 	t.nodes = make([dynamic]MCTSNode, 0, 64, t.allocator)
 	t.rng_state = rand.create(seed if seed != 0 else 0xC0FFEE_DECADE)
+	t.working_board = clone_go_board(root_state, t.allocator)
+	t.capture_stack = make([dynamic]CaptureRecord, 0, 64, t.allocator)
 
 	root := MCTSNode{
 		parent_idx       = -1,
 		player_at_parent = 1 if root_state.to_play == BLACK else 0,
 		depth            = 0,
-		state            = clone_go_board(root_state, t.allocator),
+		move_played      = -1,
 		children         = make(map[int]int, 8, t.allocator),
 		logP_A           = make(map[int]f32, 8, t.allocator),
 	}
@@ -114,14 +123,14 @@ destroy_mcts_tree :: proc(t: ^MCTSTree) {
 	t^ = {}
 }
 
-create_node :: proc(t: ^MCTSTree, state: GoBoard, parent_idx: int, player_at_parent: i8) -> int {
+create_node :: proc(t: ^MCTSTree, move_played: int, parent_idx: int, player_at_parent: i8) -> int {
 	idx := len(t.nodes)
 	depth := t.nodes[parent_idx].depth + 1 if parent_idx >= 0 else 0
 	n := MCTSNode{
 		parent_idx       = parent_idx,
 		player_at_parent = player_at_parent,
 		depth            = depth,
-		state            = state,
+		move_played      = move_played,
 		// Pre-create the per-node maps in the tree arena so any subsequent
 		// insert lands there, not in the caller's context.allocator.
 		children         = make(map[int]int, 8, t.allocator),
@@ -320,14 +329,17 @@ fast_rollout :: proc(
 }
 
 // Single-path simulation. Returns U from node_idx.player_at_parent perspective.
+//
+// INVARIANT: caller must have t.working_board positioned at node_idx's state
+// before entering. On return, working_board is restored to that same state.
 perform_playout :: proc(t: ^MCTSTree, node_idx: int, evaluator: EvaluatorFn, user_data: rawptr) -> f32 {
 	// Don't store references — t.nodes may reallocate. Index-based throughout.
 	player_perspective := t.nodes[node_idx].player_at_parent
 
 	U: f32
 
-	if is_game_over(&t.nodes[node_idx].state) {
-		winner := get_winner(&t.nodes[node_idx].state)
+	if is_game_over(&t.working_board) {
+		winner := get_winner(&t.working_board)
 		if winner == 0 {
 			U = 0.5
 		} else {
@@ -335,13 +347,13 @@ perform_playout :: proc(t: ^MCTSTree, node_idx: int, evaluator: EvaluatorFn, use
 			U = 1.0 if winner == pc else 0.0
 		}
 	} else if t.nodes[node_idx].N == 0 {
-		policy, v_theta := evaluator(&t.nodes[node_idx].state, user_data)
+		policy, v_theta := evaluator(&t.working_board, user_data)
 		for action, prob in policy {
 			t.nodes[node_idx].logP_A[action] = log_safe(prob)
 		}
 		delete(policy)
 
-		current_player := mcts_player(t.nodes[node_idx].state.to_play)
+		current_player := mcts_player(t.working_board.to_play)
 		if current_player != player_perspective {v_theta = 1.0 - v_theta}
 
 		t.nodes[node_idx].first_eval_value = v_theta
@@ -351,7 +363,7 @@ perform_playout :: proc(t: ^MCTSTree, node_idx: int, evaluator: EvaluatorFn, use
 			current_depth := t.nodes[node_idx].depth
 			remaining := t.config.max_depth - current_depth
 			if remaining > 0 {
-				z_L := fast_rollout(t, &t.nodes[node_idx].state, player_perspective, remaining, evaluator, user_data)
+				z_L := fast_rollout(t, &t.working_board, player_perspective, remaining, evaluator, user_data)
 				U = (1.0 - t.config.lambda) * v_theta + t.config.lambda * z_L
 			} else {
 				U = v_theta
@@ -362,24 +374,22 @@ perform_playout :: proc(t: ^MCTSTree, node_idx: int, evaluator: EvaluatorFn, use
 	} else {
 		action := select_action_puct(t, node_idx)
 
+		// cp captures parent's mover BEFORE we mutate working_board.
+		cp := mcts_player(t.working_board.to_play)
+
+		// Descend: mutate working_board, recurse, then undo.
+		delta := do_move(&t.working_board, action, &t.capture_stack)
+
 		if _, ok := t.nodes[node_idx].children[action]; !ok {
-			// Expand child
-			new_state := clone_go_board(&t.nodes[node_idx].state, t.allocator)
-			if action == PASS_ACTION {
-				pass_move(&new_state)
-			} else {
-				row, col := row_col(&new_state, action)
-				play(&new_state, row, col)
-			}
-			cp := mcts_player(t.nodes[node_idx].state.to_play)
-			child_idx := create_node(t, new_state, node_idx, cp)
+			child_idx := create_node(t, action, node_idx, cp)
 			// After create_node, t.nodes may have reallocated. Re-fetch.
 			t.nodes[node_idx].children[action] = child_idx
 		}
-
 		child_idx := t.nodes[node_idx].children[action]
 		child_value := perform_playout(t, child_idx, evaluator, user_data)
 		U = 1.0 - child_value
+
+		undo_move(&t.working_board, delta, &t.capture_stack)
 	}
 
 	t.nodes[node_idx].N += 1
@@ -389,6 +399,13 @@ perform_playout :: proc(t: ^MCTSTree, node_idx: int, evaluator: EvaluatorFn, use
 
 run_simulations :: proc(t: ^MCTSTree, num_simulations: int, evaluator: EvaluatorFn, user_data: rawptr = nil) {
 	use_tree_rng(t)
+	// Reset thread-local temp_allocator on entry and exit. Many helpers (do_move's
+	// get_group_and_liberties, is_legal_flat's clone_for_sim, etc.) allocate to
+	// temp_allocator and rely on someone above to wipe it. The default
+	// runtime.default_temp_allocator is a growing arena — it never auto-resets,
+	// so without this every batch of sims leaks ~30 MB.
+	free_all(context.temp_allocator)
+	defer free_all(context.temp_allocator)
 	n_sims := num_simulations
 	if len(t.config.pcr_sims) > 0 {
 		// Categorical sample from pcr_probs
@@ -402,7 +419,8 @@ run_simulations :: proc(t: ^MCTSTree, num_simulations: int, evaluator: Evaluator
 		n_sims = t.config.pcr_sims[pick]
 	}
 
-	policy, _ := evaluator(&t.nodes[0].state, user_data)
+	// working_board is at root (init_mcts_tree's invariant). Eval the root.
+	policy, _ := evaluator(&t.working_board, user_data)
 	for action, prob in policy {
 		t.nodes[0].logP_A[action] = log_safe(prob)
 	}
@@ -414,18 +432,26 @@ run_simulations :: proc(t: ^MCTSTree, num_simulations: int, evaluator: Evaluator
 
 	for _ in 0 ..< n_sims {
 		perform_playout(t, 0, evaluator, user_data)
+		// perform_playout preserves working_board, so we stay at root here.
 	}
 }
 
 // -------- Leaf-parallel MCTS with virtual loss --------
+//
+// Post foundation-piece-3, MCTSNode no longer stores per-node GoBoard, so the
+// batched gather walks t.working_board with do_move/undo. Each evaluated leaf
+// requires a state snapshot (the batch needs all states simultaneously); we
+// keep those in a pre-reserved [dynamic]GoBoard sized to leaf_batch_size so
+// pointers into it stay stable for the eval call.
 
 @(private = "file")
 PendingLeaf :: struct {
-	path:        [dynamic]int,
-	leaf_idx:    int,
-	is_terminal: bool,
-	terminal_U:  f32,
-	eval_slot:   int, // -1 if terminal
+	path:           [dynamic]int,
+	leaf_idx:       int,
+	leaf_to_play:   i8,   // working_board.to_play at the leaf, captured at gather time
+	is_terminal:    bool,
+	terminal_U:     f32,
+	eval_slot:      int,  // -1 if terminal
 }
 
 run_simulations_batched :: proc(
@@ -436,6 +462,10 @@ run_simulations_batched :: proc(
 	user_data: rawptr = nil,
 ) {
 	use_tree_rng(t)
+	// See run_simulations for rationale. Per-batch temp_allocator pressure here
+	// is even larger (eval state snapshots), so we wipe between batches too.
+	free_all(context.temp_allocator)
+	defer free_all(context.temp_allocator)
 	n_sims := num_simulations
 	if len(t.config.pcr_sims) > 0 {
 		r := rand.float32()
@@ -448,10 +478,9 @@ run_simulations_batched :: proc(
 		n_sims = t.config.pcr_sims[pick]
 	}
 
-	// Evaluate root if not yet populated
+	// Evaluate root if not yet populated. working_board is at root.
 	if len(t.nodes[0].logP_A) == 0 {
-		root_ptr := &t.nodes[0].state
-		states := []^GoBoard{root_ptr}
+		states := []^GoBoard{&t.working_board}
 		policies := make([]map[int]f32, 1, context.temp_allocator)
 		defer delete(policies, context.temp_allocator)
 		values := make([]f32, 1, context.temp_allocator)
@@ -468,24 +497,42 @@ run_simulations_batched :: proc(
 
 	completed := 0
 	for completed < n_sims {
+		// Per-batch wipe of temp_allocator so peak stays bounded by one batch's
+		// worth of temp churn rather than the whole run. Declared FIRST so it
+		// fires LAST (LIFO), after the other in-scope cleanup defers below have
+		// run on data that lives in temp.
+		defer free_all(context.temp_allocator)
+
 		target := min(leaf_batch_size, n_sims - completed)
 		pending := make([dynamic]PendingLeaf, 0, target, context.temp_allocator)
+		// Pre-reserve eval_state_storage so pointers into it stay stable across
+		// appends within this batch.
+		eval_state_storage := make([dynamic]GoBoard, 0, target, context.temp_allocator)
+		eval_states := make([dynamic]^GoBoard, 0, target, context.temp_allocator)
 		defer {
 			for &p in pending {delete(p.path)}
 			delete(pending)
+			for i in 0 ..< len(eval_state_storage) {
+				destroy_go_board(&eval_state_storage[i])
+			}
+			delete(eval_state_storage)
+			delete(eval_states)
 		}
-		eval_states := make([dynamic]^GoBoard, 0, target, context.temp_allocator)
-		defer delete(eval_states)
 
 		for _ in 0 ..< target {
 			path := make([dynamic]int, 0, 8)
+			deltas := make([dynamic]MoveDelta, 0, 8, context.temp_allocator)
+			defer delete(deltas)
+
 			node_idx := 0
 			append(&path, node_idx)
 
+			pl: PendingLeaf
+			pl.eval_slot = -1
+
 			for {
-				// Terminal leaf
-				if is_game_over(&t.nodes[node_idx].state) {
-					winner := get_winner(&t.nodes[node_idx].state)
+				if is_game_over(&t.working_board) {
+					winner := get_winner(&t.working_board)
 					persp := t.nodes[node_idx].player_at_parent
 					U: f32
 					if winner == 0 {
@@ -494,17 +541,18 @@ run_simulations_batched :: proc(
 						pc := mcts_color(persp)
 						U = 1.0 if winner == pc else 0.0
 					}
-					pl := PendingLeaf{path = path, leaf_idx = node_idx, is_terminal = true, terminal_U = U, eval_slot = -1}
-					append(&pending, pl)
-					for idx in path {t.nodes[idx].N_virt += 1}
+					pl.is_terminal = true
+					pl.terminal_U = U
+					pl.leaf_idx = node_idx
+					pl.leaf_to_play = t.working_board.to_play
 					break
 				}
-				// Unevaluated leaf
 				if len(t.nodes[node_idx].logP_A) == 0 {
-					pl := PendingLeaf{path = path, leaf_idx = node_idx, is_terminal = false, eval_slot = len(eval_states)}
-					append(&eval_states, &t.nodes[node_idx].state)
-					append(&pending, pl)
-					for idx in path {t.nodes[idx].N_virt += 1}
+					pl.leaf_idx = node_idx
+					pl.leaf_to_play = t.working_board.to_play
+					pl.eval_slot = len(eval_states)
+					append(&eval_state_storage, clone_go_board(&t.working_board, context.temp_allocator))
+					append(&eval_states, &eval_state_storage[len(eval_state_storage)-1])
 					break
 				}
 
@@ -535,48 +583,27 @@ run_simulations_batched :: proc(
 				}
 
 				action := best_action
-				if _, ok := t.nodes[node_idx].children[action]; !ok {
-					// Create child
-					new_state := clone_go_board(&t.nodes[node_idx].state, t.allocator)
-					if action == PASS_ACTION {
-						pass_move(&new_state)
-					} else {
-						row, col := row_col(&new_state, action)
-						play(&new_state, row, col)
-					}
-					cp := mcts_player(t.nodes[node_idx].state.to_play)
-					child_idx := create_node(t, new_state, node_idx, cp)
-					t.nodes[node_idx].children[action] = child_idx
-					append(&path, child_idx)
+				cp := mcts_player(t.working_board.to_play)
+				delta := do_move(&t.working_board, action, &t.capture_stack)
+				append(&deltas, delta)
 
-					pl: PendingLeaf
-					pl.path = path
-					pl.leaf_idx = child_idx
-					pl.is_terminal = false
-					pl.eval_slot = len(eval_states)
-					if is_game_over(&t.nodes[child_idx].state) {
-						winner := get_winner(&t.nodes[child_idx].state)
-						persp := t.nodes[child_idx].player_at_parent
-						U: f32
-						if winner == 0 {
-							U = 0.5
-						} else {
-							pc := mcts_color(persp)
-							U = 1.0 if winner == pc else 0.0
-						}
-						pl.is_terminal = true
-						pl.terminal_U = U
-						pl.eval_slot = -1
-					} else {
-						append(&eval_states, &t.nodes[child_idx].state)
-					}
-					append(&pending, pl)
-					for idx in path {t.nodes[idx].N_virt += 1}
-					break
+				if _, ok := t.nodes[node_idx].children[action]; !ok {
+					child_idx := create_node(t, action, node_idx, cp)
+					t.nodes[node_idx].children[action] = child_idx
 				}
 				child_idx := t.nodes[node_idx].children[action]
 				append(&path, child_idx)
 				node_idx = child_idx
+			}
+
+			pl.path = path
+			append(&pending, pl)
+			for idx in pl.path {t.nodes[idx].N_virt += 1}
+
+			// Undo all moves to return working_board to the root state for the
+			// next gather iteration (and for the post-batch invariant).
+			#reverse for d in deltas {
+				undo_move(&t.working_board, d, &t.capture_stack)
 			}
 		}
 
@@ -606,7 +633,7 @@ run_simulations_batched :: proc(
 					}
 				}
 				persp := t.nodes[pl.leaf_idx].player_at_parent
-				curp := mcts_player(t.nodes[pl.leaf_idx].state.to_play)
+				curp := mcts_player(pl.leaf_to_play)
 				U = (1.0 - v_theta) if curp != persp else v_theta
 				if !t.nodes[pl.leaf_idx].has_eval {
 					t.nodes[pl.leaf_idx].first_eval_value = U
