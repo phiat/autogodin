@@ -1,13 +1,14 @@
 # autogodin
 
-> An Odin port of the C++ MCTS + Go-board hot path from
-> [ericjang/autogo](https://github.com/ericjang/autogo), exposed to Python
-> via ctypes. **8.7× the upstream C++ in-process, 6.3× through the Python
-> shim**, byte-identical board behaviour, parity-complete under a real NN
-> evaluator (Wilson 95% CI brackets 0.5 over 100 MCTS games vs C++).
+An Odin port of the C++ MCTS + Go-board hot path from
+[ericjang/autogo](https://github.com/ericjang/autogo), exposed to Python
+via ctypes as a drop-in replacement for upstream `alpha_go_cpp`.
 
-For anyone who wants to run AlphaZero-style Go MCTS faster than the C++
-reference, in Python.
+What we've measured:
+
+- **Byte-identical** board behaviour vs the C++ reference (SHA-256 Zobrist fingerprint over 10 seeded games × ~200 moves).
+- **Equal strength** under a random-init `SizeInvariantGoResNet(32ch × 4b)` evaluator over 100 MCTS games at 200 sims/move (Odin 53 / C++ 47; Wilson 95% CI [0.433, 0.625] brackets 0.5).
+- **Higher throughput on the same Python-callback workload**: 6.3× the upstream C++ on a 9×9 single-thread micro-bench with a Python uniform-policy evaluator. The lift depends on the evaluator: with a real NN forward dominating per-leaf cost it shrinks; we haven't run a head-to-head C++ comparison on the NN workload (see [Throughput](#throughput)).
 
 ## Quick example
 
@@ -65,14 +66,21 @@ Phase 3 (training A/Bs, optional GPU runs) is open.
 
 ### Throughput
 
-9×9 micro-bench (1600 sims/move × 32 moves, single-thread, miniwini host, vendor v0.4.0).
+9×9 micro-bench (1600 sims/move × 32 moves, single-thread, miniwini host, vendor v0.4.0). Evaluator: uniform-policy + value 0. This is a *worst case* for the lift: the evaluator is so cheap that MCTS-internal work dominates per-sim cost. With a real NN evaluator the lift shrinks (NN forward becomes the dominant cost) — see the 441 grid below.
+
+**Same workload, both backends** (Python evaluator callback per leaf — the only thing upstream `alpha_go_cpp` exposes):
 
 | Backend                                                      | sims/sec        | vs C++  |
 |--------------------------------------------------------------|-----------------|---------|
 | `alpha_go_cpp` (upstream)                                    | 8,713 ± 66      | 1.00×   |
 | `alpha_go_odin` Python ctypes shim, legacy dict evaluator    | 48,019 ± 307    | 5.51×   |
-| `alpha_go_odin` Python ctypes shim, flat evaluator (`cz9`)   | 54,541 ± 616    | 6.26×   |
-| `alpha_go_odin` in-process Odin evaluator                    | **76,159 ± 481**  | **8.74×** |
+| `alpha_go_odin` Python ctypes shim, flat evaluator (`cz9`)   | **54,541 ± 616**    | **6.26×** |
+
+**Different workload — Odin-only path** (no Python in the leaf):
+
+| Backend                                                      | sims/sec        | note     |
+|--------------------------------------------------------------|-----------------|----------|
+| `alpha_go_odin` in-process Odin evaluator                    | 76,159 ± 481    | available only if your evaluator is also Odin-side; upstream's pybind11 surface has no equivalent |
 
 <details>
 <summary><b>Batched / threaded / NN-eval grids</b></summary>
