@@ -1,7 +1,0 @@
-{
-  "database": "dolt",
-  "backend": "dolt",
-  "dolt_mode": "embedded",
-  "dolt_database": "autogodin",
-  "project_id": "93f17ac3-49e6-4d76-985e-1e549a8b6b77"
-}

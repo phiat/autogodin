@@ -1,5 +1,22 @@
+# Local-only collaboration / tooling
+AGENTS.md
+CLAUDE.md
+.claude/
+.beads/
 
 # Beads / Dolt files (added by bd init)
 .dolt/
 *.db
 .beads-credential-key
+
+# Odin build artifacts
+build/
+*.so
+*.dll
+*.dylib
+*.o
+*.a
+
+# Editor / OS
+.DS_Store
+*.swp
