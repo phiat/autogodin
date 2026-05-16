@@ -1,5 +1,5 @@
 repo:    https://github.com/phiat/mcts-odin
-commit:  9d35153  # v0.2.1 — bench fix (mcts-odin-brj); mcts/ core unchanged vs 0.2.0
+commit:  7002aad  # v0.3.0 — OS-thread parallel MCTS (threaded.odin); create_node sig adds state arg
 synced:  2026-05-16
 
 Files copied from mcts-odin/mcts/. Pure Odin, no submodule. To refresh:
