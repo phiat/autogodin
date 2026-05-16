@@ -618,6 +618,78 @@ ffi_tree_child_q_values :: proc "c" (
 	return c.int(len(cq))
 }
 
+@(export, link_name = "alphago_mcts_tree_child_first_eval_values")
+ffi_tree_child_first_eval_values :: proc "c" (
+	h: rawptr,
+	out_actions: ^c.int,
+	out_values: ^c.float,
+	max_n: c.int,
+) -> c.int {
+	context = runtime.default_context()
+	t := cast(^TreeHandle)h
+	cv := mcts.get_child_first_eval_values(&t.tree)
+	defer delete(cv)
+	n := min(int(max_n), len(cv))
+	if out_actions == nil || out_values == nil {return c.int(len(cv))}
+	a := mem.slice_ptr(out_actions, n)
+	v := mem.slice_ptr(out_values, n)
+	i := 0
+	for action, val in cv {
+		if i >= n {break}
+		a[i] = c.int(to_python_action(action, t.board_size))
+		v[i] = c.float(val); i += 1
+	}
+	return c.int(len(cv))
+}
+
+@(export, link_name = "alphago_mcts_tree_child_max_subtree_depths")
+ffi_tree_child_max_subtree_depths :: proc "c" (
+	h: rawptr,
+	out_actions: ^c.int,
+	out_depths: ^c.int,
+	max_n: c.int,
+) -> c.int {
+	context = runtime.default_context()
+	t := cast(^TreeHandle)h
+	cd := mcts.get_child_max_subtree_depths(&t.tree)
+	defer delete(cd)
+	n := min(int(max_n), len(cd))
+	if out_actions == nil || out_depths == nil {return c.int(len(cd))}
+	a := mem.slice_ptr(out_actions, n)
+	d := mem.slice_ptr(out_depths, n)
+	i := 0
+	for action, depth in cd {
+		if i >= n {break}
+		a[i] = c.int(to_python_action(action, t.board_size))
+		d[i] = c.int(depth); i += 1
+	}
+	return c.int(len(cd))
+}
+
+@(export, link_name = "alphago_mcts_tree_root_policy_priors")
+ffi_tree_root_policy_priors :: proc "c" (
+	h: rawptr,
+	out_actions: ^c.int,
+	out_priors: ^c.float,
+	max_n: c.int,
+) -> c.int {
+	context = runtime.default_context()
+	t := cast(^TreeHandle)h
+	pp := mcts.get_root_policy_priors(&t.tree)
+	defer delete(pp)
+	n := min(int(max_n), len(pp))
+	if out_actions == nil || out_priors == nil {return c.int(len(pp))}
+	a := mem.slice_ptr(out_actions, n)
+	p := mem.slice_ptr(out_priors, n)
+	i := 0
+	for action, prior in pp {
+		if i >= n {break}
+		a[i] = c.int(to_python_action(action, t.board_size))
+		p[i] = c.float(prior); i += 1
+	}
+	return c.int(len(pp))
+}
+
 @(export, link_name = "alphago_mcts_tree_action_probabilities")
 ffi_tree_action_probabilities :: proc "c" (
 	h: rawptr,

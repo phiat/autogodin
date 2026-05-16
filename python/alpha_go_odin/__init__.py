@@ -236,6 +236,21 @@ _t_action_probs = _bind(
     ct.c_int,
     [_Handle, ct.c_float, _PInt, _PFloat, ct.c_int],
 )
+_t_child_first_eval = _bind(
+    "alphago_mcts_tree_child_first_eval_values",
+    ct.c_int,
+    [_Handle, _PInt, _PFloat, ct.c_int],
+)
+_t_child_max_depth = _bind(
+    "alphago_mcts_tree_child_max_subtree_depths",
+    ct.c_int,
+    [_Handle, _PInt, _PInt, ct.c_int],
+)
+_t_root_policy_priors = _bind(
+    "alphago_mcts_tree_root_policy_priors",
+    ct.c_int,
+    [_Handle, _PInt, _PFloat, ct.c_int],
+)
 
 _CEvaluator = ct.CFUNCTYPE(
     ct.c_int,         # n actions written
@@ -585,6 +600,30 @@ class MCTSTree:
         q = (ct.c_float * cap)()
         n = _t_child_q(self._h, a, q, cap)
         return {a[i]: q[i] for i in range(min(n, cap))}
+
+    def get_child_first_eval_values(self) -> dict[int, float]:
+        """First eval value seen for each expanded child action."""
+        cap = self._board_size * self._board_size + 1
+        a = (ct.c_int * cap)()
+        v = (ct.c_float * cap)()
+        n = _t_child_first_eval(self._h, a, v, cap)
+        return {a[i]: v[i] for i in range(min(n, cap))}
+
+    def get_child_max_subtree_depths(self) -> dict[int, int]:
+        """Max subtree depth observed below each expanded child action."""
+        cap = self._board_size * self._board_size + 1
+        a = (ct.c_int * cap)()
+        d = (ct.c_int * cap)()
+        n = _t_child_max_depth(self._h, a, d, cap)
+        return {a[i]: d[i] for i in range(min(n, cap))}
+
+    def get_root_policy_priors(self) -> dict[int, float]:
+        """Root policy priors as returned by the evaluator, indexed by action."""
+        cap = self._board_size * self._board_size + 1
+        a = (ct.c_int * cap)()
+        p = (ct.c_float * cap)()
+        n = _t_root_policy_priors(self._h, a, p, cap)
+        return {a[i]: p[i] for i in range(min(n, cap))}
 
     def get_action_probabilities(self, temperature: float = 1.0) -> dict[int, float]:
         cap = self._board_size * self._board_size + 1
