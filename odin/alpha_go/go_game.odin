@@ -2,6 +2,7 @@ package alpha_go
 
 import "base:runtime"
 import "core:slice"
+import "core:sync"
 
 EMPTY :: i8(0)
 BLACK :: i8(1)
@@ -15,6 +16,56 @@ Neighbors4 :: struct {
 	count:   int,
 }
 
+// Per-size shared tables. neighbors + zobrist are a pure function of board size
+// and never mutate, so every GoBoard of the same size points at the same instance.
+// Built lazily on first request via get_board_tables(size); never freed during
+// the process lifetime (singleton).
+BoardTables :: struct {
+	size:      int,
+	neighbors: []Neighbors4,
+	zobrist:   [][3]u64,
+}
+
+@(private)
+_board_tables_cache: map[int]^BoardTables
+@(private)
+_board_tables_mu: sync.Mutex
+
+get_board_tables :: proc(size: int) -> ^BoardTables {
+	sync.mutex_lock(&_board_tables_mu)
+	defer sync.mutex_unlock(&_board_tables_mu)
+	if t, ok := _board_tables_cache[size]; ok {
+		return t
+	}
+	// Singletons must outlive any per-test/per-tree allocator, so pin them to the
+	// default heap regardless of what `context.allocator` is set to by the caller.
+	context.allocator = runtime.default_allocator()
+	if _board_tables_cache == nil {
+		_board_tables_cache = make(map[int]^BoardTables)
+	}
+	t := new(BoardTables)
+	t.size = size
+	n := size * size
+	t.neighbors = make([]Neighbors4, n)
+	t.zobrist = make([][3]u64, n)
+	init_neighbors_table(t)
+	init_zobrist_table(t)
+	_board_tables_cache[size] = t
+	return t
+}
+
+// Singleton teardown — call from test runners or process shutdown if you want the
+// memory tracker to report 0 live allocations. Idempotent.
+release_board_tables_cache :: proc() {
+	for _, t in _board_tables_cache {
+		delete(t.neighbors)
+		delete(t.zobrist)
+		free(t)
+	}
+	delete(_board_tables_cache)
+	_board_tables_cache = nil
+}
+
 GoBoard :: struct {
 	size:               int,
 	komi:               f32,
@@ -24,8 +75,7 @@ GoBoard :: struct {
 	consecutive_passes: int,
 	move_count:         int,
 
-	neighbors:    []Neighbors4,
-	zobrist:      [][3]u64,
+	tables:       ^BoardTables, // shared per-size; not owned.
 	current_hash: u64,
 	seen_hashes:  map[u64]struct{},
 
@@ -41,19 +91,14 @@ make_go_board :: proc(size: int = 9, komi: f32 = KOMI_DEFAULT, allocator := cont
 		board     = make([]i8, n),
 		to_play   = BLACK,
 		ko_point  = NO_KO,
-		neighbors = make([]Neighbors4, n),
-		zobrist   = make([][3]u64, n),
+		tables    = get_board_tables(size),
 		allocator = allocator,
 	}
-	init_neighbors(&b)
-	init_zobrist(&b)
 	return b
 }
 
 destroy_go_board :: proc(b: ^GoBoard) {
 	delete(b.board, b.allocator)
-	delete(b.neighbors, b.allocator)
-	delete(b.zobrist, b.allocator)
 	delete(b.seen_hashes)
 	b^ = {}
 }
@@ -69,8 +114,7 @@ clone_go_board :: proc(src: ^GoBoard, allocator := context.allocator) -> GoBoard
 		ko_point           = src.ko_point,
 		consecutive_passes = src.consecutive_passes,
 		move_count         = src.move_count,
-		neighbors          = slice.clone(src.neighbors),
-		zobrist            = slice.clone(src.zobrist),
+		tables             = src.tables, // shared pointer; no clone needed
 		current_hash       = src.current_hash,
 		allocator          = allocator,
 	}
@@ -93,8 +137,7 @@ clone_for_sim :: proc(src: ^GoBoard, allocator := context.allocator) -> GoBoard 
 		ko_point           = src.ko_point,
 		consecutive_passes = src.consecutive_passes,
 		move_count         = src.move_count,
-		neighbors          = slice.clone(src.neighbors),
-		zobrist            = slice.clone(src.zobrist),
+		tables             = src.tables,
 		current_hash       = src.current_hash,
 		allocator          = allocator,
 	}
@@ -102,12 +145,13 @@ clone_for_sim :: proc(src: ^GoBoard, allocator := context.allocator) -> GoBoard 
 	return dst
 }
 
-init_neighbors :: proc(b: ^GoBoard) {
-	size := b.size
+@(private = "file")
+init_neighbors_table :: proc(t: ^BoardTables) {
+	size := t.size
 	for row in 0 ..< size {
 		for col in 0 ..< size {
 			idx := row * size + col
-			n := &b.neighbors[idx]
+			n := &t.neighbors[idx]
 			n.count = 0
 			if row > 0 {n.indices[n.count] = (row - 1) * size + col; n.count += 1}
 			if row < size - 1 {n.indices[n.count] = (row + 1) * size + col; n.count += 1}
@@ -126,13 +170,14 @@ splitmix64 :: proc(seed: ^u64) -> u64 {
 	return z ~ (z >> 31)
 }
 
-init_zobrist :: proc(b: ^GoBoard) {
-	seed := u64(0x9E3779B97F4A7C15) ~ u64(b.size)
-	n := b.size * b.size
+@(private = "file")
+init_zobrist_table :: proc(t: ^BoardTables) {
+	seed := u64(0x9E3779B97F4A7C15) ~ u64(t.size)
+	n := t.size * t.size
 	for i in 0 ..< n {
-		b.zobrist[i][EMPTY] = 0
-		b.zobrist[i][BLACK] = splitmix64(&seed)
-		b.zobrist[i][WHITE] = splitmix64(&seed)
+		t.zobrist[i][EMPTY] = 0
+		t.zobrist[i][BLACK] = splitmix64(&seed)
+		t.zobrist[i][WHITE] = splitmix64(&seed)
 	}
 }
 
@@ -191,7 +236,7 @@ get_group_and_liberties :: proc(
 	for len(stack) > 0 {
 		current := pop(&stack)
 		append(&group, current)
-		nb := b.neighbors[current]
+		nb := b.tables.neighbors[current]
 		for k in 0 ..< nb.count {
 			ni := nb.indices[k]
 			v := b.board[ni]
@@ -211,7 +256,7 @@ get_group_and_liberties :: proc(
 
 remove_group :: proc(b: ^GoBoard, group: []int) -> int {
 	for idx in group {
-		b.current_hash ~= b.zobrist[idx][int(b.board[idx])]
+		b.current_hash ~= b.tables.zobrist[idx][int(b.board[idx])]
 		b.board[idx] = EMPTY
 	}
 	return len(group)
@@ -233,7 +278,7 @@ is_legal_flat :: proc(b: ^GoBoard, index: int) -> bool {
 	has_empty := false
 	captures := false
 
-	nb := b.neighbors[index]
+	nb := b.tables.neighbors[index]
 	loop: for k in 0 ..< nb.count {
 		ni := nb.indices[k]
 		v := b.board[ni]
@@ -303,14 +348,14 @@ play_flat_unchecked :: proc(b: ^GoBoard, index: int) {
 	b.seen_hashes[b.current_hash] = {}
 
 	b.board[index] = b.to_play
-	b.current_hash ~= b.zobrist[index][int(b.to_play)]
+	b.current_hash ~= b.tables.zobrist[index][int(b.to_play)]
 	opp := opponent_of(b.to_play)
 	b.ko_point = NO_KO
 
 	total_captured := 0
 	last_captured := -1
 
-	nb := b.neighbors[index]
+	nb := b.tables.neighbors[index]
 	for k in 0 ..< nb.count {
 		ni := nb.indices[k]
 		if b.board[ni] == opp {
@@ -380,7 +425,7 @@ score :: proc(b: ^GoBoard) -> f32 {
 		for len(stack) > 0 {
 			current := pop(&stack)
 			append(&territory, current)
-			nbrs := b.neighbors[current]
+			nbrs := b.tables.neighbors[current]
 			for k in 0 ..< nbrs.count {
 				ni := nbrs.indices[k]
 				v := b.board[ni]
@@ -420,7 +465,7 @@ set_from_array :: proc(b: ^GoBoard, data: []i8, to_play: i8) {
 	for i in 0 ..< n {
 		b.board[i] = data[i]
 		if b.board[i] != EMPTY {
-			b.current_hash ~= b.zobrist[i][int(b.board[i])]
+			b.current_hash ~= b.tables.zobrist[i][int(b.board[i])]
 		}
 	}
 	clear(&b.seen_hashes)
