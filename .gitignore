@@ -12,6 +12,10 @@ CLAUDE.md
 # Local env (per-machine paths, secrets); .env.example is committed
 .env
 
+# Upstream autogo sibling clone (kept external; pinned via autogo.pin,
+# fetched via scripts/setup_autogo.sh — see 3xv.13).
+autogo/
+
 # Odin build artifacts
 build/
 *.so

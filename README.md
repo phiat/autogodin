@@ -64,7 +64,8 @@ git clone https://github.com/phiat/autogodin.git
 cd autogodin
 
 # Optional: sibling clone of the upstream autogo for parity / Python tests.
-git clone https://github.com/ericjang/autogo.git autogo
+# Pins the upstream SHA from autogo.pin and applies our build_cpp patch.
+./scripts/setup_autogo.sh
 
 # Per-machine env overrides (gitignored). Defaults work out of the box.
 cp .env.example .env
@@ -97,11 +98,11 @@ PYTHONPATH=python autogo/.venv-cpponly/bin/python \
 For cross-language tests / strength A/Bs, build upstream `alpha_go_cpp` against a minimal Python venv (no torch needed for the .so itself):
 
 ```bash
+# scripts/setup_autogo.sh (above) clones the pinned SHA and applies our
+# build_cpp.sh libpython-hardcode patch — start from here:
 cd autogo
 uv venv -p 3.12 .venv-cpponly
 uv pip install --python .venv-cpponly/bin/python numpy
-# Patch hardcoded libpython3.10.so out of build_cpp.sh:
-python3 ../tools/patches/upstream_build_cpp_fix.py
 UV_PROJECT_ENVIRONMENT="$(pwd)/.venv-cpponly" bash scripts/build_cpp.sh
 ```
 

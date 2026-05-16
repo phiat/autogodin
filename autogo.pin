@@ -1,0 +1,7 @@
+upstream: https://github.com/ericjang/autogo.git
+commit:   54ac8d4191b006cec627d6c6b5db7ac07826ffdd
+pinned:   2026-05-16
+
+scripts/setup_autogo.sh reads this file. The commit SHA pins exactly which
+upstream snapshot our parity tests + cross-language benches are valid
+against. Bump it deliberately when re-syncing.
