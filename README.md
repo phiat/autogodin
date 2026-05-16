@@ -25,7 +25,7 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 - GoBoard: Zobrist-incremental positional superko, KataGo-aligned no-suicide rule, Tromp-Taylor area scoring.
 - MCTS: vendored from [mcts-odin](https://github.com/phiat/mcts-odin) (`odin/vendor/mcts-odin/`, pinned commit; see `VERSION`). Packed-slot nodes, branchless PUCT, linear-space priors, FPU (parent-Q with reduction), per-tree scratch arena, leaf-parallel batched with virtual loss, Dirichlet noise, PCR, subtree reuse, root-parallel threading. The local `go_adapter.odin` is a ~140-LOC Game vtable bridging GoBoard.
 - 37/37 Odin `@(test)` cases pass clean under the memory tracker.
-- 43 `alphago_*` C-ABI symbols in `libalpha_go_odin.so`; Python ctypes shim mirrors upstream `alpha_go_cpp`'s OO API plus `MCTSTree.run_simulations_batched` (leaf-parallel + virtual loss), `run_simulations_threaded` (root-parallel worker pool), and `run_simulations_flat` (no-dict scratch-ndarray evaluator).
+- 43 `alphago_*` C-ABI symbols in `libalpha_go_odin.so`; Python ctypes shim mirrors upstream `alpha_go_cpp`'s OO API plus `MCTSTree.run_simulations_batched` (leaf-parallel + virtual loss), `run_simulations_batched_flat` (no-dict scratch-ndarray evaluator for the batched path; `cg0`), `run_simulations_threaded` (root-parallel worker pool), and `run_simulations_flat` (no-dict scratch-ndarray for the sequential path; `cz9`).
 
 ### Correctness
 

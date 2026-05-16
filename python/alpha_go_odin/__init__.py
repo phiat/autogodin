@@ -339,6 +339,28 @@ BatchedEvaluatorFn = Callable[[list[GoBoard]], tuple[list[dict[int, float]], lis
 # pays. See autogodin-cz9.
 FlatEvaluatorFn = Callable[[GoBoard, np.ndarray, np.ndarray], tuple[int, float]]
 
+# Batched flat evaluator: same scratch-buffer idea as FlatEvaluatorFn but
+# for the leaf-parallel batched path. Trampoline owns a (batch_size, n_actions)
+# pair of scratch ndarrays plus (batch_size,) count/value buffers, all
+# allocated once and addressed by pre-resolved ctypes data pointers.
+#
+# Signature: evaluator(views, out_actions, out_probs, out_counts, out_values)
+#   - views:        list[GoBoard] of len batch_size; non-owning views
+#   - out_actions:  np.ndarray[int32] shape (batch_size, n_actions)
+#   - out_probs:    np.ndarray[float32] shape (batch_size, n_actions)
+#   - out_counts:   np.ndarray[int32] shape (batch_size,)
+#   - out_values:   np.ndarray[float32] shape (batch_size,)
+#   Evaluator writes into the rows in place, sets counts[i] to the number of
+#   (action, prob) pairs written for row i, and writes the per-state value.
+#   Returns None.
+#
+# Trampoline issues 4 whole-buffer memmoves into the MCTS ctypes out
+# buffers — no per-leaf dict iteration or per-cell __setitem__. See
+# autogodin-cg0.
+FlatBatchedEvaluatorFn = Callable[
+    [list["GoBoard"], np.ndarray, np.ndarray, np.ndarray, np.ndarray], None
+]
+
 
 class MCTSTree:
     def __init__(self, root_state: GoBoard, config: MCTSConfig, seed: int = 0):
@@ -493,6 +515,59 @@ class MCTSTree:
     ) -> None:
         cb = self._make_batched_trampoline(evaluator)
         # Keep cb alive (same pattern as run_simulations).
+        self._cb_keepalive = cb
+        _t_run_sims_batched(self._h, num_simulations, batch_size, cb, None)
+        self._cb_keepalive = None
+
+    def _make_batched_flat_trampoline(self, evaluator: FlatBatchedEvaluatorFn, batch_size: int):
+        """Per-batch trampoline for the flat batched evaluator path. Holds
+        (batch_size, n_actions) scratch ndarrays for actions and probs plus
+        (batch_size,) counts/values; pre-resolves their ctypes data pointers
+        once. Per call: hand the scratch to the evaluator, then memmove the
+        whole row-major scratch into MCTS's out buffers. No per-state dict
+        iteration. See autogodin-cg0."""
+        board_size = self._board_size
+        n_actions = board_size * board_size + 1
+        scratch_a = np.empty((batch_size, n_actions), dtype=np.int32)
+        scratch_p = np.empty((batch_size, n_actions), dtype=np.float32)
+        scratch_c = np.empty(batch_size, dtype=np.int32)
+        scratch_v = np.empty(batch_size, dtype=np.float32)
+        scratch_a_ptr = scratch_a.ctypes.data
+        scratch_p_ptr = scratch_p.ctypes.data
+        scratch_c_ptr = scratch_c.ctypes.data
+        scratch_v_ptr = scratch_v.ctypes.data
+
+        def trampoline(bs, states_ptr, out_actions, out_probs, out_counts,
+                       out_values, max_n, _user):
+            views: list[GoBoard] = []
+            for i in range(bs):
+                view = GoBoard.__new__(GoBoard)
+                view._h = states_ptr[i]
+                view._owned = False
+                view._size = board_size
+                views.append(view)
+            # Evaluator slice-assigns into scratch rows (and counts/values).
+            # max_n from the FFI matches n_actions for this board size, so
+            # the scratch row layout is exactly what MCTS expects.
+            evaluator(views, scratch_a, scratch_p, scratch_c, scratch_v)
+            ct.memmove(out_actions, scratch_a_ptr, bs * max_n * 4)
+            ct.memmove(out_probs,   scratch_p_ptr, bs * max_n * 4)
+            ct.memmove(out_counts,  scratch_c_ptr, bs * 4)
+            ct.memmove(out_values,  scratch_v_ptr, bs * 4)
+
+        return _CEvaluatorBatched(trampoline)
+
+    def run_simulations_batched_flat(
+        self,
+        num_simulations: int,
+        batch_size: int,
+        evaluator: FlatBatchedEvaluatorFn,
+    ) -> None:
+        """Same as run_simulations_batched but with the flat (in-place
+        numpy) evaluator signature; see FlatBatchedEvaluatorFn. Drops the
+        per-leaf dict iteration that dominated the batched Python tax at
+        low latencies. See autogodin-cg0."""
+        cb = self._make_batched_flat_trampoline(evaluator, batch_size)
         self._cb_keepalive = cb
         _t_run_sims_batched(self._h, num_simulations, batch_size, cb, None)
         self._cb_keepalive = None
