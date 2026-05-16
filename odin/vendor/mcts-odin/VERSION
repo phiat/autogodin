@@ -1,5 +1,5 @@
 repo:    https://github.com/phiat/mcts-odin
-commit:  c2caeda  # release v0.1.1
+commit:  2151704  # fix: FPU (parent_Q with reduction); closes mcts-odin-caq
 synced:  2026-05-16
 
 Files copied from mcts-odin/mcts/. Pure Odin, no submodule. To refresh:
