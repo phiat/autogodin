@@ -8,7 +8,8 @@ What we've measured:
 
 - **Byte-identical** board behaviour vs the C++ reference (SHA-256 Zobrist fingerprint over 10 seeded games × ~200 moves).
 - **Equal strength** under a random-init `SizeInvariantGoResNet(32ch × 4b)` evaluator over 100 MCTS games at 200 sims/move (Odin 53 / C++ 47; Wilson 95% CI [0.433, 0.625] brackets 0.5).
-- **Higher throughput on the same Python-callback workload**: 6.3× the upstream C++ on a 9×9 single-thread micro-bench with a Python uniform-policy evaluator. The lift depends on the evaluator: with a real NN forward dominating per-leaf cost it shrinks; we haven't run a head-to-head C++ comparison on the NN workload (see [Throughput](#throughput)).
+
+Throughput is workload-dependent. We have numbers on a uniform-policy micro-bench (where MCTS-internal work dominates) and on a CPU NN-eval grid in isolation. We have **not** run a head-to-head Odin-vs-C++ comparison with a real NN evaluator; the realistic-workload ratio is therefore unknown. See [Throughput](#throughput) for what we did measure and how to read it.
 
 ## Quick example
 
@@ -65,21 +66,21 @@ The Go-board port, the vendored MCTS core, the C-ABI export surface, and the Pyt
 
 ### Throughput
 
-9×9 micro-bench (1600 sims/move × 32 moves, single-thread, miniwini host, vendor v0.4.0). Evaluator: uniform-policy + value 0. This is a *worst case* for the lift: the evaluator is so cheap that MCTS-internal work dominates per-sim cost. With a real NN evaluator the lift shrinks (NN forward becomes the dominant cost) — see the 441 grid below.
+**Read this section carefully.** The headline ratios below are from a synthetic micro-bench (uniform-policy + value 0). In that regime per-leaf evaluator cost is essentially zero, so MCTS-internal cost dominates and any speed difference in the MCTS implementation gets fully exposed. In a realistic workload the per-leaf cost is the NN forward, which dominates so completely that the MCTS-implementation delta gets amortized away — the ratio you'd see in production is smaller, possibly close to 1×. **We have not measured the realistic-workload ratio**; running a head-to-head C++ comparison under a real NN evaluator is open follow-up work.
 
-**Same workload, both backends** (Python evaluator callback per leaf — the only thing upstream `alpha_go_cpp` exposes):
+9×9 micro-bench: 1600 sims/move × 32 moves, single-thread, miniwini host, vendor v0.4.0. Evaluator: uniform-policy + value 0. Both backends invoked through the same Python callback signature.
 
 | Backend                                                      | sims/sec        | vs C++  |
 |--------------------------------------------------------------|-----------------|---------|
 | `alpha_go_cpp` (upstream)                                    | 8,713 ± 66      | 1.00×   |
 | `alpha_go_odin` Python ctypes shim, legacy dict evaluator    | 48,019 ± 307    | 5.51×   |
-| `alpha_go_odin` Python ctypes shim, flat evaluator (`cz9`)   | **54,541 ± 616**    | **6.26×** |
+| `alpha_go_odin` Python ctypes shim, flat evaluator (`cz9`)   | 54,541 ± 616    | 6.26×   |
 
-**Different workload — Odin-only path** (no Python in the leaf):
+Additional Odin-only regime (no Python callback in the leaf — available only if your evaluator is also Odin-side; upstream's pybind11 surface has no equivalent so this row has no C++ counterpart):
 
-| Backend                                                      | sims/sec        | note     |
-|--------------------------------------------------------------|-----------------|----------|
-| `alpha_go_odin` in-process Odin evaluator                    | 76,159 ± 481    | available only if your evaluator is also Odin-side; upstream's pybind11 surface has no equivalent |
+| Backend                                                      | sims/sec        |
+|--------------------------------------------------------------|-----------------|
+| `alpha_go_odin` in-process Odin evaluator                    | 76,159 ± 481    |
 
 <details>
 <summary><b>Batched / threaded / NN-eval grids</b></summary>
