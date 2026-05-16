@@ -33,15 +33,16 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 
 ### Throughput
 
-9×9 micro-bench (1600 sims/move × 32 moves, single-thread, miniwini host, vendor v0.4.0, post-`zkq`/`373`/`5km` ydh.6 hotspot fixes).
+9×9 micro-bench (1600 sims/move × 32 moves, single-thread, miniwini host, vendor v0.4.0, post-`zkq`/`373`/`5km`/`cz9`).
 
 **Sequential evaluator** (one leaf at a time):
 
-| Backend                                   | sims/sec        | vs C++  |
-|-------------------------------------------|-----------------|---------|
-| `alpha_go_cpp` (upstream)                 | 8,713 ± 66      | 1.00×   |
-| `alpha_go_odin` Python ctypes shim        | 48,019 ± 307    | 5.51×   |
-| `alpha_go_odin` in-process Odin evaluator | **76,159 ± 481**  | **8.74×** |
+| Backend                                                      | sims/sec        | vs C++  |
+|--------------------------------------------------------------|-----------------|---------|
+| `alpha_go_cpp` (upstream)                                    | 8,713 ± 66      | 1.00×   |
+| `alpha_go_odin` Python ctypes shim, legacy dict evaluator    | 48,019 ± 307    | 5.51×   |
+| `alpha_go_odin` Python ctypes shim, flat evaluator (`cz9`)   | 54,541 ± 616    | **6.26×** |
+| `alpha_go_odin` in-process Odin evaluator                    | **76,159 ± 481**  | **8.74×** |
 
 **Batched evaluator** (`run_simulations_batched`, in-process key cells; full grid in `experiments/2026-05-16_13-30-ydh.3-batched-sweep/`):
 

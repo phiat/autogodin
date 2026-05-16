@@ -314,6 +314,24 @@ PolicyValue = tuple[dict[int, float], float]
 EvaluatorFn = Callable[[GoBoard], PolicyValue]
 BatchedEvaluatorFn = Callable[[list[GoBoard]], tuple[list[dict[int, float]], list[float]]]
 
+# Flat (in-place numpy) evaluator. Avoids the per-leaf Python dict
+# allocation that the legacy EvaluatorFn path uses.
+#
+# Signature: evaluator(board_view, out_actions, out_probs) -> (count, value)
+#   - board_view: non-owning GoBoard pointing at MCTS's leaf state
+#   - out_actions: caller-owned np.ndarray[int32] of length size*size + 1;
+#     evaluator writes legal action ids into prefix [0:count]
+#   - out_probs:   np.ndarray[float32] of same length; evaluator writes priors
+#     into prefix [0:count] in 1:1 correspondence with out_actions
+#   - returns (count_written, value)
+#
+# The same scratch ndarrays are reused across every leaf; the trampoline
+# memmoves the prefix into MCTS's ctypes out buffers. ctypes pointer to the
+# scratch is resolved once per trampoline lifetime (not per leaf), avoiding
+# the numpy._internal._ctypes alloc cost that the naive numpy-view design
+# pays. See autogodin-cz9.
+FlatEvaluatorFn = Callable[[GoBoard, np.ndarray, np.ndarray], tuple[int, float]]
+
 
 class MCTSTree:
     def __init__(self, root_state: GoBoard, config: MCTSConfig, seed: int = 0):
@@ -370,6 +388,46 @@ class MCTSTree:
         cb = self._make_trampoline(evaluator)
         # Keep cb alive for the duration of the call so ctypes doesn't free the
         # trampoline mid-flight.
+        self._cb_keepalive = cb
+        _t_run_sims(self._h, num_simulations, cb, None)
+        self._cb_keepalive = None
+
+    def _make_flat_trampoline(self, evaluator: FlatEvaluatorFn):
+        """Per-leaf trampoline for the in-place flat evaluator path. Holds a
+        pair of scratch ndarrays sized to n_actions; evaluator writes into
+        their prefixes and returns (count, value). Trampoline memmoves the
+        prefix into MCTS's ctypes out buffers using a pre-resolved ctypes
+        data pointer (no per-leaf numpy._ctypes view alloc)."""
+        board_size = self._board_size
+        n_actions = board_size * board_size + 1
+        scratch_a = np.empty(n_actions, dtype=np.int32)
+        scratch_p = np.empty(n_actions, dtype=np.float32)
+        # Resolve the buffer pointers ONCE — accessing .ctypes.data per leaf
+        # builds a fresh numpy._internal._ctypes object and dominates cost.
+        scratch_a_ptr = scratch_a.ctypes.data
+        scratch_p_ptr = scratch_p.ctypes.data
+
+        def trampoline(goboard_ptr, out_actions, out_probs, max_n, out_value, _user):
+            view = GoBoard.__new__(GoBoard)
+            view._h = goboard_ptr
+            view._owned = False
+            view._size = board_size
+            count, value = evaluator(view, scratch_a, scratch_p)
+            n = min(int(count), int(max_n))
+            ct.memmove(out_actions, scratch_a_ptr, n * 4)
+            ct.memmove(out_probs, scratch_p_ptr, n * 4)
+            out_value[0] = float(value)
+            return n
+
+        return _CEvaluator(trampoline)
+
+    def run_simulations_flat(self, num_simulations: int, evaluator: FlatEvaluatorFn) -> None:
+        """Same as run_simulations but with the in-place flat evaluator
+        signature (see FlatEvaluatorFn). Evaluator writes its (action, prior)
+        pairs into caller-owned numpy scratch buffers; trampoline memmoves
+        the prefix into MCTS's ctypes out buffers. No per-leaf dict alloc
+        or dict iteration. See autogodin-cz9."""
+        cb = self._make_flat_trampoline(evaluator)
         self._cb_keepalive = cb
         _t_run_sims(self._h, num_simulations, cb, None)
         self._cb_keepalive = None
