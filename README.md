@@ -31,28 +31,28 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 ## Getting started
 
 ```bash
-# Prerequisites: Odin nightly, gcc/clang, Python 3.10+, optional uv for the upstream autogo env.
+# Prerequisites: Odin nightly, gcc/clang, Python 3.10+, just (mise install just),
+# optional uv for the upstream autogo env.
 git clone https://github.com/phiat/autogodin.git
 cd autogodin
 
 # Optional: sibling clone of the upstream autogo for parity / Python tests.
 git clone https://github.com/ericjang/autogo.git autogo
 
-# Build the Odin shared lib (-> build/libalpha_go_odin.so).
-./scripts/build_odin.sh
+# Per-machine env overrides (gitignored). Defaults work out of the box.
+cp .env.example .env
 
-# Run Odin unit tests (31 cases).
-odin test odin/tests
-
-# Smoke-test the Python ctypes shim + run the parity fingerprint.
-python python/parity/random_games.py --check python/parity/fixtures/random_games_v0.json
+# Common commands:
+just            # list recipes
+just build      # build/libalpha_go_odin.so
+just test       # full Odin test suite
+just smoke      # single-test smoke (override with: just smoke <name>)
+just parity     # Zobrist-fingerprint parity check vs committed fixture
+just bench      # ydh.2 MCTS throughput bench (just bench cpp ... for cpp backend)
+just check      # pre-push gate: build + test + parity
 ```
 
-Build flags can be overridden via `ODIN_OPT`, e.g.:
-
-```bash
-ODIN_OPT="-o:speed -no-bounds-check" ./scripts/build_odin.sh
-```
+Underlying scripts still work directly (`./scripts/build_odin.sh`, `odin test odin/tests`, etc.) — `just` is convenience, not a wrapper requirement. Build flags can be overridden via `ODIN_OPT` in `.env` or inline.
 
 ## Parity harness
 
