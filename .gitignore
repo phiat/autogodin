@@ -23,6 +23,8 @@ build/
 *.dylib
 *.o
 *.a
+# Compiled experiment binaries (built next to their bench.odin source)
+experiments/*/bench
 
 # Python build / cache
 __pycache__/
