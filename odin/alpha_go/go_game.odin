@@ -179,24 +179,73 @@ clone_go_board :: proc(src: ^GoBoard, allocator := context.allocator) -> GoBoard
 	return dst
 }
 
-// Clone with empty seen_hashes — used by is_legal_flat for the simulation copy.
+// In-place legality probe used by is_legal_flat for the multi-stone-suicide
+// and PSK checks. Replaces the older clone-and-simulate path that dominated
+// ~30-35% of CPU through map_alloc/map_insert/memcpy traffic on the discarded
+// clone (see ydh.6 perf profile). Mirrors play_flat_unchecked's capture
+// ordering exactly — neighbour-by-neighbour, in 4-neighbour order — so the
+// legality semantics are byte-identical to "play then check".
+//
+// Caller is responsible for the cheap rejects (bounds, empty, ko, fast
+// neighbour-scan); reaching here means we actually need to know whether the
+// resulting position would be a no-op suicide or a position repeat. The proc
+// mutates b, then restores it before returning — the net effect on b is
+// identity. seen_hashes is never touched (PSK is checked against the
+// prospective hash, not the simulated state).
 @(private = "file")
-clone_for_sim :: proc(src: ^GoBoard, allocator := context.allocator) -> GoBoard {
-	context.allocator = allocator
-	dst := GoBoard {
-		size               = src.size,
-		komi               = src.komi,
-		board              = slice.clone(src.board),
-		to_play            = src.to_play,
-		ko_point           = src.ko_point,
-		consecutive_passes = src.consecutive_passes,
-		move_count         = src.move_count,
-		tables             = src.tables,
-		current_hash       = src.current_hash,
-		allocator          = allocator,
+probe_legal_flat :: proc(b: ^GoBoard, index: int, check_suicide, check_psk: bool) -> bool {
+	player := b.to_play
+	opp := opponent_of(player)
+	saved_hash := b.current_hash
+
+	// Place our stone hypothetically.
+	b.board[index] = player
+	b.current_hash ~= b.tables.zobrist[index][int(player)]
+
+	// Capture dead opponent groups. Same iteration shape as play_flat_unchecked:
+	// for each opponent neighbour still on the board, compute group liberties;
+	// if zero, remove all stones in that group and XOR their Zobrist contributions
+	// out of current_hash. Track removed cells in `captured` so we can restore.
+	captured := make([dynamic]int, 0, 8, context.temp_allocator)
+	defer delete(captured)
+
+	nb := b.tables.neighbors[index]
+	for k in 0 ..< nb.count {
+		ni := nb.indices[k]
+		if b.board[ni] != opp {continue} // EMPTY after a prior capture -> skip
+		group, libs := get_group_and_liberties(b, ni, context.temp_allocator)
+		if len(libs) == 0 {
+			for g in group {
+				b.board[g] = EMPTY
+				b.current_hash ~= b.tables.zobrist[g][int(opp)]
+				append(&captured, g)
+			}
+		}
+		delete(group)
+		delete(libs)
 	}
-	dst.seen_hashes = make(map[u64]struct{})
-	return dst
+
+	legal := true
+
+	if check_suicide {
+		// Our group needs at least one liberty (counting capture-vacated cells).
+		_, our_libs := get_group_and_liberties(b, index, context.temp_allocator)
+		if len(our_libs) == 0 {legal = false}
+		delete(our_libs)
+	}
+
+	if legal && check_psk {
+		if _, ok := b.seen_hashes[b.current_hash]; ok {legal = false}
+	}
+
+	// Undo: restore captured opp stones, remove our stone, reset hash.
+	for g in captured {
+		b.board[g] = opp
+	}
+	b.board[index] = EMPTY
+	b.current_hash = saved_hash
+
+	return legal
 }
 
 @(private = "file")
@@ -370,17 +419,7 @@ is_legal_flat :: proc(b: ^GoBoard, index: int) -> bool {
 	need_suicide_check := !has_empty && !captures
 	need_psk_check := len(b.seen_hashes) > 0
 	if need_suicide_check || need_psk_check {
-		tmp := clone_for_sim(b, context.temp_allocator)
-		defer destroy_go_board(&tmp)
-		play_flat_unchecked(&tmp, index)
-		if need_suicide_check && tmp.board[index] == EMPTY {
-			return false
-		}
-		if need_psk_check {
-			if _, ok := b.seen_hashes[tmp.current_hash]; ok {
-				return false
-			}
-		}
+		return probe_legal_flat(b, index, need_suicide_check, need_psk_check)
 	}
 	return true
 }

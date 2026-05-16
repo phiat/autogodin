@@ -33,15 +33,15 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 
 ### Throughput
 
-9×9 micro-bench (1600 sims/move × 32 moves, single-thread, miniwini host, vendor v0.4.0).
+9×9 micro-bench (1600 sims/move × 32 moves, single-thread, miniwini host, vendor v0.4.0, post-`zkq` legality probe).
 
 **Sequential evaluator** (one leaf at a time):
 
 | Backend                                   | sims/sec        | vs C++  |
 |-------------------------------------------|-----------------|---------|
-| `alpha_go_cpp` (upstream)                 | 8,655 ± 86      | 1.00×   |
-| `alpha_go_odin` Python ctypes shim        | 20,773 ± 132    | 2.40×   |
-| `alpha_go_odin` in-process Odin evaluator | **25,618 ± 86**  | **2.96×** |
+| `alpha_go_cpp` (upstream)                 | 8,713 ± 66      | 1.00×   |
+| `alpha_go_odin` Python ctypes shim        | 44,374 ± 270    | 5.09×   |
+| `alpha_go_odin` in-process Odin evaluator | **69,234 ± 187**  | **7.95×** |
 
 **Batched evaluator** (`run_simulations_batched`, key cells; full grid in `experiments/2026-05-16_13-30-ydh.3-batched-sweep/`):
 
@@ -51,7 +51,7 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 | 100us        | 4,499   | 30,504    | 6.8×    | 28%        |
 | 1ms          | 771     | 24,065    | **31×** | 24%        |
 
-Sequential numbers track the original phase-2 progression (pre-foundation 2,859 / pre-vendor 7,927 / pre-FPU 13,613 → post-FPU 25,618 in-process). Batched throughput verifies the virtual-loss path: at NN-realistic 1ms per-leaf latency, batch=128 hides nearly all of it. Python tax is the ctypes round-trip overhead and is essentially free once an NN forward pass enters the picture (typical net forward >> 1ms).
+Sequential numbers track the phase-2 progression: pre-foundation 2,859 / pre-vendor 7,927 / pre-FPU 13,613 / post-FPU 25,618 → post-`zkq` 69,234 in-process. The `zkq` jump (commit `pending`) replaced `is_legal_flat`'s clone-and-simulate path with an in-place probe + restore — kills ~30-35% of CPU that was going through the Odin runtime map machinery on a discarded clone of `seen_hashes`. The batched table below is pre-`zkq`; expect similar uplift on a re-run.
 
 **Phase 3** — experimentation, training A/Bs, optional GPU runs.
 
