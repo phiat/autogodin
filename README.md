@@ -33,7 +33,7 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 
 ### Throughput
 
-9×9 micro-bench (1600 sims/move × 32 moves, single-thread, miniwini host, post-FPU vendor v0.3.0).
+9×9 micro-bench (1600 sims/move × 32 moves, single-thread, miniwini host, vendor v0.4.0).
 
 **Sequential evaluator** (one leaf at a time):
 
