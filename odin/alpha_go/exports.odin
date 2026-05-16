@@ -422,6 +422,36 @@ ffi_tree_run_simulations :: proc "c" (
 	mcts.run_simulations(&t.tree, int(num_simulations), mcts_evaluator_trampoline, &cctx)
 }
 
+// Root-parallel MCTS: n_threads workers each descend / expand / backup via
+// shared tree; each worker has its own per-thread context (own temp_allocator,
+// own state clone). CFUNCTYPE callbacks from Python auto-acquire the GIL, so
+// dict-style EvaluatorFn / FlatEvaluatorFn both work transparently — but they
+// serialize on the GIL inside the evaluator body, so threading wins only
+// materialise to the extent the Odin-side work (descent + backup) dominates.
+// Threading an Odin-only evaluator (in-process) gives full parallelism.
+// See autogodin-i5d.
+@(export, link_name = "alphago_mcts_tree_run_simulations_threaded")
+ffi_tree_run_simulations_threaded :: proc "c" (
+	h: rawptr,
+	num_simulations: c.int,
+	n_threads: c.int,
+	cb: CEvaluator,
+	user_data: rawptr,
+) {
+	context = runtime.default_context()
+	free_all(context.temp_allocator)
+	defer free_all(context.temp_allocator)
+	t := cast(^TreeHandle)h
+	cctx := CallbackCtx{cb = cb, user_data = user_data}
+	mcts.run_simulations_threaded(
+		&t.tree,
+		int(num_simulations),
+		int(n_threads),
+		mcts_evaluator_trampoline,
+		&cctx,
+	)
+}
+
 // -------------------- batched evaluator path --------------------
 //
 // Mirrors the sequential CEvaluator but for batched search.

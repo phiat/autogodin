@@ -247,6 +247,11 @@ _CEvaluator = ct.CFUNCTYPE(
 _t_run_sims = _bind(
     "alphago_mcts_tree_run_simulations", None, [_Handle, ct.c_int, _CEvaluator, ct.c_void_p]
 )
+_t_run_sims_threaded = _bind(
+    "alphago_mcts_tree_run_simulations_threaded",
+    None,
+    [_Handle, ct.c_int, ct.c_int, _CEvaluator, ct.c_void_p],
+)
 
 # Batched evaluator C-ABI. Mirrors the sequential _CEvaluator but flat-shaped:
 # batch_size pointers to GoBoard, plus row-major out buffers sized
@@ -420,6 +425,24 @@ class MCTSTree:
             return n
 
         return _CEvaluator(trampoline)
+
+    def run_simulations_threaded(
+        self,
+        num_simulations: int,
+        n_threads: int,
+        evaluator: EvaluatorFn,
+    ) -> None:
+        """Root-parallel MCTS — n_threads workers descend / expand / backup
+        through the shared tree, calling the Python evaluator per leaf.
+        ctypes CFUNCTYPE auto-acquires the GIL on each callback, so this is
+        safe to call with a Python evaluator; the evaluator body itself
+        still serializes on the GIL, so the throughput win scales with the
+        Odin-side share of work (descent + backup). An in-process Odin
+        evaluator hits full parallelism. See autogodin-i5d."""
+        cb = self._make_trampoline(evaluator)
+        self._cb_keepalive = cb
+        _t_run_sims_threaded(self._h, num_simulations, n_threads, cb, None)
+        self._cb_keepalive = None
 
     def run_simulations_flat(self, num_simulations: int, evaluator: FlatEvaluatorFn) -> None:
         """Same as run_simulations but with the in-place flat evaluator
