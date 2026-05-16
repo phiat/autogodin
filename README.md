@@ -4,12 +4,12 @@ An Odin port of the C++ MCTS + Go-board hot path from
 [ericjang/autogo](https://github.com/ericjang/autogo), exposed to Python
 via ctypes as a drop-in replacement for upstream `alpha_go_cpp`.
 
-What we've measured:
+Correctness checks that we run against the upstream C++:
 
-- **Byte-identical** board behaviour vs the C++ reference (SHA-256 Zobrist fingerprint over 10 seeded games × ~200 moves).
-- **Equal strength** under a random-init `SizeInvariantGoResNet(32ch × 4b)` evaluator over 100 MCTS games at 200 sims/move (Odin 53 / C++ 47; Wilson 95% CI [0.433, 0.625] brackets 0.5).
+- **Board parity**: SHA-256 Zobrist fingerprint over 10 seeded games × ~200 moves matches byte-for-byte. `just parity` re-runs the check against the committed fixture.
+- **MCTS strength**: 100 MCTS games at 200 sims/move with a random-init `SizeInvariantGoResNet(32ch × 4b)` shared between backends — Odin 53 / C++ 47 / 0 draws, Wilson 95% CI [0.433, 0.625] brackets 0.5. Raw data in `experiments/2026-05-16_18-41-7v8-nn-strength-ab/`.
 
-Throughput is workload-dependent. We have numbers on a uniform-policy micro-bench (where MCTS-internal work dominates) and on a CPU NN-eval grid in isolation. We have **not** run a head-to-head Odin-vs-C++ comparison with a real NN evaluator; the realistic-workload ratio is therefore unknown. See [Throughput](#throughput) for what we did measure and how to read it.
+Throughput characterizations live under `experiments/` per change. We don't put summary numbers in this README — they shift with host state, and the per-experiment reports are the source of truth.
 
 ## Quick example
 
@@ -63,56 +63,6 @@ The Go-board port, the vendored MCTS core, the C-ABI export surface, and the Pyt
 
 - **Board parity** (`python/parity/random_games_dual.py`): Odin and upstream C++ produce a byte-identical SHA-256 fingerprint `109bd08a…` over 10 seeded games × ~200 moves.
 - **MCTS-layer A/B under a real NN evaluator** (`7v8`): 100 games of Odin-MCTS vs C++-MCTS at 200 sims/move, `SizeInvariantGoResNet(32ch × 4b)` random-init evaluator passed to both backends. **Result: Odin 53 – C++ 47 – 0 draws, Wilson 95% CI [0.433, 0.625] brackets 0.5.** Parity-complete under realistic priors. See `experiments/2026-05-16_18-41-7v8-nn-strength-ab/`.
-
-### Throughput
-
-**Read this section carefully.** The headline ratios below are from a synthetic micro-bench (uniform-policy + value 0). In that regime per-leaf evaluator cost is essentially zero, so MCTS-internal cost dominates and any speed difference in the MCTS implementation gets fully exposed. In a realistic workload the per-leaf cost is the NN forward, which dominates so completely that the MCTS-implementation delta gets amortized away — the ratio you'd see in production is smaller, possibly close to 1×. **We have not measured the realistic-workload ratio**; running a head-to-head C++ comparison under a real NN evaluator is open follow-up work.
-
-9×9 micro-bench: 1600 sims/move × 32 moves, single-thread, miniwini host, vendor v0.4.0. Evaluator: uniform-policy + value 0. Both backends invoked through the same Python callback signature.
-
-| Backend                                                      | sims/sec        | vs C++  |
-|--------------------------------------------------------------|-----------------|---------|
-| `alpha_go_cpp` (upstream)                                    | 8,713 ± 66      | 1.00×   |
-| `alpha_go_odin` Python ctypes shim, legacy dict evaluator    | 48,019 ± 307    | 5.51×   |
-| `alpha_go_odin` Python ctypes shim, flat evaluator (`cz9`)   | 54,541 ± 616    | 6.26×   |
-
-Additional Odin-only regime (no Python callback in the leaf — available only if your evaluator is also Odin-side; upstream's pybind11 surface has no equivalent so this row has no C++ counterpart):
-
-| Backend                                                      | sims/sec        |
-|--------------------------------------------------------------|-----------------|
-| `alpha_go_odin` in-process Odin evaluator                    | 76,159 ± 481    |
-
-<details>
-<summary><b>Batched / threaded / NN-eval grids</b></summary>
-
-**Batched evaluator** (`run_simulations_batched`, in-process key cells; full grid in `experiments/2026-05-16_13-30-ydh.3-batched-sweep/`):
-
-| latency      | batch=1 | batch=128 | speedup | Python tax |
-|--------------|---------|-----------|---------|------------|
-| 0us          | 62,482  | 87,281    | 1.4×    | 40%        |
-| 100us        | 5,313   | 78,889    | 14.9×   | 37%        |
-| 1ms          | 828     | 47,284    | **57×** | 23%        |
-
-**Threaded evaluator** (`run_simulations_threaded`):
-
-| evaluator                          | n=0 (seq) | n=2    | n=4    | n=8    | best speedup |
-|------------------------------------|----------:|-------:|-------:|-------:|-------------:|
-| Pure Python (GIL held)             | 24,798    | 20,752 | 17,952 | 17,574 | 0.84× (regress) |
-| Python + `time.sleep(200µs)` (i5d) | 2,949     | 6,380  | 11,533 | 12,740 | **4.32×** |
-| Real torch CPU forward (441)       | 1,408     | 588    | 105    | 68     | 0.05× (collapse) |
-
-The threaded path adds tree-mutex / virtual-loss / worker-pool overhead that's a net loss when the evaluator holds the GIL. The sleep cell shows the path is real and scales when the evaluator yields the GIL for its entire body. The real-torch cell shows it does NOT scale for actual NN evaluators — torch's CPU dispatcher serializes across Python threads on top of the per-leaf GIL hold. **For Python NN evaluators, use `run_simulations_batched` (5.8× at bs=128) — not threaded.**
-
-**Real CPU NN-eval** (`SizeInvariantGoResNet 32ch×4b`, post-441):
-
-| path                       | sims/sec    | vs seq |
-|----------------------------|------------:|-------:|
-| seq dict / flat            | ~1,294      | 1.00×  |
-| batched dict bs=128        | 7,503       | 5.8×   |
-| batched flat bs=128 (cg0)  | **7,888**   | **6.1×** |
-
-Sequential progression: pre-foundation 2,859 / pre-vendor 7,927 / pre-FPU 13,613 / post-FPU 25,618 / post-`zkq` 69,234 / post-`373` 74,899 → post-`5km` 76,159 in-process. The `ydh.6` perf profile identified three hot-paths in legality; all three fixed: `zkq` (in-place legality probe), `373` (early-exit capture probe), `5km` (caller-owned legal-moves buffer). Batched table re-run post-`ydh.6`: 1ms × batch=128 went 24,065 → 47,284 sims/sec.
-</details>
 
 ## Getting started
 
