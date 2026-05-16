@@ -30,7 +30,8 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 ### Correctness
 
 - **Board parity** (`python/parity/random_games_dual.py`): Odin and upstream C++ produce a byte-identical SHA-256 fingerprint `109bd08a…` over 10 seeded games × ~200 moves.
-- **MCTS-layer A/B**: 100 games of Odin-MCTS vs C++-MCTS at 200 sims/move, uniform-policy evaluator. Pre-vendor result was 50–50, Wilson 95% CI [0.404, 0.596]. Post-vendor, this regime is dominated by the FPU concentration-vs-spread tradeoff documented in `odin/vendor/mcts-odin/mcts/mcts.odin` (Config.fpu_reduction): under uniform priors with very low sim budgets, FPU's correct-but-thin spread can lose to C++'s accidental concentration. A/B parity is the gate that matters under NN evaluators (where priors are informative); queued under `experiments/` for the next NN-eval pass.
+- **MCTS-layer A/B under a real NN evaluator** (`7v8`): 100 games of Odin-MCTS vs C++-MCTS at 200 sims/move, `SizeInvariantGoResNet(32ch × 4b)` random-init evaluator passed to both backends. **Result: Odin 53 – C++ 47 – 0 draws, Wilson 95% CI [0.433, 0.625] brackets 0.5.** The Odin port is parity-complete under realistic priors. See `experiments/2026-05-16_18-41-7v8-nn-strength-ab/`.
+- **MCTS uniform-prior A/B**: pre-vendor was 50–50 (Wilson 95% CI [0.404, 0.596]); post-vendor this regime is dominated by the FPU concentration-vs-spread trade-off documented in `odin/vendor/mcts-odin/mcts/mcts.odin` (`Config.fpu_reduction`) — under uniform priors with very low sim budgets, FPU's correct-but-thin spread can lose to C++'s accidental concentration. Not a regression; the NN-eval A/B above is the gate that matters.
 
 ### Throughput
 

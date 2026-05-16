@@ -1,0 +1,27 @@
+{
+  "games": 100,
+  "decided": 100,
+  "odin_wins": 53,
+  "cpp_wins": 47,
+  "draws": 0,
+  "odin_winrate": 0.53,
+  "wilson95_ci": [
+    0.4329,
+    0.6249
+  ],
+  "bracket_50": true,
+  "config": {
+    "num_sims": 200,
+    "c_puct": 1.0,
+    "max_depth": 100,
+    "temperature": 1.0,
+    "sample_until_move": 15,
+    "move_cap": 200,
+    "seed_base": 12648430,
+    "net_seed": 0,
+    "size": 9,
+    "komi": 7.5,
+    "evaluator": "SizeInvariantGoResNet(32ch x 4b), random-init"
+  },
+  "elapsed_sec": 1446.96
+}
