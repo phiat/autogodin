@@ -237,9 +237,7 @@ _t_action_probs = _bind(
 
 _CEvaluator = ct.CFUNCTYPE(
     ct.c_int,         # n actions written
-    _PChar,           # board_data
-    ct.c_char,        # to_play
-    ct.c_int,         # size
+    ct.c_void_p,      # goboard rawptr (non-owning view; MCTS owns lifetime)
     _PInt,            # out_actions
     _PFloat,          # out_probs
     ct.c_int,         # max_n
@@ -327,19 +325,14 @@ class MCTSTree:
     def _make_trampoline(self, evaluator: EvaluatorFn):
         board_size = self._board_size
 
-        def trampoline(board_data, to_play, size, out_actions, out_probs, max_n, out_value, _user):
-            # Reconstruct a GoBoard view; cheaper than allocating one each call,
-            # but we just build a fresh board and set_from_array.
-            n = size * size
-            arr = np.frombuffer(
-                (ct.c_char * n).from_address(ct.addressof(board_data.contents)),
-                dtype=np.int8,
-                count=n,
-            ).copy().reshape(size, size)
-            tp = int.from_bytes(to_play, "little", signed=True)
-            tmp = GoBoard(size)
-            tmp.set_from_numpy(arr, tp)
-            policy, value = evaluator(tmp)
+        def trampoline(goboard_ptr, out_actions, out_probs, max_n, out_value, _user):
+            # Non-owning GoBoard view over the leaf's existing Odin-side board.
+            # MCTS owns the lifetime; do NOT let __del__ free it.
+            view = GoBoard.__new__(GoBoard)
+            view._h = goboard_ptr
+            view._owned = False
+            view._size = board_size
+            policy, value = evaluator(view)
             i = 0
             for action, prob in policy.items():
                 if i >= max_n:
