@@ -1,0 +1,27 @@
+{
+  "games": 100,
+  "decided": 100,
+  "odin_wins": 46,
+  "cpp_wins": 54,
+  "draws": 0,
+  "odin_winrate": 0.46,
+  "wilson95_ci": [
+    0.3656,
+    0.5574
+  ],
+  "bracket_50": true,
+  "config": {
+    "num_sims": 200,
+    "c_puct": 1.0,
+    "max_depth": 100,
+    "temperature": 1.0,
+    "sample_until_move": 15,
+    "move_cap": 200,
+    "seed_base": 12648430,
+    "eval_seed": 48879,
+    "size": 9,
+    "komi": 7.5,
+    "evaluator": "informative-random-projection"
+  },
+  "elapsed_sec": 114.57
+}
