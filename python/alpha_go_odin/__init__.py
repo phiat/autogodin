@@ -7,7 +7,9 @@ swap backends.
 Currently covered:
     - GoBoard (full)
     - MCTSConfig
-    - MCTSTree (single-state callback evaluator; no batched path yet)
+    - MCTSTree with run_simulations (dict / flat evaluator),
+      run_simulations_batched (leaf-parallel with virtual loss), and
+      run_simulations_threaded (root-parallel worker pool).
 
 Set env var ``ALPHA_GO_ODIN_LIB`` to override the .so path; otherwise the loader
 looks for ``build/libalpha_go_odin.so`` relative to the repo root.
@@ -517,7 +519,7 @@ class MCTSTree:
         return {a[i]: p[i] for i in range(min(n, cap))}
 
 
-__version__ = "0.0.1-scaffold"
+__version__ = "0.2.0"
 __all__ = [
     "PASS_ACTION", "EMPTY", "BLACK", "WHITE", "KOMI",
     "GoBoard", "MCTSConfig", "MCTSTree",
