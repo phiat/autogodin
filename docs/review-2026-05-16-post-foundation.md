@@ -8,27 +8,22 @@ flat across 32 moves (was 2.5 GB and growing).
 
 ## CRITICAL
 
-### 1. Wrong-allocator `delete` on all `group`/`libs`/`stack` temp-arena slices
+### 1. ~~Wrong-allocator `delete` on all `group`/`libs`/`stack` temp-arena slices~~ — FALSE POSITIVE
 
-**File:** `odin/alpha_go/go_game.odin`
-**Lines:** 231, 295–296, 369–370, 380–381, 473–474, 489–490
-**Confidence:** 90
+**Status:** Closed `autogodin-dsi` as not-a-bug after verification.
 
-`get_group_and_liberties` allocates `stack` using `context.temp_allocator`. All
-callers (`is_legal_flat`, `play_flat_unchecked`, `do_move`) pass
-`context.temp_allocator` and receive `group` / `libs` slices on that arena.
-Every subsequent `delete(group)` / `delete(libs)` (no allocator arg) routes to
-`context.allocator` (heap) instead of the temp allocator. The inner `stack`
-defer has the same bug: `defer delete(stack)` omits the allocator.
+The reviewer claimed `delete([dynamic])` without an explicit allocator routes
+to `context.allocator`. That's wrong. Odin's
+`runtime.delete_dynamic_array(array)` calls
+`mem_free_with_size(..., array.allocator, ...)` — the *stored* allocator from
+make-time. So `delete(stack)`, `delete(group)`, `delete(libs)` correctly free
+to `context.temp_allocator` when the dynamic was made with it.
 
-Under Odin's default growing-arena temp allocator this is silent — the arena
-ignores individual frees. Under any tracking allocator (test mode, leak
-checking) or non-arena allocator this is UB / panic / heap corruption.
+(Slices like `visited`/`lib_visited` *do* need the explicit allocator since
+slices have no stored allocator field — the code does this right.)
 
-**Fix:** add `, context.temp_allocator` to all 8 affected `delete` calls. The
-cleanest pattern is to make `get_group_and_liberties` always use
-`context.temp_allocator` internally and let callers `delete` with the
-allocator they passed in.
+Verified by running `just test` under `-debug` (Odin memory tracker enabled):
+37/37 tests pass with zero leak or wrong-allocator diagnostics.
 
 ### 2. `run_simulations` double-evaluates the root — wipes Dirichlet noise
 
