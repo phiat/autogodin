@@ -19,21 +19,23 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 
 ## Status
 
-**Phase 1 (Odin port) — done.** **Phase 2 (foundation + MCTS vendor migration) — done.**
+**Phase 1 (Odin port) — done.** **Phase 2 (foundation + MCTS vendor migration + batched FFI) — done.**
 
 - GoBoard: Zobrist-incremental positional superko, KataGo-aligned no-suicide rule, Tromp-Taylor area scoring.
-- MCTS: vendored from [mcts-odin](https://github.com/phiat/mcts-odin) (`odin/vendor/mcts-odin/`, pinned commit; see `VERSION`). Packed-slot nodes, branchless PUCT, linear-space priors, per-tree scratch arena, leaf-parallel batched with virtual loss, Dirichlet noise, PCR, subtree reuse. The local `go_adapter.odin` is a ~140-LOC Game vtable bridging GoBoard.
+- MCTS: vendored from [mcts-odin](https://github.com/phiat/mcts-odin) (`odin/vendor/mcts-odin/`, pinned commit; see `VERSION`). Packed-slot nodes, branchless PUCT, linear-space priors, FPU (parent-Q with reduction), per-tree scratch arena, leaf-parallel batched with virtual loss, Dirichlet noise, PCR, subtree reuse, root-parallel threading. The local `go_adapter.odin` is a ~140-LOC Game vtable bridging GoBoard.
 - 37/37 Odin `@(test)` cases pass clean under the memory tracker.
-- 42 `alphago_*` C-ABI symbols in `libalpha_go_odin.so`; Python ctypes shim mirrors upstream `alpha_go_cpp`'s OO API.
+- 44 `alphago_*` C-ABI symbols in `libalpha_go_odin.so`; Python ctypes shim mirrors upstream `alpha_go_cpp`'s OO API plus a new `MCTSTree.run_simulations_batched(num_sims, batch_size, batched_evaluator)` for NN-eval workloads.
 
 ### Correctness
 
 - **Board parity** (`python/parity/random_games_dual.py`): Odin and upstream C++ produce a byte-identical SHA-256 fingerprint `109bd08a…` over 10 seeded games × ~200 moves.
-- **MCTS-layer A/B**: 100 games of Odin-MCTS vs C++-MCTS at 200 sims/move, uniform-policy evaluator. Pre-vendor result was 50–50, Wilson 95% CI [0.404, 0.596]. Post-vendor, this regime is dominated by the FPU concentration-vs-spread tradeoff documented in `odin/vendor/mcts-odin/mcts/mcts.odin` (Config.fpu_reduction): under uniform priors with very low sim budgets, FPU's correct-but-thin spread can lose to C++'s accidental concentration. A/B parity is the gate that matters under NN evaluators (where priors are informative); this is queued under `experiments/` for the next NN-eval pass.
+- **MCTS-layer A/B**: 100 games of Odin-MCTS vs C++-MCTS at 200 sims/move, uniform-policy evaluator. Pre-vendor result was 50–50, Wilson 95% CI [0.404, 0.596]. Post-vendor, this regime is dominated by the FPU concentration-vs-spread tradeoff documented in `odin/vendor/mcts-odin/mcts/mcts.odin` (Config.fpu_reduction): under uniform priors with very low sim budgets, FPU's correct-but-thin spread can lose to C++'s accidental concentration. A/B parity is the gate that matters under NN evaluators (where priors are informative); queued under `experiments/` for the next NN-eval pass.
 
 ### Throughput
 
-9×9 throughput micro-bench (1600 sims/move × 32 moves, single-thread, NN-free, miniwini host, post-FPU vendor):
+9×9 micro-bench (1600 sims/move × 32 moves, single-thread, miniwini host, post-FPU vendor v0.3.0).
+
+**Sequential evaluator** (one leaf at a time):
 
 | Backend                                   | sims/sec        | vs C++  |
 |-------------------------------------------|-----------------|---------|
@@ -41,7 +43,15 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 | `alpha_go_odin` Python ctypes shim        | 20,773 ± 132    | 2.40×   |
 | `alpha_go_odin` in-process Odin evaluator | **25,618 ± 86**  | **2.96×** |
 
-The in-process number (`experiments/2026-05-16_12-50-4ig-inprocess-bench/`) sets the ceiling — Odin algorithm vs Odin algorithm, no Python in the loop. The Python ctypes path costs ~19% on top, which is real signal for uniform-eval benchmarks but invisible under NN evaluators where the model forward pass dominates. Historical numbers (pre-foundation 2,859 sims/s, pre-vendor 7,927, pre-FPU 13,613) document the progression: foundation refactor → vendor migration → FPU-correct tree shape.
+**Batched evaluator** (`run_simulations_batched`, key cells; full grid in `experiments/2026-05-16_13-30-ydh.3-batched-sweep/`):
+
+| latency      | batch=1 | batch=128 | speedup | Python tax |
+|--------------|---------|-----------|---------|------------|
+| 0us          | 23,268  | 32,132    | 1.4×    | 29%        |
+| 100us        | 4,499   | 30,504    | 6.8×    | 28%        |
+| 1ms          | 771     | 24,065    | **31×** | 24%        |
+
+Sequential numbers track the original phase-2 progression (pre-foundation 2,859 / pre-vendor 7,927 / pre-FPU 13,613 → post-FPU 25,618 in-process). Batched throughput verifies the virtual-loss path: at NN-realistic 1ms per-leaf latency, batch=128 hides nearly all of it. Python tax is the ctypes round-trip overhead and is essentially free once an NN forward pass enters the picture (typical net forward >> 1ms).
 
 **Phase 3** — experimentation, training A/Bs, optional GPU runs.
 
