@@ -10,6 +10,7 @@ WHITE :: i8(2)
 
 KOMI_DEFAULT :: f32(7.5)
 NO_KO :: -1
+PASS_ACTION :: -1
 
 // Compile-time board-size hint. When > 0, hot paths use this constant
 // instead of loading `b.size` and multiplying. Runtime board size still
