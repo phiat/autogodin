@@ -33,16 +33,15 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 
 ### Throughput
 
-ydh.2 micro-bench (9×9, 1600 sims/move × 32 moves, single-thread, NN-free, miniwini host):
+9×9 throughput micro-bench (1600 sims/move × 32 moves, single-thread, NN-free, miniwini host, post-FPU vendor):
 
-| Backend                            | sims/sec         | vs C++  |
-|------------------------------------|------------------|---------|
-| `alpha_go_cpp` (upstream)          | 8,655 ± 86       | 1.00×   |
-| `alpha_go_odin` (post-vendor)      | **13,613 ± 39**  | 1.57×   |
-| `alpha_go_odin` (pre-vendor)       | 7,927 ± 12       | 0.93×   |
-| autogodin pre-foundation           | 2,859            | 0.34×   |
+| Backend                                   | sims/sec        | vs C++  |
+|-------------------------------------------|-----------------|---------|
+| `alpha_go_cpp` (upstream)                 | 8,655 ± 86      | 1.00×   |
+| `alpha_go_odin` Python ctypes shim        | 20,773 ± 132    | 2.40×   |
+| `alpha_go_odin` in-process Odin evaluator | **25,618 ± 86**  | **2.96×** |
 
-The foundation refactor lifted Odin from 0.34× to 0.93× C++ on top of the original Phase-1 port. Vendoring mcts-odin (packed-slot nodes, branchless PUCT, linear priors, per-tree scratch arena) added another 1.72×, landing 1.57× C++ on the same Python-callback workload.
+The in-process number (`experiments/2026-05-16_12-50-4ig-inprocess-bench/`) sets the ceiling — Odin algorithm vs Odin algorithm, no Python in the loop. The Python ctypes path costs ~19% on top, which is real signal for uniform-eval benchmarks but invisible under NN evaluators where the model forward pass dominates. Historical numbers (pre-foundation 2,859 sims/s, pre-vendor 7,927, pre-FPU 13,613) document the progression: foundation refactor → vendor migration → FPU-correct tree shape.
 
 **Phase 3** — experimentation, training A/Bs, optional GPU runs.
 
