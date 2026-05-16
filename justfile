@@ -32,6 +32,10 @@ smoke name=smoke:
 parity:
     python python/parity/random_games.py --check python/parity/fixtures/random_games_v0.json
 
+# MCTSTree readout contract parity (requires alpha_go_cpp; see CONTRIBUTING.md).
+parity-readouts:
+    PYTHONPATH=python autogo/.venv/bin/python python/parity/readouts_dual.py
+
 # ydh.2 throughput bench (3 trials, 1600 sims x 32 moves). Writes CSV to /tmp.
 bench backend='odin' trials='3' sims='1600' moves='32':
     timeout 120s python {{bench_dir}}/bench.py \
