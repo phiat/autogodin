@@ -51,8 +51,7 @@ experiments/            self-contained benches + reports per change
 
 ## Status
 
-**Phase 1 (Odin port) — done.** **Phase 2 (foundation + MCTS vendor migration + batched FFI + perf) — done.**
-Phase 3 (training A/Bs, optional GPU runs) is open.
+The Go-board port, the vendored MCTS core, the C-ABI export surface, and the Python ctypes shim (including batched and threaded paths) are complete and have cleared the parity and strength gates documented below. Current work focuses on training A/B experiments and optional GPU runs.
 
 - GoBoard: Zobrist-incremental positional superko, KataGo-aligned no-suicide rule, Tromp-Taylor area scoring.
 - MCTS: vendored from [mcts-odin](https://github.com/phiat/mcts-odin) (`odin/vendor/mcts-odin/`, pinned commit; see `VERSION`). Packed-slot nodes, branchless PUCT, linear-space priors, FPU (parent-Q with reduction), per-tree scratch arena, leaf-parallel batched with virtual loss, Dirichlet noise, PCR, subtree reuse, root-parallel threading. The local `go_adapter.odin` is a ~140-LOC Game vtable bridging GoBoard.
