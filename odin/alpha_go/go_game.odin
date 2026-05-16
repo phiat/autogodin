@@ -358,6 +358,49 @@ get_group_and_liberties :: proc(
 	return
 }
 
+// Specialised liberty check for is_legal_flat's capture-detection neighbour
+// scan: returns true iff the group at `start_cell` would be captured by
+// playing at `candidate_lib_idx` — i.e. `candidate_lib_idx` is the group's
+// sole liberty. Bails immediately on the first liberty != candidate_lib_idx
+// (no need to count all liberties, no need to materialise the group cells).
+// No [dynamic] allocation for the liberty/group return lists. See ydh.6
+// hotspot #2.
+@(private = "file")
+would_capture_group_at :: proc(b: ^GoBoard, start_cell, candidate_lib_idx: int) -> bool {
+	color := b.board[start_cell]
+	if color == EMPTY {return false}
+
+	n := n_cells(b)
+	visited := make([]bool, n, context.temp_allocator)
+	defer delete(visited, context.temp_allocator)
+	stack := make([dynamic]int, 0, 16, context.temp_allocator)
+	defer delete(stack)
+
+	append(&stack, start_cell)
+	visited[start_cell] = true
+	saw_candidate := false
+
+	for len(stack) > 0 {
+		current := pop(&stack)
+		nb := b.tables.neighbors[current]
+		for k in 0 ..< nb.count {
+			ni := nb.indices[k]
+			v := b.board[ni]
+			if v == EMPTY {
+				if ni == candidate_lib_idx {
+					saw_candidate = true
+				} else {
+					return false // a liberty other than candidate → not single-lib-at-candidate
+				}
+			} else if v == color && !visited[ni] {
+				visited[ni] = true
+				append(&stack, ni)
+			}
+		}
+	}
+	return saw_candidate
+}
+
 remove_group :: proc(b: ^GoBoard, group: []int) -> int {
 	for idx in group {
 		b.current_hash ~= b.tables.zobrist[idx][int(b.board[idx])]
@@ -402,12 +445,9 @@ is_legal_flat :: proc(b: ^GoBoard, index: int) -> bool {
 		} else if v == player {
 			has_friendly = true
 		} else if v == opponent && !captures {
-			group, libs := get_group_and_liberties(b, ni, context.temp_allocator)
-			if len(libs) == 1 && libs[0] == index {
+			if would_capture_group_at(b, ni, index) {
 				captures = true
 			}
-			delete(group)
-			delete(libs)
 		}
 	}
 

@@ -33,15 +33,15 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 
 ### Throughput
 
-9×9 micro-bench (1600 sims/move × 32 moves, single-thread, miniwini host, vendor v0.4.0, post-`zkq` legality probe).
+9×9 micro-bench (1600 sims/move × 32 moves, single-thread, miniwini host, vendor v0.4.0, post-`zkq` legality probe + `373` capture-probe early-exit).
 
 **Sequential evaluator** (one leaf at a time):
 
 | Backend                                   | sims/sec        | vs C++  |
 |-------------------------------------------|-----------------|---------|
 | `alpha_go_cpp` (upstream)                 | 8,713 ± 66      | 1.00×   |
-| `alpha_go_odin` Python ctypes shim        | 44,374 ± 270    | 5.09×   |
-| `alpha_go_odin` in-process Odin evaluator | **69,234 ± 187**  | **7.95×** |
+| `alpha_go_odin` Python ctypes shim        | 46,923 ± 400    | 5.39×   |
+| `alpha_go_odin` in-process Odin evaluator | **74,899 ± 605**  | **8.60×** |
 
 **Batched evaluator** (`run_simulations_batched`, key cells; full grid in `experiments/2026-05-16_13-30-ydh.3-batched-sweep/`):
 
@@ -51,7 +51,7 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 | 100us        | 4,499   | 30,504    | 6.8×    | 28%        |
 | 1ms          | 771     | 24,065    | **31×** | 24%        |
 
-Sequential numbers track the phase-2 progression: pre-foundation 2,859 / pre-vendor 7,927 / pre-FPU 13,613 / post-FPU 25,618 → post-`zkq` 69,234 in-process. The `zkq` jump (commit `pending`) replaced `is_legal_flat`'s clone-and-simulate path with an in-place probe + restore — kills ~30-35% of CPU that was going through the Odin runtime map machinery on a discarded clone of `seen_hashes`. The batched table below is pre-`zkq`; expect similar uplift on a re-run.
+Sequential numbers track the phase-2 progression: pre-foundation 2,859 / pre-vendor 7,927 / pre-FPU 13,613 / post-FPU 25,618 / post-`zkq` 69,234 → post-`373` 74,899 in-process. The `zkq` jump (commit `25e0230`) replaced `is_legal_flat`'s clone-and-simulate path with an in-place probe + restore (kills the ~30-35% CPU going through map machinery on a discarded clone). `373` (commit `pending`) replaced the capture-probe's full liberty enumeration with `would_capture_group_at` that bails on the first off-candidate liberty. The batched table below predates both; expect similar uplift on a re-run.
 
 **Phase 3** — experimentation, training A/Bs, optional GPU runs.
 
