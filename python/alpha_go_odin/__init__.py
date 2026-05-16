@@ -292,15 +292,27 @@ _t_run_sims_batched = _bind(
 
 
 class MCTSConfig:
+    # Class-level defaults so hasattr(MCTSConfig, 'c_puct') is True
+    # (matches alpha_go_cpp's pybind11 surface; introspection parity).
+    c_puct: float = 1.0
+    lambda_: float = 0.0
+    dirichlet_alpha: float = 0.0
+    dirichlet_weight: float = 0.25
+    temperature: float = 1.0
+    max_depth: int = 100
+    rollout_temperature: float = 1.0
+
     def __init__(self):
         self._h = _cfg_new()
-        self.c_puct = 1.0
-        self.lambda_ = 0.0
-        self.dirichlet_alpha = 0.0
-        self.dirichlet_weight = 0.25
-        self.temperature = 1.0
-        self.max_depth = 100
-        self.rollout_temperature = 1.0
+        # Re-assign instance attributes from the class defaults so they
+        # show in dir(instance) and aren't shared mutable state.
+        self.c_puct = MCTSConfig.c_puct
+        self.lambda_ = MCTSConfig.lambda_
+        self.dirichlet_alpha = MCTSConfig.dirichlet_alpha
+        self.dirichlet_weight = MCTSConfig.dirichlet_weight
+        self.temperature = MCTSConfig.temperature
+        self.max_depth = MCTSConfig.max_depth
+        self.rollout_temperature = MCTSConfig.rollout_temperature
         self.pcr_sims: list[int] = []
         self.pcr_probs: list[float] = []
 
@@ -633,9 +645,32 @@ class MCTSTree:
         return {a[i]: p[i] for i in range(min(n, cap))}
 
 
+def run_mcts(state: GoBoard, num_simulations: int, config: MCTSConfig,
+             evaluator: EvaluatorFn, temperature: float = 1.0) -> dict[int, float]:
+    """Module-level convenience matching alpha_go_cpp.run_mcts.
+
+    Builds a tree, runs num_simulations playouts under config with the
+    given Python evaluator, and returns the action -> probability dict
+    sampled at the given temperature (temperature=0 -> argmax).
+    """
+    tree = MCTSTree(state, config)
+    tree.run_simulations(num_simulations, evaluator)
+    return tree.get_action_probabilities(temperature)
+
+
 __version__ = "0.2.0"
 __all__ = [
     "PASS_ACTION", "EMPTY", "BLACK", "WHITE", "KOMI",
-    "GoBoard", "MCTSConfig", "MCTSTree",
+    "GoBoard", "MCTSConfig", "MCTSTree", "run_mcts",
+    "EvaluatorFn", "BatchedEvaluatorFn",
+    "FlatEvaluatorFn", "FlatBatchedEvaluatorFn", "PolicyValue",
     "__version__",
 ]
+
+# 8p6: don't leak implementation imports through dir(alpha_go_odin).
+# `from alpha_go_odin import *` is already covered by __all__; this
+# narrows dir() to the same surface so REPL/IDE autocomplete is sane.
+# (We can't `del ct, np, ...` because method bodies look them up by
+# module name at call time.)
+def __dir__() -> list[str]:
+    return sorted(__all__)
