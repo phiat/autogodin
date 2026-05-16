@@ -1,0 +1,40 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 5K of event 'task-clock:u'
+# Event count (approx.): 5855855850
+#
+# Overhead  Command         Shared Object   Symbol                                                 
+# ........  ..............  ..............  .......................................................
+#
+    13.86%  bench_profiled  bench_profiled  [.] alpha_go::get_group_and_liberties
+    12.31%  bench_profiled  bench_profiled  [.] runtime::mem_alloc_bytes
+     8.62%  bench_profiled  libc.so.6       [.] __memmove_avx_unaligned_erms
+     6.60%  bench_profiled  bench_profiled  [.] runtime::default_temp_allocator_proc
+     6.32%  bench_profiled  bench_profiled  [.] mcts::[playout.odin]::perform_playout
+     5.50%  bench_profiled  bench_profiled  [.] runtime::_append_elem
+     5.13%  bench_profiled  bench_profiled  [.] alpha_go::play_flat_unchecked
+     5.09%  bench_profiled  bench_profiled  [.] runtime::arena_alloc
+     4.21%  bench_profiled  bench_profiled  [.] alpha_go::is_legal_flat
+     3.81%  bench_profiled  bench_profiled  [.] __$map_set$$map[u64]struct{}
+     3.15%  bench_profiled  bench_profiled  [.] runtime::mem_free_with_size
+     3.03%  bench_profiled  bench_profiled  [.] runtime::map_kvh_data_dynamic
+     2.51%  bench_profiled  bench_profiled  [.] __$map_get$$map[u64]struct{}
+     2.38%  bench_profiled  libc.so.6       [.] __memset_avx2_unaligned_erms
+     2.29%  bench_profiled  bench_profiled  [.] runtime::map_insert_hash_dynamic_with_key
+     1.78%  bench_profiled  bench_profiled  [.] runtime::map_reserve_dynamic
+     1.76%  bench_profiled  bench_profiled  [.] runtime::map_free_dynamic
+     1.73%  bench_profiled  bench_profiled  [.] __$hasher$$u64
+     1.52%  bench_profiled  bench_profiled  [.] alpha_go::[go_adapter.odin]::adapter_do_move
+     1.37%  bench_profiled  bench_profiled  [.] runtime::mem_alloc_non_zeroed
+     1.28%  bench_profiled  bench_profiled  [.] runtime::map_alloc_dynamic
+     1.23%  bench_profiled  bench_profiled  [.] alpha_go::[go_game.odin]::clone_for_sim
+     1.16%  bench_profiled  bench_profiled  [.] memcpy@plt
+     0.63%  bench_profiled  bench_profiled  [.] runtime::map_lookup_dynamic
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

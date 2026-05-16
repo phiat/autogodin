@@ -1,0 +1,305 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 5K of event 'task-clock:u'
+# Event count (approx.): 5855855850
+#
+# Overhead  Command         Shared Object   Symbol                                                 
+# ........  ..............  ..............  .......................................................
+#
+    13.86%  bench_profiled  bench_profiled  [.] alpha_go::get_group_and_liberties
+            |          
+            |--7.25%--alpha_go::get_group_and_liberties
+            |          |          
+            |           --4.87%--alpha_go::play_flat_unchecked
+            |                     alpha_go::is_legal_flat
+            |                     alpha_go::get_legal_moves_flat
+            |                     main::uniform_evaluator
+            |                     mcts::[playout.odin]::expand_node
+            |                     mcts::[playout.odin]::perform_playout
+            |                     mcts::[playout.odin]::perform_playout
+            |                     |          
+            |                      --4.70%--mcts::[playout.odin]::perform_playout
+            |                                |          
+            |                                 --4.12%--mcts::[playout.odin]::perform_playout
+            |                                           |          
+            |                                            --3.83%--mcts::[playout.odin]::perform_playout
+            |                                                      |          
+            |                                                       --3.38%--mcts::[playout.odin]::perform_playout
+            |                                                                 |          
+            |                                                                  --3.08%--mcts::[playout.odin]::perform_playout
+            |                                                                            |          
+            |                                                                             --2.77%--mcts::[playout.odin]::perform_playout
+            |                                                                                       |          
+            |                                                                                        --2.51%--mcts::[playout.odin]::perform_playout
+            |                                                                                                  |          
+            |                                                                                                   --2.32%--mcts::[playout.odin]::perform_playout
+            |                                                                                                             |          
+            |                                                                                                              --2.17%--mcts::[playout.odin]::perform_playout
+            |          
+             --2.65%--runtime::_make_dynamic_array_len_cap (inlined)
+                       runtime::make_dynamic_array_len_cap:proc(T:$[dynamic]int,len:int,cap:int,allocator:runtime::Allocator,loc:runtime::Source_Code_Location)->(array:[dynamic]int,err:runtime::Allocator_Error) (inlined)
+                       alpha_go::get_group_and_liberties
+                       |          
+                        --2.07%--alpha_go::play_flat_unchecked
+                                  alpha_go::is_legal_flat
+                                  alpha_go::get_legal_moves_flat
+                                  main::uniform_evaluator
+                                  mcts::[playout.odin]::expand_node
+                                  mcts::[playout.odin]::perform_playout
+                                  mcts::[playout.odin]::perform_playout
+                                  |          
+                                   --2.00%--mcts::[playout.odin]::perform_playout
+
+    12.31%  bench_profiled  bench_profiled  [.] runtime::mem_alloc_bytes
+            |          
+             --12.27%--runtime::mem_alloc_bytes
+                       |          
+                       |--6.55%--runtime::_make_dynamic_array_len_cap (inlined)
+                       |          |          
+                       |           --6.29%--runtime::make_dynamic_array_len_cap:proc(T:$[dynamic]int,len:int,cap:int,allocator:runtime::Allocator,loc:runtime::Source_Code_Location)->(array:[dynamic]int,err:runtime::Allocator_Error) (inlined)
+                       |                     |          
+                       |                      --6.26%--alpha_go::get_group_and_liberties
+                       |                                |          
+                       |                                 --4.79%--alpha_go::play_flat_unchecked
+                       |                                           alpha_go::is_legal_flat
+                       |                                           alpha_go::get_legal_moves_flat
+                       |                                           main::uniform_evaluator
+                       |                                           mcts::[playout.odin]::expand_node
+                       |                                           mcts::[playout.odin]::perform_playout
+                       |                                           mcts::[playout.odin]::perform_playout
+                       |                                           |          
+                       |                                            --4.51%--mcts::[playout.odin]::perform_playout
+                       |                                                      |          
+                       |                                                       --4.00%--mcts::[playout.odin]::perform_playout
+                       |                                                                 |          
+                       |                                                                  --3.59%--mcts::[playout.odin]::perform_playout
+                       |                                                                            |          
+                       |                                                                             --3.32%--mcts::[playout.odin]::perform_playout
+                       |                                                                                       |          
+                       |                                                                                        --3.03%--mcts::[playout.odin]::perform_playout
+                       |                                                                                                  |          
+                       |                                                                                                   --2.77%--mcts::[playout.odin]::perform_playout
+                       |                                                                                                             |          
+                       |                                                                                                              --2.51%--mcts::[playout.odin]::perform_playout
+                       |                                                                                                                        |          
+                       |                                                                                                                         --2.29%--mcts::[playout.odin]::perform_playout
+                       |                                                                                                                                   |          
+                       |                                                                                                                                    --2.02%--mcts::[playout.odin]::perform_playout
+                       |          
+                        --5.45%--runtime::_make_aligned_type_erased (inlined)
+                                  |          
+                                   --4.14%--runtime::make_slice:proc(T:$[]bool,len:int,allocator:runtime::Allocator,loc:runtime::Source_Code_Location)->(res:[]bool,err:runtime::Allocator_Error) (inlined)
+                                             alpha_go::get_group_and_liberties
+                                             |          
+                                              --3.13%--alpha_go::play_flat_unchecked
+                                                        alpha_go::is_legal_flat
+                                                        alpha_go::get_legal_moves_flat
+                                                        main::uniform_evaluator
+                                                        mcts::[playout.odin]::expand_node
+                                                        mcts::[playout.odin]::perform_playout
+                                                        mcts::[playout.odin]::perform_playout
+                                                        |          
+                                                         --2.96%--mcts::[playout.odin]::perform_playout
+                                                                   |          
+                                                                    --2.72%--mcts::[playout.odin]::perform_playout
+                                                                              |          
+                                                                               --2.43%--mcts::[playout.odin]::perform_playout
+                                                                                         |          
+                                                                                          --2.19%--mcts::[playout.odin]::perform_playout
+                                                                                                    |          
+                                                                                                     --2.00%--mcts::[playout.odin]::perform_playout
+
+     8.62%  bench_profiled  libc.so.6       [.] __memmove_avx_unaligned_erms
+            |
+            ---__memcpy_avx_unaligned_erms (inlined)
+               |          
+               |--5.38%--runtime::_append_elem
+               |          |          
+               |           --5.33%--runtime::append_elem:proc(array:^[dynamic]int,arg:int,loc:runtime::Source_Code_Location)->(n:int,err:runtime::Allocator_Error) (inlined)
+               |                     |          
+               |                      --5.11%--alpha_go::get_group_and_liberties
+               |                                |          
+               |                                 --3.68%--alpha_go::play_flat_unchecked
+               |                                           alpha_go::is_legal_flat
+               |                                           alpha_go::get_legal_moves_flat
+               |                                           main::uniform_evaluator
+               |                                           mcts::[playout.odin]::expand_node
+               |                                           mcts::[playout.odin]::perform_playout
+               |                                           mcts::[playout.odin]::perform_playout
+               |                                           |          
+               |                                            --3.49%--mcts::[playout.odin]::perform_playout
+               |                                                      |          
+               |                                                       --2.99%--mcts::[playout.odin]::perform_playout
+               |                                                                 |          
+               |                                                                  --2.68%--mcts::[playout.odin]::perform_playout
+               |                                                                            |          
+               |                                                                             --2.50%--mcts::[playout.odin]::perform_playout
+               |                                                                                       |          
+               |                                                                                        --2.15%--mcts::[playout.odin]::perform_playout
+               |          
+                --2.26%--runtime::copy_slice_raw (inlined)
+                          |          
+                           --2.24%--runtime::copy_slice:proc"contextless"(dst:[]i8,src:[]i8)->(:int) (inlined)
+                                     slice::clone:proc(a:[]i8,allocator:runtime::Allocator,loc:runtime::Source_Code_Location)->(:[]i8,:runtime::Allocator_Error) (inlined)
+                                     alpha_go::[go_game.odin]::clone_for_sim
+                                     alpha_go::is_legal_flat
+                                     alpha_go::get_legal_moves_flat
+                                     main::uniform_evaluator
+                                     mcts::[playout.odin]::expand_node
+                                     mcts::[playout.odin]::perform_playout
+                                     |          
+                                      --2.22%--mcts::[playout.odin]::perform_playout
+                                                |          
+                                                 --2.03%--mcts::[playout.odin]::perform_playout
+
+     6.60%  bench_profiled  bench_profiled  [.] runtime::default_temp_allocator_proc
+            |          
+             --4.75%--runtime::arena_allocator_proc (inlined)
+                       runtime::default_temp_allocator_proc
+                       |          
+                       |--2.34%--runtime::mem_alloc_bytes
+                       |          
+                        --2.21%--runtime::mem_free_with_size
+
+     6.32%  bench_profiled  bench_profiled  [.] mcts::[playout.odin]::perform_playout
+            |          
+             --4.68%--mcts::[playout.odin]::select_slot_puct (inlined)
+                       mcts::[playout.odin]::perform_playout
+                       |          
+                        --4.02%--mcts::[playout.odin]::perform_playout
+                                  |          
+                                   --3.61%--mcts::[playout.odin]::perform_playout
+                                             |          
+                                              --3.20%--mcts::[playout.odin]::perform_playout
+                                                        |          
+                                                         --2.79%--mcts::[playout.odin]::perform_playout
+                                                                   |          
+                                                                    --2.44%--mcts::[playout.odin]::perform_playout
+                                                                              |          
+                                                                               --2.07%--mcts::[playout.odin]::perform_playout
+
+     5.50%  bench_profiled  bench_profiled  [.] runtime::_append_elem
+            |
+            ---runtime::_append_elem
+               |          
+                --5.49%--runtime::append_elem:proc(array:^[dynamic]int,arg:int,loc:runtime::Source_Code_Location)->(n:int,err:runtime::Allocator_Error) (inlined)
+                          |          
+                           --4.65%--alpha_go::get_group_and_liberties
+                                     |          
+                                      --3.20%--alpha_go::play_flat_unchecked
+                                                alpha_go::is_legal_flat
+                                                alpha_go::get_legal_moves_flat
+                                                main::uniform_evaluator
+                                                mcts::[playout.odin]::expand_node
+                                                mcts::[playout.odin]::perform_playout
+                                                mcts::[playout.odin]::perform_playout
+                                                |          
+                                                 --3.04%--mcts::[playout.odin]::perform_playout
+                                                           |          
+                                                            --2.79%--mcts::[playout.odin]::perform_playout
+                                                                      |          
+                                                                       --2.51%--mcts::[playout.odin]::perform_playout
+                                                                                 |          
+                                                                                  --2.32%--mcts::[playout.odin]::perform_playout
+                                                                                            |          
+                                                                                             --2.17%--mcts::[playout.odin]::perform_playout
+
+     5.13%  bench_profiled  bench_profiled  [.] alpha_go::play_flat_unchecked
+            |          
+             --2.79%--alpha_go::play_flat_unchecked
+                       alpha_go::is_legal_flat
+                       |          
+                        --2.77%--alpha_go::get_legal_moves_flat
+                                  main::uniform_evaluator
+                                  mcts::[playout.odin]::expand_node
+                                  mcts::[playout.odin]::perform_playout
+                                  mcts::[playout.odin]::perform_playout
+                                  |          
+                                   --2.58%--mcts::[playout.odin]::perform_playout
+                                             |          
+                                              --2.24%--mcts::[playout.odin]::perform_playout
+
+     5.09%  bench_profiled  bench_profiled  [.] runtime::arena_alloc
+            |          
+             --3.30%--runtime::arena_alloc
+                       runtime::arena_allocator_proc (inlined)
+                       runtime::default_temp_allocator_proc
+                       |          
+                        --3.04%--runtime::mem_alloc_bytes
+
+     4.21%  bench_profiled  bench_profiled  [.] alpha_go::is_legal_flat
+            |          
+             --3.44%--alpha_go::is_legal_flat
+                       alpha_go::get_legal_moves_flat
+                       main::uniform_evaluator
+                       mcts::[playout.odin]::expand_node
+                       mcts::[playout.odin]::perform_playout
+                       mcts::[playout.odin]::perform_playout
+                       |          
+                        --3.32%--mcts::[playout.odin]::perform_playout
+                                  |          
+                                   --3.04%--mcts::[playout.odin]::perform_playout
+                                             |          
+                                              --2.72%--mcts::[playout.odin]::perform_playout
+                                                        |          
+                                                         --2.50%--mcts::[playout.odin]::perform_playout
+                                                                   |          
+                                                                    --2.24%--mcts::[playout.odin]::perform_playout
+
+     3.81%  bench_profiled  bench_profiled  [.] __$map_set$$map[u64]struct{}
+            |
+            ---__$map_set$$map[u64]struct{}
+               |          
+                --3.76%--alpha_go::play_flat_unchecked
+                          alpha_go::is_legal_flat
+                          alpha_go::get_legal_moves_flat
+                          main::uniform_evaluator
+                          mcts::[playout.odin]::expand_node
+                          mcts::[playout.odin]::perform_playout
+                          mcts::[playout.odin]::perform_playout
+                          |          
+                           --3.52%--mcts::[playout.odin]::perform_playout
+                                     |          
+                                      --3.16%--mcts::[playout.odin]::perform_playout
+                                                |          
+                                                 --2.75%--mcts::[playout.odin]::perform_playout
+                                                           |          
+                                                            --2.55%--mcts::[playout.odin]::perform_playout
+                                                                      |          
+                                                                       --2.27%--mcts::[playout.odin]::perform_playout
+                                                                                 |          
+                                                                                  --2.00%--mcts::[playout.odin]::perform_playout
+
+     3.15%  bench_profiled  bench_profiled  [.] runtime::mem_free_with_size
+            |
+            ---runtime::mem_free_with_size
+
+     3.03%  bench_profiled  bench_profiled  [.] runtime::map_kvh_data_dynamic
+            |          
+             --2.07%--runtime::map_cell_index_dynamic (inlined)
+                       runtime::map_kvh_data_dynamic
+
+     2.51%  bench_profiled  bench_profiled  [.] __$map_get$$map[u64]struct{}
+            |
+            ---__$map_get$$map[u64]struct{}
+               |          
+                --2.05%--alpha_go::is_legal_flat
+                          alpha_go::get_legal_moves_flat
+                          main::uniform_evaluator
+                          mcts::[playout.odin]::expand_node
+                          mcts::[playout.odin]::perform_playout
+                          mcts::[playout.odin]::perform_playout
+
+     2.38%  bench_profiled  libc.so.6       [.] __memset_avx2_unaligned_erms
+            |
+            ---__memset_avx2_unaligned_erms
+
+     2.29%  bench_profiled  bench_profiled  [.] runtime::map_insert_hash_dynamic_with_key
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
