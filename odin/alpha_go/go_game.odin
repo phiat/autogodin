@@ -394,6 +394,135 @@ pass_move :: proc(b: ^GoBoard) -> bool {
 	return true
 }
 
+// =============================================================================
+// Reversible moves (do_move / undo_move) — used by MCTS to mutate a single
+// working_board while descending/ascending the tree. The board's state after
+// do_move + undo_move is bit-identical to before do_move.
+//
+// Captures (both opponent-captures and the own-suicide branch) are pushed onto
+// `captures` as (index, color) records. undo_move pops them back.
+//
+// NOTE: do_move does NOT check legality — it mirrors play_flat_unchecked.
+// Callers must verify legality (or accept the resulting state).
+// =============================================================================
+
+CaptureRecord :: struct {
+	index: i32,
+	color: i8,
+}
+
+MoveDelta :: struct {
+	action:                  int, // PASS_ACTION or [0, size*size)
+	capture_start:           int, // index into captures stack
+	capture_count:           int,
+	prev_ko_point:           int,
+	prev_consecutive_passes: int,
+	prev_move_count:         int,
+	prev_current_hash:       u64,
+	prev_to_play:            i8,
+	seen_hash_added:         u64, // hash inserted into seen_hashes by this move
+	seen_hash_was_new:       bool, // if false, undo must NOT remove it
+}
+
+do_move :: proc(b: ^GoBoard, action: int, captures: ^[dynamic]CaptureRecord) -> MoveDelta {
+	delta := MoveDelta {
+		action                  = action,
+		capture_start           = len(captures),
+		prev_ko_point           = b.ko_point,
+		prev_consecutive_passes = b.consecutive_passes,
+		prev_move_count         = b.move_count,
+		prev_current_hash       = b.current_hash,
+		prev_to_play            = b.to_play,
+	}
+
+	// Record + insert seen_hashes entry for the position BEFORE this move.
+	_, was_seen := b.seen_hashes[b.current_hash]
+	b.seen_hashes[b.current_hash] = {}
+	delta.seen_hash_added = b.current_hash
+	delta.seen_hash_was_new = !was_seen
+
+	if action == PASS_ACTION {
+		b.consecutive_passes += 1
+		b.move_count += 1
+		b.to_play = opponent_of(b.to_play)
+		b.ko_point = NO_KO
+		return delta
+	}
+
+	// Mirrors play_flat_unchecked, but records every captured stone on `captures`.
+	b.board[action] = b.to_play
+	b.current_hash ~= b.tables.zobrist[action][int(b.to_play)]
+	opp := opponent_of(b.to_play)
+	b.ko_point = NO_KO
+
+	total_captured := 0
+	last_captured := -1
+
+	nb := b.tables.neighbors[action]
+	for k in 0 ..< nb.count {
+		ni := nb.indices[k]
+		if b.board[ni] == opp {
+			group, libs := get_group_and_liberties(b, ni, context.temp_allocator)
+			if len(libs) == 0 {
+				if len(group) == 1 {last_captured = group[0]}
+				for idx in group {
+					append(captures, CaptureRecord{index = i32(idx), color = opp})
+				}
+				total_captured += remove_group(b, group[:])
+			}
+			delete(group)
+			delete(libs)
+		}
+	}
+
+	our_group, our_libs := get_group_and_liberties(b, action, context.temp_allocator)
+	if len(our_libs) == 0 {
+		// Multi-stone suicide: our own group gets removed. Record those captures
+		// under our own color so undo can restore them correctly.
+		for idx in our_group {
+			append(captures, CaptureRecord{index = i32(idx), color = b.to_play})
+		}
+		remove_group(b, our_group[:])
+	} else if total_captured == 1 && len(our_group) == 1 && len(our_libs) == 1 {
+		b.ko_point = last_captured
+	}
+	delete(our_group)
+	delete(our_libs)
+
+	b.consecutive_passes = 0
+	b.move_count += 1
+	b.to_play = opp
+
+	delta.capture_count = len(captures) - delta.capture_start
+	return delta
+}
+
+undo_move :: proc(b: ^GoBoard, delta: MoveDelta, captures: ^[dynamic]CaptureRecord) {
+	// Restore captured stones first (they hold board-cell state). For non-pass
+	// moves the played stone is also at delta.action — clear it before restoring
+	// captures in case the action cell itself was part of an own-suicide.
+	if delta.action != PASS_ACTION {
+		b.board[delta.action] = EMPTY
+	}
+	for i in 0 ..< delta.capture_count {
+		rec := captures[delta.capture_start + i]
+		b.board[rec.index] = rec.color
+	}
+	resize(captures, delta.capture_start)
+
+	// Scalars: restore wholesale.
+	b.current_hash = delta.prev_current_hash
+	b.ko_point = delta.prev_ko_point
+	b.consecutive_passes = delta.prev_consecutive_passes
+	b.move_count = delta.prev_move_count
+	b.to_play = delta.prev_to_play
+
+	// Remove the seen_hashes entry we added, but only if it wasn't there before.
+	if delta.seen_hash_was_new {
+		delete_key(&b.seen_hashes, delta.seen_hash_added)
+	}
+}
+
 score :: proc(b: ^GoBoard) -> f32 {
 	black_score := f32(0)
 	white_score := b.komi
