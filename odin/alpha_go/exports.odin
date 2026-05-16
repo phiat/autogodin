@@ -169,14 +169,23 @@ ffi_goboard_get_legal_moves_flat :: proc "c" (
 ) -> c.int {
 	context = runtime.default_context()
 	b := cast(^GoBoard)h
-	moves := get_legal_moves_flat(b)
-	defer delete(moves)
-	if out_buf != nil && max_n > 0 {
-		n := min(int(max_n), len(moves))
-		dst := mem.slice_ptr(out_buf, n)
-		for i in 0 ..< n {dst[i] = c.int(moves[i])}
+	if out_buf == nil || max_n <= 0 {
+		// No caller buffer — fall back to a one-shot count via the dynamic
+		// variant (rare path; Python shim always supplies a sized buffer).
+		moves := get_legal_moves_flat(b)
+		defer delete(moves)
+		return c.int(len(moves))
 	}
-	return c.int(len(moves))
+	// Write directly into caller-owned out_buf. Use a small stack scratch sized
+	// to the max legal-move count (n_cells), copy the prefix the caller asked for.
+	// Stack-allocated int[]; no heap, no append-grow churn (the old path went
+	// through [dynamic]int → 5.5% _append_elem in the ydh.6 perf profile).
+	scratch: [19 * 19]int = ---
+	count := fill_legal_moves_flat(b, scratch[:n_cells(b)])
+	n := min(int(max_n), count)
+	dst := mem.slice_ptr(out_buf, n)
+	for i in 0 ..< n {dst[i] = c.int(scratch[i])}
+	return c.int(count)
 }
 
 @(export, link_name = "alphago_goboard_to_array")

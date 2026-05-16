@@ -38,16 +38,19 @@ uniform_evaluator :: proc(
 	user_data:   rawptr,
 ) -> int {
 	b := cast(^ag.GoBoard)state
-	legal := ag.get_legal_moves_flat(b, context.temp_allocator)
-	defer delete(legal) // [dynamic] uses its stored allocator (temp_allocator)
+	// Stack scratch: max legal-move count is n_cells (no pass). Avoids the
+	// per-leaf [dynamic]int allocation that drove ~5.5% _append_elem cost
+	// in the ydh.6 perf profile (see autogodin-5km).
+	scratch: [19 * 19]int = ---
+	count := ag.fill_legal_moves_flat(b, scratch[:b.size * b.size])
 
 	pass_id := b.size * b.size
-	n := len(legal) + 1
+	n := count + 1
 	uniform := f32(1.0) / f32(n)
 	written := 0
-	for m in legal {
+	for i in 0 ..< count {
 		if written >= len(out_actions) {break}
-		out_actions[written] = m
+		out_actions[written] = scratch[i]
 		out_probs[written]   = uniform
 		written += 1
 	}

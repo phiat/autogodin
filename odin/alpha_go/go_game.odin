@@ -464,6 +464,31 @@ is_legal_flat :: proc(b: ^GoBoard, index: int) -> bool {
 	return true
 }
 
+// Caller-owned-buffer variant: writes legal-move flat indices into `out` and
+// returns the count. Zero allocations per call. Caller is responsible for
+// sizing `out` to at least `n_cells(b)` (max possible legal-move count on an
+// empty board). Truncates silently if `out` is too small. Pass action is NOT
+// included — callers that need it should append it themselves.
+//
+// Hot-path entry point: per-leaf evaluators should reuse a single stack-
+// allocated [N]int across calls rather than re-allocating a [dynamic]int.
+// See ydh.6 hotspot #3 / autogodin-5km.
+fill_legal_moves_flat :: proc(b: ^GoBoard, out: []int) -> int {
+	n := n_cells(b)
+	cap_out := len(out)
+	count := 0
+	for i in 0 ..< n {
+		if is_legal_flat(b, i) {
+			if count >= cap_out {break}
+			out[count] = i
+			count += 1
+		}
+	}
+	return count
+}
+
+// Back-compat: dynamic-array variant. Thin wrapper around fill_legal_moves_flat
+// for the FFI side and for tests / external callers that want owned storage.
 get_legal_moves_flat :: proc(b: ^GoBoard, allocator := context.allocator) -> [dynamic]int {
 	n := n_cells(b)
 	moves := make([dynamic]int, 0, n, allocator)
