@@ -1,0 +1,435 @@
+package alpha_go
+
+import "base:runtime"
+import "core:slice"
+
+EMPTY :: i8(0)
+BLACK :: i8(1)
+WHITE :: i8(2)
+
+KOMI_DEFAULT :: f32(7.5)
+NO_KO :: -1
+
+Neighbors4 :: struct {
+	indices: [4]int,
+	count:   int,
+}
+
+GoBoard :: struct {
+	size:               int,
+	komi:               f32,
+	board:              []i8,
+	to_play:            i8,
+	ko_point:           int, // NO_KO = -1
+	consecutive_passes: int,
+	move_count:         int,
+
+	neighbors:    []Neighbors4,
+	zobrist:      [][3]u64,
+	current_hash: u64,
+	seen_hashes:  map[u64]struct{},
+
+	allocator:    runtime.Allocator,
+}
+
+make_go_board :: proc(size: int = 9, komi: f32 = KOMI_DEFAULT, allocator := context.allocator) -> GoBoard {
+	context.allocator = allocator
+	n := size * size
+	b := GoBoard {
+		size      = size,
+		komi      = komi,
+		board     = make([]i8, n),
+		to_play   = BLACK,
+		ko_point  = NO_KO,
+		neighbors = make([]Neighbors4, n),
+		zobrist   = make([][3]u64, n),
+		allocator = allocator,
+	}
+	init_neighbors(&b)
+	init_zobrist(&b)
+	return b
+}
+
+destroy_go_board :: proc(b: ^GoBoard) {
+	delete(b.board, b.allocator)
+	delete(b.neighbors, b.allocator)
+	delete(b.zobrist, b.allocator)
+	delete(b.seen_hashes)
+	b^ = {}
+}
+
+// Clone with full PSK history. Caller owns all dst-allocated buffers.
+clone_go_board :: proc(src: ^GoBoard, allocator := context.allocator) -> GoBoard {
+	context.allocator = allocator
+	dst := GoBoard {
+		size               = src.size,
+		komi               = src.komi,
+		board              = slice.clone(src.board),
+		to_play            = src.to_play,
+		ko_point           = src.ko_point,
+		consecutive_passes = src.consecutive_passes,
+		move_count         = src.move_count,
+		neighbors          = slice.clone(src.neighbors),
+		zobrist            = slice.clone(src.zobrist),
+		current_hash       = src.current_hash,
+		allocator          = allocator,
+	}
+	dst.seen_hashes = make(map[u64]struct{}, len(src.seen_hashes))
+	for h in src.seen_hashes {
+		dst.seen_hashes[h] = {}
+	}
+	return dst
+}
+
+// Clone with empty seen_hashes — used by is_legal_flat for the simulation copy.
+@(private = "file")
+clone_for_sim :: proc(src: ^GoBoard, allocator := context.allocator) -> GoBoard {
+	context.allocator = allocator
+	dst := GoBoard {
+		size               = src.size,
+		komi               = src.komi,
+		board              = slice.clone(src.board),
+		to_play            = src.to_play,
+		ko_point           = src.ko_point,
+		consecutive_passes = src.consecutive_passes,
+		move_count         = src.move_count,
+		neighbors          = slice.clone(src.neighbors),
+		zobrist            = slice.clone(src.zobrist),
+		current_hash       = src.current_hash,
+		allocator          = allocator,
+	}
+	dst.seen_hashes = make(map[u64]struct{})
+	return dst
+}
+
+init_neighbors :: proc(b: ^GoBoard) {
+	size := b.size
+	for row in 0 ..< size {
+		for col in 0 ..< size {
+			idx := row * size + col
+			n := &b.neighbors[idx]
+			n.count = 0
+			if row > 0 {n.indices[n.count] = (row - 1) * size + col; n.count += 1}
+			if row < size - 1 {n.indices[n.count] = (row + 1) * size + col; n.count += 1}
+			if col > 0 {n.indices[n.count] = row * size + (col - 1); n.count += 1}
+			if col < size - 1 {n.indices[n.count] = row * size + (col + 1); n.count += 1}
+		}
+	}
+}
+
+@(private = "file")
+splitmix64 :: proc(seed: ^u64) -> u64 {
+	seed^ += 0x9E3779B97F4A7C15
+	z := seed^
+	z = (z ~ (z >> 30)) * 0xBF58476D1CE4E5B9
+	z = (z ~ (z >> 27)) * 0x94D049BB133111EB
+	return z ~ (z >> 31)
+}
+
+init_zobrist :: proc(b: ^GoBoard) {
+	seed := u64(0x9E3779B97F4A7C15) ~ u64(b.size)
+	n := b.size * b.size
+	for i in 0 ..< n {
+		b.zobrist[i][EMPTY] = 0
+		b.zobrist[i][BLACK] = splitmix64(&seed)
+		b.zobrist[i][WHITE] = splitmix64(&seed)
+	}
+}
+
+flat_index :: proc(b: ^GoBoard, row, col: int) -> int {
+	return row * b.size + col
+}
+
+row_col :: proc(b: ^GoBoard, flat: int) -> (row, col: int) {
+	return flat / b.size, flat % b.size
+}
+
+at :: proc(b: ^GoBoard, row, col: int) -> i8 {
+	return b.board[row * b.size + col]
+}
+
+at_flat :: proc(b: ^GoBoard, index: int) -> i8 {
+	return b.board[index]
+}
+
+is_game_over :: proc(b: ^GoBoard) -> bool {
+	return b.consecutive_passes >= 2
+}
+
+@(private = "file")
+opponent_of :: proc(c: i8) -> i8 {
+	return WHITE if c == BLACK else BLACK
+}
+
+// DFS flood-fill: returns the connected group at `index` and its liberties.
+// Both [dynamic] returns are allocated with the supplied allocator.
+get_group_and_liberties :: proc(
+	b: ^GoBoard,
+	index: int,
+	allocator := context.allocator,
+) -> (
+	group: [dynamic]int,
+	liberties: [dynamic]int,
+) {
+	group = make([dynamic]int, 0, 16, allocator)
+	liberties = make([dynamic]int, 0, 16, allocator)
+	color := b.board[index]
+	if color == EMPTY {
+		return
+	}
+	n := b.size * b.size
+	visited := make([]bool, n, context.temp_allocator)
+	defer delete(visited, context.temp_allocator)
+	lib_visited := make([]bool, n, context.temp_allocator)
+	defer delete(lib_visited, context.temp_allocator)
+	stack := make([dynamic]int, 0, 16, context.temp_allocator)
+	defer delete(stack)
+
+	append(&stack, index)
+	visited[index] = true
+
+	for len(stack) > 0 {
+		current := pop(&stack)
+		append(&group, current)
+		nb := b.neighbors[current]
+		for k in 0 ..< nb.count {
+			ni := nb.indices[k]
+			v := b.board[ni]
+			if v == EMPTY {
+				if !lib_visited[ni] {
+					lib_visited[ni] = true
+					append(&liberties, ni)
+				}
+			} else if v == color && !visited[ni] {
+				visited[ni] = true
+				append(&stack, ni)
+			}
+		}
+	}
+	return
+}
+
+remove_group :: proc(b: ^GoBoard, group: []int) -> int {
+	for idx in group {
+		b.current_hash ~= b.zobrist[idx][int(b.board[idx])]
+		b.board[idx] = EMPTY
+	}
+	return len(group)
+}
+
+is_legal :: proc(b: ^GoBoard, row, col: int) -> bool {
+	return is_legal_flat(b, row * b.size + col)
+}
+
+is_legal_flat :: proc(b: ^GoBoard, index: int) -> bool {
+	if index < 0 || index >= b.size * b.size {return false}
+	if b.board[index] != EMPTY {return false}
+	if b.ko_point == index {return false}
+
+	player := b.to_play
+	opponent := opponent_of(player)
+
+	has_friendly := false
+	has_empty := false
+	captures := false
+
+	nb := b.neighbors[index]
+	loop: for k in 0 ..< nb.count {
+		ni := nb.indices[k]
+		v := b.board[ni]
+		if v == EMPTY {
+			has_empty = true
+			break loop
+		} else if v == player {
+			has_friendly = true
+		} else if v == opponent && !captures {
+			group, libs := get_group_and_liberties(b, ni, context.temp_allocator)
+			if len(libs) == 1 && libs[0] == index {
+				captures = true
+			}
+			delete(group)
+			delete(libs)
+		}
+	}
+
+	// Single-stone-suicide fast reject.
+	if !has_empty && !has_friendly && !captures {
+		return false
+	}
+
+	need_suicide_check := !has_empty && !captures
+	need_psk_check := len(b.seen_hashes) > 0
+	if need_suicide_check || need_psk_check {
+		tmp := clone_for_sim(b, context.temp_allocator)
+		defer destroy_go_board(&tmp)
+		play_flat_unchecked(&tmp, index)
+		if need_suicide_check && tmp.board[index] == EMPTY {
+			return false
+		}
+		if need_psk_check {
+			if _, ok := b.seen_hashes[tmp.current_hash]; ok {
+				return false
+			}
+		}
+	}
+	return true
+}
+
+get_legal_moves_flat :: proc(b: ^GoBoard, allocator := context.allocator) -> [dynamic]int {
+	n := b.size * b.size
+	moves := make([dynamic]int, 0, n, allocator)
+	for i in 0 ..< n {
+		if is_legal_flat(b, i) {
+			append(&moves, i)
+		}
+	}
+	return moves
+}
+
+play :: proc(b: ^GoBoard, row, col: int) -> bool {
+	return play_flat(b, row * b.size + col)
+}
+
+play_flat :: proc(b: ^GoBoard, index: int) -> bool {
+	if !is_legal_flat(b, index) {return false}
+	play_flat_unchecked(b, index)
+	return true
+}
+
+// Applies a move assuming legality already checked. Used by play_flat AND by
+// is_legal_flat (on a temp clone) to detect multi-stone suicide.
+play_flat_unchecked :: proc(b: ^GoBoard, index: int) {
+	// Record the pre-move state hash in seen_hashes (for PSK on future moves).
+	b.seen_hashes[b.current_hash] = {}
+
+	b.board[index] = b.to_play
+	b.current_hash ~= b.zobrist[index][int(b.to_play)]
+	opp := opponent_of(b.to_play)
+	b.ko_point = NO_KO
+
+	total_captured := 0
+	last_captured := -1
+
+	nb := b.neighbors[index]
+	for k in 0 ..< nb.count {
+		ni := nb.indices[k]
+		if b.board[ni] == opp {
+			group, libs := get_group_and_liberties(b, ni, context.temp_allocator)
+			if len(libs) == 0 {
+				if len(group) == 1 {
+					last_captured = group[0]
+				}
+				total_captured += remove_group(b, group[:])
+			}
+			delete(group)
+			delete(libs)
+		}
+	}
+
+	our_group, our_libs := get_group_and_liberties(b, index, context.temp_allocator)
+	if len(our_libs) == 0 {
+		remove_group(b, our_group[:])
+	} else if total_captured == 1 && len(our_group) == 1 && len(our_libs) == 1 {
+		b.ko_point = last_captured
+	}
+	delete(our_group)
+	delete(our_libs)
+
+	b.consecutive_passes = 0
+	b.move_count += 1
+	b.to_play = opp
+}
+
+pass_move :: proc(b: ^GoBoard) -> bool {
+	b.seen_hashes[b.current_hash] = {}
+	b.consecutive_passes += 1
+	b.move_count += 1
+	b.to_play = opponent_of(b.to_play)
+	b.ko_point = NO_KO
+	return true
+}
+
+score :: proc(b: ^GoBoard) -> f32 {
+	black_score := f32(0)
+	white_score := b.komi
+	n := b.size * b.size
+	for i in 0 ..< n {
+		if b.board[i] == BLACK {
+			black_score += 1
+		} else if b.board[i] == WHITE {
+			white_score += 1
+		}
+	}
+
+	visited := make([]bool, n, context.temp_allocator)
+	defer delete(visited, context.temp_allocator)
+
+	for i in 0 ..< n {
+		if b.board[i] != EMPTY || visited[i] {continue}
+
+		territory := make([dynamic]int, 0, 8, context.temp_allocator)
+		defer delete(territory)
+		stack := make([dynamic]int, 0, 8, context.temp_allocator)
+		defer delete(stack)
+
+		append(&stack, i)
+		visited[i] = true
+		borders_black := false
+		borders_white := false
+
+		for len(stack) > 0 {
+			current := pop(&stack)
+			append(&territory, current)
+			nbrs := b.neighbors[current]
+			for k in 0 ..< nbrs.count {
+				ni := nbrs.indices[k]
+				v := b.board[ni]
+				if v == EMPTY {
+					if !visited[ni] {
+						visited[ni] = true
+						append(&stack, ni)
+					}
+				} else if v == BLACK {
+					borders_black = true
+				} else if v == WHITE {
+					borders_white = true
+				}
+			}
+		}
+
+		if borders_black && !borders_white {
+			black_score += f32(len(territory))
+		} else if borders_white && !borders_black {
+			white_score += f32(len(territory))
+		}
+	}
+
+	return black_score - white_score
+}
+
+get_winner :: proc(b: ^GoBoard) -> i8 {
+	s := score(b)
+	if s > 0 {return BLACK}
+	if s < 0 {return WHITE}
+	return 0
+}
+
+set_from_array :: proc(b: ^GoBoard, data: []i8, to_play: i8) {
+	n := b.size * b.size
+	b.current_hash = 0
+	for i in 0 ..< n {
+		b.board[i] = data[i]
+		if b.board[i] != EMPTY {
+			b.current_hash ~= b.zobrist[i][int(b.board[i])]
+		}
+	}
+	clear(&b.seen_hashes)
+	b.to_play = to_play
+	b.ko_point = NO_KO
+	b.consecutive_passes = 0
+	mc := 0
+	for i in 0 ..< n {
+		if b.board[i] != EMPTY {mc += 1}
+	}
+	b.move_count = mc
+}
