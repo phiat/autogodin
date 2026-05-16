@@ -1,5 +1,5 @@
 repo:    https://github.com/phiat/mcts-odin
-commit:  6bb0768  # v0.2.0 + FPU regime caveat doc (closes mcts-odin-caq)
+commit:  9d35153  # v0.2.1 — bench fix (mcts-odin-brj); mcts/ core unchanged vs 0.2.0
 synced:  2026-05-16
 
 Files copied from mcts-odin/mcts/. Pure Odin, no submodule. To refresh:
