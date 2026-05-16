@@ -21,7 +21,7 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 **Phase 1 (Odin port) — done.** **Phase 2 (foundation + parity) — done.**
 
 - GoBoard: Zobrist-incremental positional superko, KataGo-aligned no-suicide rule, Tromp-Taylor area scoring.
-- MCTS: working-board do_move/undo_move descent (no per-node board clone), per-tree virtual arena, leaf-parallel batched with virtual loss, Dirichlet noise, PCR.
+- MCTS: vendored from [mcts-odin](https://github.com/phiat/mcts-odin) (`odin/vendor/mcts-odin/`, pinned commit). Packed-slot nodes, branchless PUCT, linear-space priors, per-tree scratch arena, leaf-parallel batched with virtual loss, Dirichlet noise, PCR, subtree reuse. The local `go_adapter.odin` is a ~140-LOC Game vtable bridging GoBoard.
 - 37/37 Odin `@(test)` cases pass clean under the memory tracker.
 - 42 `alphago_*` C-ABI symbols in `libalpha_go_odin.so`; Python ctypes shim mirrors upstream `alpha_go_cpp`'s OO API.
 
@@ -34,13 +34,14 @@ scripts/build_odin.sh   builds build/libalpha_go_odin.so
 
 ydh.2 micro-bench (9×9, 1600 sims/move × 32 moves, single-thread, NN-free):
 
-| Backend                         | sims/sec     | vs C++  |
-|---------------------------------|--------------|---------|
-| `alpha_go_cpp` (upstream)       | ~8,500       | 1.00×   |
-| `alpha_go_odin` (post-foundation) | **7,927 ± 12** | 0.93×   |
-| autogodin pre-foundation        | 2,859        | 0.34×   |
+| Backend                         | sims/sec        | vs C++  |
+|---------------------------------|-----------------|---------|
+| `alpha_go_cpp` (upstream)       | ~8,500          | 1.00×   |
+| `alpha_go_odin` (post-ci2)      | **12,845 ± 694** | 1.51×   |
+| `alpha_go_odin` (post-foundation, pre-vendor) | 7,927 ± 12 | 0.93×   |
+| autogodin pre-foundation        | 2,859           | 0.34×   |
 
-Foundation refactor (`bd close autogodin-4rw`) lifted Odin from 0.34× to 0.93× C++. The remaining gap is dominated by Python-callback marshalling per leaf; see `bd show autogodin-ci2` for the next perf direction (potential adoption of [mcts-odin](https://github.com/phiat/mcts-odin), a generic Odin MCTS package extracted from this work).
+Foundation refactor (`bd close autogodin-4rw`) lifted Odin from 0.34× to 0.93× C++. Vendoring mcts-odin (`bd close autogodin-ci2`) — packed-slot nodes, branchless PUCT, linear priors, per-tree scratch arena — added another 1.62× on top, landing 1.51× C++ on the same Python-callback workload.
 
 **Phase 3** — experimentation, training A/Bs, optional GPU runs. See `bd ready`.
 
