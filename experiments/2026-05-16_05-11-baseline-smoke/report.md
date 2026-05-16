@@ -2,13 +2,13 @@
 
 **Date:** 2026-05-16 (PST)
 **Bead:** `autogodin-ydh.1` (partial; GPU training step deferred)
-**Host:** miniwini (CPU only, 16 cores, 19 GB)
+**Host:** CPU-only Linux box (16 cores, 19 GB RAM, no GPU)
 
 ## What was done
 
 Phase A of `ydh.1`: bootstrap the autogo Python + C++ environment on a fresh CPU host and prove the cross-language parity contract end-to-end. Phase B (actually completing `run_iteration.sh 0 1` with a real GPU training step) is filed as a follow-up.
 
-Steps on miniwini:
+Steps:
 
 1. `curl https://astral.sh/uv/install.sh | sh` → uv 0.11.14.
 2. `git clone https://github.com/ericjang/autogo` (public; phiat/autogodin is our repo).
@@ -35,7 +35,7 @@ Steps on miniwini:
 
 - **`scripts/build_cpp.sh` hardcodes `libpython3.10.so`.** uv's auto-installed Python on a fresh host is 3.11.15, so the script's `sysconfig.get_config_var('LIBDIR') + 'libpython3.10.so'` resolves to a non-existent path and CMake errors out with "Could NOT find Python3 (missing: Development...)". Workaround: compute the version dynamically (`f"libpython{sys.version_info.major}.{sys.version_info.minor}.so"`) or pass `-DPython3_LIBRARY=...` directly to cmake. Worth a PR upstream.
 - **`tests/test_gpu_lease.py` is broken upstream.** It imports `_read_priorities` and `_write_priorities_stub` from `infra.remote_exec`, neither of which exists in the current `remote_exec.py`. Skipped via `--ignore`. Not fatal, but a real test gap.
-- **`pyproject.toml` requires-python = ">=3.10"** — works fine on 3.11; we did not test 3.12 (PEP 668 made system-Python pip installs awkward on miniwini anyway).
+- **`pyproject.toml` requires-python = ">=3.10"** — works fine on 3.11; 3.12 untested.
 
 ## Timing
 

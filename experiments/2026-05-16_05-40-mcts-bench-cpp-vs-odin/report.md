@@ -2,7 +2,7 @@
 
 **Date:** 2026-05-16 (PST)
 **Bead:** `autogodin-ydh.2`
-**Host:** miniwini (16 cores, no GPU), `OMP_NUM_THREADS=1`, single-thread
+**Host:** CPU-only Linux box (16 cores, no GPU), `OMP_NUM_THREADS=1`, single-thread
 
 ## Setup
 
