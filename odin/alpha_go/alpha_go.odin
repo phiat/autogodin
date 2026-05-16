@@ -1,6 +1,6 @@
 package alpha_go
 
-VERSION :: "0.0.1-scaffold"
+VERSION :: "0.2.0"
 
 @(export, link_name="alphago_odin_version")
 ffi_version :: proc "c" () -> cstring {
