@@ -248,6 +248,26 @@ _t_run_sims = _bind(
     "alphago_mcts_tree_run_simulations", None, [_Handle, ct.c_int, _CEvaluator, ct.c_void_p]
 )
 
+# Batched evaluator C-ABI. Mirrors the sequential _CEvaluator but flat-shaped:
+# batch_size pointers to GoBoard, plus row-major out buffers sized
+# batch_size * max_n_per_state.
+_CEvaluatorBatched = ct.CFUNCTYPE(
+    None,                  # void return — counts/values are written through pointers
+    ct.c_int,              # batch_size
+    ct.POINTER(ct.c_void_p),  # states[batch_size]
+    _PInt,                 # out_actions (flat, row-major)
+    _PFloat,               # out_probs   (flat, row-major)
+    _PInt,                 # out_counts[batch_size]
+    _PFloat,               # out_values[batch_size]
+    ct.c_int,              # max_n_per_state
+    ct.c_void_p,           # user_data
+)
+_t_run_sims_batched = _bind(
+    "alphago_mcts_tree_run_simulations_batched",
+    None,
+    [_Handle, ct.c_int, ct.c_int, _CEvaluatorBatched, ct.c_void_p],
+)
+
 
 class MCTSConfig:
     def __init__(self):
@@ -292,6 +312,7 @@ class MCTSConfig:
 
 PolicyValue = tuple[dict[int, float], float]
 EvaluatorFn = Callable[[GoBoard], PolicyValue]
+BatchedEvaluatorFn = Callable[[list[GoBoard]], tuple[list[dict[int, float]], list[float]]]
 
 
 class MCTSTree:
@@ -351,6 +372,46 @@ class MCTSTree:
         # trampoline mid-flight.
         self._cb_keepalive = cb
         _t_run_sims(self._h, num_simulations, cb, None)
+        self._cb_keepalive = None
+
+    def _make_batched_trampoline(self, evaluator: BatchedEvaluatorFn):
+        board_size = self._board_size
+
+        def trampoline(batch_size, states_ptr, out_actions, out_probs, out_counts, out_values, max_n, _user):
+            # Wrap each state pointer as a non-owning GoBoard view.
+            views: list[GoBoard] = []
+            for i in range(batch_size):
+                view = GoBoard.__new__(GoBoard)
+                view._h = states_ptr[i]
+                view._owned = False
+                view._size = board_size
+                views.append(view)
+            policies, values = evaluator(views)
+            # Pack into the row-major out_actions / out_probs buffers.
+            for i, (policy, value) in enumerate(zip(policies, values)):
+                row_base = i * max_n
+                k = 0
+                for action, prob in policy.items():
+                    if k >= max_n:
+                        break
+                    out_actions[row_base + k] = action
+                    out_probs[row_base + k]   = prob
+                    k += 1
+                out_counts[i] = k
+                out_values[i] = value
+
+        return _CEvaluatorBatched(trampoline)
+
+    def run_simulations_batched(
+        self,
+        num_simulations: int,
+        batch_size: int,
+        evaluator: BatchedEvaluatorFn,
+    ) -> None:
+        cb = self._make_batched_trampoline(evaluator)
+        # Keep cb alive (same pattern as run_simulations).
+        self._cb_keepalive = cb
+        _t_run_sims_batched(self._h, num_simulations, batch_size, cb, None)
         self._cb_keepalive = None
 
     def get_child_visit_counts(self) -> dict[int, int]:

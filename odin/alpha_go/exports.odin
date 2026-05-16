@@ -413,6 +413,115 @@ ffi_tree_run_simulations :: proc "c" (
 	mcts.run_simulations(&t.tree, int(num_simulations), mcts_evaluator_trampoline, &cctx)
 }
 
+// -------------------- batched evaluator path --------------------
+//
+// Mirrors the sequential CEvaluator but for batched search.
+//
+// `states` is a contiguous block of `batch_size` GoBoard* (non-owning).
+// `out_actions` and `out_probs` are flat row-major buffers of
+// `batch_size * max_n_per_state` entries — row i belongs to state i.
+// `out_counts[i]` and `out_values[i]` are per-state outputs.
+// All action ids use the PYTHON convention (pass = -1).
+CEvaluatorBatched :: #type proc "c" (
+	batch_size:      c.int,
+	states:          ^rawptr,
+	out_actions:     ^c.int,
+	out_probs:       ^c.float,
+	out_counts:      ^c.int,
+	out_values:      ^c.float,
+	max_n_per_state: c.int,
+	user_data:       rawptr,
+)
+
+@(private = "file")
+BatchedCallbackCtx :: struct {
+	cb:        CEvaluatorBatched,
+	user_data: rawptr,
+}
+
+// Trampoline from mcts.Evaluator_Batched (per-state action slices, mcts action
+// ids) to the Python-facing CEvaluatorBatched (one flat row-major buffer, pass
+// = -1). Allocates per-call scratch on temp_allocator — the FFI entry point
+// free_all's it on each run_simulations_batched call.
+@(private = "file")
+mcts_evaluator_batched_trampoline :: proc(
+	states:      []rawptr,
+	out_actions: [][]int,
+	out_probs:   [][]f32,
+	out_counts:  []int,
+	out_values:  []f32,
+	user_data:   rawptr,
+) {
+	ctx := cast(^BatchedCallbackCtx)user_data
+	if len(states) == 0 {return}
+
+	// Infer board size from the first state; mcts.run_simulations_batched
+	// is currently single-game so all leaves share size.
+	b0 := cast(^GoBoard)states[0]
+	size := b0.size
+	max_n := size * size + 1
+	n := len(states)
+
+	// Flat row-major scratch for the Python callback.
+	py_states  := make([]rawptr, n,                context.temp_allocator)
+	py_actions := make([]c.int,  n * max_n,        context.temp_allocator)
+	py_probs   := make([]c.float, n * max_n,       context.temp_allocator)
+	py_counts  := make([]c.int,  n,                context.temp_allocator)
+	py_values  := make([]c.float, n,               context.temp_allocator)
+	defer {
+		delete(py_states,  context.temp_allocator)
+		delete(py_actions, context.temp_allocator)
+		delete(py_probs,   context.temp_allocator)
+		delete(py_counts,  context.temp_allocator)
+		delete(py_values,  context.temp_allocator)
+	}
+
+	for i in 0 ..< n {py_states[i] = states[i]}
+
+	ctx.cb(
+		c.int(n),
+		raw_data(py_states),
+		raw_data(py_actions),
+		raw_data(py_probs),
+		raw_data(py_counts),
+		raw_data(py_values),
+		c.int(max_n),
+		ctx.user_data,
+	)
+
+	// Unpack into mcts's caller-owned slices, translating action ids.
+	for i in 0 ..< n {
+		written := int(py_counts[i])
+		row_lim := min(written, max_n, len(out_actions[i]), len(out_probs[i]))
+		row_base := i * max_n
+		for k in 0 ..< row_lim {
+			out_actions[i][k] = to_mcts_action(int(py_actions[row_base + k]), size)
+			out_probs[i][k]   = f32(py_probs[row_base + k])
+		}
+		out_counts[i] = row_lim
+		out_values[i] = f32(py_values[i])
+	}
+}
+
+@(export, link_name = "alphago_mcts_tree_run_simulations_batched")
+ffi_tree_run_simulations_batched :: proc "c" (
+	h: rawptr,
+	num_simulations: c.int,
+	batch_size: c.int,
+	cb: CEvaluatorBatched,
+	user_data: rawptr,
+) {
+	context = runtime.default_context()
+	free_all(context.temp_allocator)
+	defer free_all(context.temp_allocator)
+	t := cast(^TreeHandle)h
+	cctx := BatchedCallbackCtx{cb = cb, user_data = user_data}
+	mcts.run_simulations_batched(
+		&t.tree, int(num_simulations), int(batch_size),
+		mcts_evaluator_batched_trampoline, &cctx,
+	)
+}
+
 @(export, link_name = "alphago_mcts_tree_select_action")
 ffi_tree_select_action :: proc "c" (h: rawptr, temperature: c.float) -> c.int {
 	context = runtime.default_context()
