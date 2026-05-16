@@ -2,6 +2,24 @@ package alpha_go
 
 // Go vtable wrapping our GoBoard for the vendored mcts-odin package.
 //
+// AlphaZero reader's map. In a PyTorch AlphaZero implementation you have:
+//   - an env (state, legal actions, step, terminal value)
+//   - a search (MCTS over that env, guided by a NN policy/value evaluator)
+//   - a learner (NN trained on (state, MCTS-improved-policy, outcome) tuples)
+//
+// This adapter bridges the first two on the C/Odin side:
+//   - autogodin's GoBoard = the env state (go_game.odin).
+//   - mcts.Game (this file's go_game_vtable()) = the env interface MCTS calls
+//     into. The proc-pointer table is mcts-odin's equivalent of a PyTorch
+//     "env wrapper" — clone, do_move/undo_move, is_terminal, legal_actions,
+//     etc. mcts-odin's algorithm code in vendor/mcts-odin/mcts/ is fully
+//     game-agnostic; it never sees a Go stone.
+//   - mcts.Tree = the search tree (vendor/mcts-odin/mcts/mcts.odin). Packed
+//     slot arrays, branchless PUCT, FPU, leaf-parallel batched + virtual
+//     loss, root-parallel threading. Same algorithm as autogo's C++.
+//   - The Python NN evaluator lives further up; it crosses the C-ABI via
+//     exports.odin (CEvaluator / CEvaluatorBatched).
+//
 // Action space translation:
 //   - MCTS sees actions in [0, size*size]. pass = size*size.
 //   - Internally GoBoard uses PASS_ACTION = -1.

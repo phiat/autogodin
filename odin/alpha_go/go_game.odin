@@ -1,5 +1,19 @@
 package alpha_go
 
+// Go rules engine. Pure CPU, no MCTS / NN — those live in
+// odin/vendor/mcts-odin/ and the Python NN side respectively. This file is
+// the leaf of the dependency tree: GoBoard + legality + Zobrist + scoring.
+//
+// AlphaZero reader's map:
+//   - GoBoard is the env state (one position). `to_play` = whose turn.
+//   - play_flat / play / pass_move = env.step. is_legal_flat is the action mask.
+//   - score / get_winner = terminal reward signal (TT area + komi, Black - White).
+//   - The MCTS algorithm itself is generic and lives in vendor/mcts-odin/; this
+//     file is wired to it via go_adapter.odin (Game vtable).
+//
+// Notation: PSK = positional superko (Zobrist-incremental, see seen_hashes).
+// TT = Tromp-Taylor (used for both legality "no suicide" rule and area scoring).
+
 import "base:runtime"
 import "core:slice"
 import "core:sync"
@@ -96,22 +110,28 @@ release_board_tables_cache :: proc() {
 	_board_tables_cache = nil
 }
 
+// One Go position. Owns its row-major board buffer + a PSK history (seen_hashes)
+// and points at a per-size shared neighbors+zobrist table (not owned).
 GoBoard :: struct {
-	size:               int,
-	komi:               f32,
-	board:              []i8,
-	to_play:            i8,
-	ko_point:           int, // NO_KO = -1
-	consecutive_passes: int,
-	move_count:         int,
+	size:               int,                 // Board dimension (9 for 9x9).
+	komi:               f32,                 // White's compensation; added to white_score in `score`.
+	board:              []i8,                // size*size cells in {EMPTY,BLACK,WHITE}. Row-major.
+	to_play:            i8,                  // BLACK or WHITE; flips on every play / pass.
+	ko_point:           int,                 // Flat index forbidden by simple ko; NO_KO (= -1) when none.
+	consecutive_passes: int,                 // 2 consecutive passes → is_game_over.
+	move_count:         int,                 // Half-moves played from the empty start (incl. passes).
 
-	tables:       ^BoardTables, // shared per-size; not owned.
-	current_hash: u64,
-	seen_hashes:  map[u64]struct{},
+	tables:       ^BoardTables,              // Shared per-size singleton (neighbors + zobrist). Not owned.
+	current_hash: u64,                       // Incremental Zobrist hash; XOR'd on every stone placement/removal.
+	seen_hashes:  map[u64]struct{},          // PSK history: hashes of all past positions; lazy-allocated.
 
-	allocator:    runtime.Allocator,
+	allocator:    runtime.Allocator,         // Allocator that owns `board` + `seen_hashes`. Used at destroy.
 }
 
+// Fresh empty board. `board` is zeroed (EMPTY everywhere), `seen_hashes` is left
+// nil — the first play_flat_unchecked lazily allocates it. That keeps cloned
+// boards used inside is_legal_flat's temp_allocator probes cheap (no map alloc
+// until they actually play a move).
 make_go_board :: proc(size: int = 9, komi: f32 = KOMI_DEFAULT, allocator := context.allocator) -> GoBoard {
 	when BOARD_SIZE_HINT > 0 {
 		assert(size == BOARD_SIZE_HINT,
@@ -301,6 +321,16 @@ is_legal :: proc(b: ^GoBoard, row, col: int) -> bool {
 	return is_legal_flat(b, row * board_dim(b) + col)
 }
 
+// Legality check. Cascade of cheap-to-expensive tests:
+//   1. bounds + empty + simple-ko (O(1))
+//   2. neighbor scan: any empty neighbor? friendly neighbor? capturing neighbor?
+//      (O(neighbors), at most 4 + occasional flood fill on opponent groups)
+//   3. only if neither empty nor friendly nor capturing → fast suicide reject
+//   4. only if (1-3) all pass AND we'd be playing-into-no-liberty OR PSK is
+//      tracked → clone-and-simulate to check multi-stone suicide + PSK
+// Step 4 is the only expensive path; steps 1-3 reject ~all illegal moves on
+// real boards. `context.temp_allocator` carries the clone — the FFI entry point
+// (ffi_tree_run_simulations in exports.odin) free_all's it after each call.
 is_legal_flat :: proc(b: ^GoBoard, index: int) -> bool {
 	if index < 0 || index >= n_cells(b) {return false}
 	if b.board[index] != EMPTY {return false}
@@ -376,8 +406,13 @@ play_flat :: proc(b: ^GoBoard, index: int) -> bool {
 	return true
 }
 
-// Applies a move assuming legality already checked. Used by play_flat AND by
-// is_legal_flat (on a temp clone) to detect multi-stone suicide.
+// Applies a move assuming legality already checked. Dual-use: real plays go
+// through play_flat (which calls this), and is_legal_flat calls it on a temp
+// clone to detect multi-stone suicide. Side effects:
+//   - flips the stone into place + XOR-updates current_hash
+//   - records the PRE-move hash in seen_hashes (so future PSK checks see it)
+//   - captures any zero-liberty opponent groups, undoing their Zobrist contributions
+//   - sets ko_point only when exactly one single-stone capture happened
 play_flat_unchecked :: proc(b: ^GoBoard, index: int) {
 	// Record the pre-move state hash in seen_hashes (for PSK on future moves).
 	b.seen_hashes[b.current_hash] = {}
@@ -558,6 +593,14 @@ undo_move :: proc(b: ^GoBoard, delta: MoveDelta, captures: ^[dynamic]CaptureReco
 	}
 }
 
+// Tromp-Taylor area score: stones-on-board + empty territory bordered by
+// exactly one color, with komi added to white. Returned as Black - White
+// (positive = Black wins). NOTE: pure TT doesn't recognize dead stones —
+// dead groups still count as stones-on-board. For training data near the
+// end of the game this is wrong by margins of ~80pts on contrived dead-group
+// fixtures (see experiments/2026-05-16_13-12-12g.1-scoring-fix/). Fine for
+// MCTS rollouts inside generated games; potentially wrong as a final reward
+// signal for SL data.
 score :: proc(b: ^GoBoard) -> f32 {
 	black_score := f32(0)
 	white_score := b.komi
@@ -616,6 +659,8 @@ score :: proc(b: ^GoBoard) -> f32 {
 	return black_score - white_score
 }
 
+// Sign convention: BLACK if score>0, WHITE if score<0, 0 (EMPTY sentinel) on
+// tie. Tie is rare with non-integer komi (7.5 default) but legal.
 get_winner :: proc(b: ^GoBoard) -> i8 {
 	s := score(b)
 	if s > 0 {return BLACK}
