@@ -40,7 +40,7 @@ biased_evaluator :: proc(state: ^ag.GoBoard, user_data: rawptr) -> (policy: map[
 mcts_construction :: proc(t: ^testing.T) {
 	b := ag.make_go_board(9); defer ag.destroy_go_board(&b)
 	cfg := ag.default_mcts_config()
-	tree := ag.make_mcts_tree(&b, cfg, 1)
+	tree: ag.MCTSTree; ag.init_mcts_tree(&tree, &b, cfg, 1)
 	defer ag.destroy_mcts_tree(&tree)
 	testing.expect_value(t, ag.tree_size(&tree), 1)
 	testing.expect_value(t, ag.get_root_visit_count(&tree), 0)
@@ -50,7 +50,7 @@ mcts_construction :: proc(t: ^testing.T) {
 mcts_single_simulation :: proc(t: ^testing.T) {
 	b := ag.make_go_board(9); defer ag.destroy_go_board(&b)
 	cfg := ag.default_mcts_config()
-	tree := ag.make_mcts_tree(&b, cfg, 1)
+	tree: ag.MCTSTree; ag.init_mcts_tree(&tree, &b, cfg, 1)
 	defer ag.destroy_mcts_tree(&tree)
 	ag.run_simulations(&tree, 1, uniform_evaluator)
 	testing.expect_value(t, ag.get_root_visit_count(&tree), 1)
@@ -62,7 +62,7 @@ mcts_multiple_simulations :: proc(t: ^testing.T) {
 	b := ag.make_go_board(9); defer ag.destroy_go_board(&b)
 	cfg := ag.default_mcts_config()
 	cfg.c_puct = 1.0
-	tree := ag.make_mcts_tree(&b, cfg, 1)
+	tree: ag.MCTSTree; ag.init_mcts_tree(&tree, &b, cfg, 1)
 	defer ag.destroy_mcts_tree(&tree)
 
 	ag.run_simulations(&tree, 100, uniform_evaluator)
@@ -81,7 +81,7 @@ mcts_multiple_simulations :: proc(t: ^testing.T) {
 mcts_action_probs_temperature_1 :: proc(t: ^testing.T) {
 	b := ag.make_go_board(9); defer ag.destroy_go_board(&b)
 	cfg := ag.default_mcts_config()
-	tree := ag.make_mcts_tree(&b, cfg, 1)
+	tree: ag.MCTSTree; ag.init_mcts_tree(&tree, &b, cfg, 1)
 	defer ag.destroy_mcts_tree(&tree)
 	ag.run_simulations(&tree, 100, uniform_evaluator)
 	probs := ag.get_action_probabilities(&tree, 1.0)
@@ -99,7 +99,7 @@ mcts_action_probs_temperature_1 :: proc(t: ^testing.T) {
 mcts_action_probs_temperature_0 :: proc(t: ^testing.T) {
 	b := ag.make_go_board(9); defer ag.destroy_go_board(&b)
 	cfg := ag.default_mcts_config()
-	tree := ag.make_mcts_tree(&b, cfg, 1)
+	tree: ag.MCTSTree; ag.init_mcts_tree(&tree, &b, cfg, 1)
 	defer ag.destroy_mcts_tree(&tree)
 	ag.run_simulations(&tree, 100, biased_evaluator)
 	probs := ag.get_action_probabilities(&tree, 0.0)
@@ -113,7 +113,7 @@ mcts_action_probs_temperature_0 :: proc(t: ^testing.T) {
 mcts_select_action :: proc(t: ^testing.T) {
 	b := ag.make_go_board(9); defer ag.destroy_go_board(&b)
 	cfg := ag.default_mcts_config()
-	tree := ag.make_mcts_tree(&b, cfg, 1)
+	tree: ag.MCTSTree; ag.init_mcts_tree(&tree, &b, cfg, 1)
 	defer ag.destroy_mcts_tree(&tree)
 	ag.run_simulations(&tree, 100, uniform_evaluator)
 	action := ag.select_action(&tree, 1.0)
@@ -127,7 +127,7 @@ mcts_select_action :: proc(t: ^testing.T) {
 mcts_deterministic_at_temp_0 :: proc(t: ^testing.T) {
 	b := ag.make_go_board(9); defer ag.destroy_go_board(&b)
 	cfg := ag.default_mcts_config()
-	tree := ag.make_mcts_tree(&b, cfg, 1)
+	tree: ag.MCTSTree; ag.init_mcts_tree(&tree, &b, cfg, 1)
 	defer ag.destroy_mcts_tree(&tree)
 	ag.run_simulations(&tree, 100, biased_evaluator)
 	first := ag.select_action(&tree, 0.0)
@@ -141,7 +141,7 @@ mcts_respects_high_prior :: proc(t: ^testing.T) {
 	b := ag.make_go_board(9); defer ag.destroy_go_board(&b)
 	cfg := ag.default_mcts_config()
 	cfg.c_puct = 1.0
-	tree := ag.make_mcts_tree(&b, cfg, 1)
+	tree: ag.MCTSTree; ag.init_mcts_tree(&tree, &b, cfg, 1)
 	defer ag.destroy_mcts_tree(&tree)
 	ag.run_simulations(&tree, 200, biased_evaluator)
 	visits := ag.get_child_visit_counts(&tree)
@@ -162,7 +162,7 @@ mcts_dirichlet_noise :: proc(t: ^testing.T) {
 	cfg := ag.default_mcts_config()
 	cfg.dirichlet_alpha = 0.3
 	cfg.dirichlet_weight = 0.25
-	tree := ag.make_mcts_tree(&b, cfg, 1)
+	tree: ag.MCTSTree; ag.init_mcts_tree(&tree, &b, cfg, 1)
 	defer ag.destroy_mcts_tree(&tree)
 	ag.run_simulations(&tree, 50, uniform_evaluator)
 	testing.expect_value(t, ag.get_root_visit_count(&tree), 50)
@@ -173,7 +173,7 @@ mcts_q_in_bounds :: proc(t: ^testing.T) {
 	b := ag.make_go_board(9); defer ag.destroy_go_board(&b)
 	cfg := ag.default_mcts_config()
 	cfg.c_puct = 1.0
-	tree := ag.make_mcts_tree(&b, cfg, 1)
+	tree: ag.MCTSTree; ag.init_mcts_tree(&tree, &b, cfg, 1)
 	defer ag.destroy_mcts_tree(&tree)
 	ag.run_simulations(&tree, 100, uniform_evaluator)
 	rq := ag.get_root_q_value(&tree)
@@ -195,7 +195,7 @@ mcts_handles_terminal_state :: proc(t: ^testing.T) {
 	testing.expect(t, ag.is_game_over(&b))
 
 	cfg := ag.default_mcts_config()
-	tree := ag.make_mcts_tree(&b, cfg, 1)
+	tree: ag.MCTSTree; ag.init_mcts_tree(&tree, &b, cfg, 1)
 	defer ag.destroy_mcts_tree(&tree)
 	ag.run_simulations(&tree, 10, uniform_evaluator)
 	testing.expect_value(t, ag.get_root_visit_count(&tree), 10)
@@ -205,7 +205,7 @@ mcts_handles_terminal_state :: proc(t: ^testing.T) {
 mcts_batched_smoke :: proc(t: ^testing.T) {
 	b := ag.make_go_board(9); defer ag.destroy_go_board(&b)
 	cfg := ag.default_mcts_config()
-	tree := ag.make_mcts_tree(&b, cfg, 1)
+	tree: ag.MCTSTree; ag.init_mcts_tree(&tree, &b, cfg, 1)
 	defer ag.destroy_mcts_tree(&tree)
 
 	batched := proc(states: []^ag.GoBoard, out_policies: []map[int]f32, out_values: []f32, user_data: rawptr) {

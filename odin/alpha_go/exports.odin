@@ -267,7 +267,7 @@ ffi_tree_new :: proc "c" (board: rawptr, config: rawptr, seed: u64) -> rawptr {
 	b := cast(^GoBoard)board
 	cfg := cast(^MCTSConfig)config
 	t := new(MCTSTree)
-	t^ = make_mcts_tree(b, cfg^, seed)
+	init_mcts_tree(t, b, cfg^, seed)
 	return rawptr(t)
 }
 
@@ -298,13 +298,15 @@ ffi_tree_root_q :: proc "c" (h: rawptr) -> c.float {
 	t := cast(^MCTSTree)h; return c.float(get_root_q_value(t))
 }
 
-// C-ABI evaluator signature: caller fills out_actions[0..n_out), out_probs[0..n_out),
-// and writes the leaf value into *out_value. max_n is the buffer capacity (typically
-// size*size + 1). Returns number of (action, prob) pairs written.
+// C-ABI evaluator signature.
+//
+// `goboard` is a non-owning rawptr to the leaf's Odin GoBoard. The callback
+// must NOT free or take ownership — the MCTS tree owns the lifetime.
+// `out_actions`/`out_probs` are caller-allocated buffers of `max_n` entries
+// (typically size*size + 1). The callback writes (action, prob) pairs and the
+// leaf value, returning the number of pairs written.
 CEvaluator :: #type proc "c" (
-	board_data: ^c.char,
-	to_play:    c.char,
-	size:       c.int,
+	goboard:     rawptr,
 	out_actions: ^c.int,
 	out_probs:   ^c.float,
 	max_n:       c.int,
@@ -322,12 +324,7 @@ CallbackCtx :: struct {
 @(private)
 odin_evaluator_trampoline :: proc(state: ^GoBoard, user_data: rawptr) -> (map[int]f32, f32) {
 	ctx := cast(^CallbackCtx)user_data
-	n := state.size * state.size
-	max_n := n + 1
-
-	board_buf := make([]c.char, n, context.temp_allocator)
-	defer delete(board_buf, context.temp_allocator)
-	for i in 0 ..< n {board_buf[i] = c.char(state.board[i])}
+	max_n := state.size * state.size + 1
 
 	actions := make([]c.int, max_n, context.temp_allocator)
 	defer delete(actions, context.temp_allocator)
@@ -336,9 +333,7 @@ odin_evaluator_trampoline :: proc(state: ^GoBoard, user_data: rawptr) -> (map[in
 	value: c.float
 
 	written := ctx.cb(
-		raw_data(board_buf),
-		c.char(state.to_play),
-		c.int(state.size),
+		rawptr(state),
 		raw_data(actions),
 		raw_data(probs),
 		c.int(max_n),

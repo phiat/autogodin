@@ -3,6 +3,7 @@ package alpha_go
 import "base:runtime"
 import "core:math"
 import "core:math/rand"
+import "core:mem/virtual"
 
 PASS_ACTION :: -1
 
@@ -49,6 +50,10 @@ MCTSTree :: struct {
 	nodes:     [dynamic]MCTSNode,
 	config:    MCTSConfig,
 	rng_state: rand.Default_Random_State,
+	// Per-tree growing arena. All tree-owned allocations (nodes, per-node
+	// children/logP_A maps, cloned GoBoards) live here; destroy_mcts_tree
+	// frees the whole arena in one shot.
+	arena:     virtual.Arena,
 	allocator: runtime.Allocator,
 }
 
@@ -80,36 +85,32 @@ mcts_color :: proc(p: i8) -> i8 {
 	return BLACK if p == 0 else WHITE
 }
 
-make_mcts_tree :: proc(
-	root_state: ^GoBoard,
-	config: MCTSConfig,
-	seed: u64 = 0,
-	allocator := context.allocator,
-) -> MCTSTree {
-	context.allocator = allocator
-	tree := MCTSTree{
-		nodes     = make([dynamic]MCTSNode, 0, 64),
-		config    = config,
-		allocator = allocator,
-	}
-	tree.rng_state = rand.create(seed if seed != 0 else 0xC0FFEE_DECADE)
+// Initializes `t` in-place. MCTSTree MUST be init'd at its final address
+// (not returned by value) because t.allocator holds a pointer to t.arena;
+// any move/copy of the struct would dangle the arena pointer.
+init_mcts_tree :: proc(t: ^MCTSTree, root_state: ^GoBoard, config: MCTSConfig, seed: u64 = 0) {
+	t^ = {}
+	t.config = config
+	_ = virtual.arena_init_growing(&t.arena, 8 << 20)
+	t.allocator = virtual.arena_allocator(&t.arena)
+
+	t.nodes = make([dynamic]MCTSNode, 0, 64, t.allocator)
+	t.rng_state = rand.create(seed if seed != 0 else 0xC0FFEE_DECADE)
+
 	root := MCTSNode{
 		parent_idx       = -1,
 		player_at_parent = 1 if root_state.to_play == BLACK else 0,
 		depth            = 0,
-		state            = clone_go_board(root_state, allocator),
+		state            = clone_go_board(root_state, t.allocator),
+		children         = make(map[int]int, 8, t.allocator),
+		logP_A           = make(map[int]f32, 8, t.allocator),
 	}
-	append(&tree.nodes, root)
-	return tree
+	append(&t.nodes, root)
 }
 
 destroy_mcts_tree :: proc(t: ^MCTSTree) {
-	for i in 0 ..< len(t.nodes) {
-		destroy_go_board(&t.nodes[i].state)
-		delete(t.nodes[i].children)
-		delete(t.nodes[i].logP_A)
-	}
-	delete(t.nodes)
+	// One wholesale free of every tree-internal allocation. No need to walk nodes.
+	virtual.arena_destroy(&t.arena)
 	t^ = {}
 }
 
@@ -121,6 +122,10 @@ create_node :: proc(t: ^MCTSTree, state: GoBoard, parent_idx: int, player_at_par
 		player_at_parent = player_at_parent,
 		depth            = depth,
 		state            = state,
+		// Pre-create the per-node maps in the tree arena so any subsequent
+		// insert lands there, not in the caller's context.allocator.
+		children         = make(map[int]int, 8, t.allocator),
+		logP_A           = make(map[int]f32, 8, t.allocator),
 	}
 	append(&t.nodes, n)
 	return idx
