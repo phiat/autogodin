@@ -9,7 +9,14 @@ Correctness checks that we run against the upstream C++:
 - **Board parity**: SHA-256 Zobrist fingerprint over 10 seeded games × ~200 moves matches byte-for-byte. `just parity` re-runs the check against the committed fixture.
 - **MCTS strength**: 100 MCTS games at 200 sims/move with a random-init `SizeInvariantGoResNet(32ch × 4b)` shared between backends — Odin 53 / C++ 47 / 0 draws, Wilson 95% CI [0.433, 0.625] brackets 0.5. Raw data in `experiments/2026-05-16_18-41-7v8-nn-strength-ab/`.
 
-Throughput characterizations live under `experiments/` per change. We don't put summary numbers in this README — they shift with host state, and the per-experiment reports are the source of truth.
+Throughput characterizations live under `experiments/` per change. We
+don't put summary numbers in this README — they shift with host state,
+and the per-experiment reports are the source of truth. The current
+Odin↔C++ head-to-head (uniform-policy, sequential NN, batched NN) is in
+[`experiments/2026-05-16_19-55-cpp-vs-odin-rebench/`](experiments/2026-05-16_19-55-cpp-vs-odin-rebench/report.md);
+the headline is that the ratio is workload-dependent: ~3.35× on
+pure tree-walk, ~0.75× when a real NN dominates per-leaf cost
+sequentially, ~1.22× under batched NN (bs=128) on miniwini.
 
 ## Quick example
 

@@ -1,0 +1,18 @@
+=== Tier-1 rebench: Odin vs C++ throughput (miniwini, as-is) ===
+torch threads: 8, interop: 8
+
+== Uniform-policy evaluator  (1600 sims x 32 moves x 3 trials) ==
+  cpp_seq_uniform                       6,956 +-     9 sims/sec   (n=3)
+  odin_seq_uniform                     23,271 +-   212 sims/sec   (n=3)
+  ratio odin/cpp = 3.35x (uniform-policy)
+
+== Real NN evaluator (SizeInvariantGoResNet 32x4, random-init)  (800 sims x 16 moves x 3 trials) ==
+Sequential:
+  cpp_seq_nn                            1,452 +-    15 sims/sec   (n=3)
+  odin_seq_nn                           1,086 +-    16 sims/sec   (n=3)
+  ratio odin/cpp = 0.75x (sequential NN)
+
+Batched (bs=128):
+  cpp_batched_nn bs=128                 5,666 +-   162 sims/sec   (n=3)
+  odin_batched_nn bs=128                6,932 +-   140 sims/sec   (n=3)
+  ratio odin/cpp = 1.22x (batched NN bs=128)
