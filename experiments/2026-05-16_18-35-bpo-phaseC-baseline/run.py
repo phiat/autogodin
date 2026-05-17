@@ -257,7 +257,23 @@ def main() -> None:
             step(f"[iter{next_it}] train from selfplay-it{it}, "
                  f"resume from iter{it}")
             ds = EXP / f"dataset-it{next_it}.txt"
-            ds.write_text(f"experiments/{EXP_NAME}/selfplay-it{it}\n")
+            # Carry forward every prior data dir, drop random-it0 from
+            # iter1+ (matches upstream run_iteration.sh's policy: random
+            # data is the iter0 bootstrap only). Without this, iter1+
+            # trains on a single selfplay batch (~50k samples) and
+            # catastrophically forgets prior iters. See autogodin-8hj.
+            prev_ds = EXP / f"dataset-it{it}.txt"
+            kept_lines = []
+            if prev_ds.exists():
+                for line in prev_ds.read_text().splitlines():
+                    stripped = line.strip()
+                    if not stripped or stripped.startswith("#"):
+                        continue
+                    if "random-it0" in stripped:
+                        continue  # bootstrap data is iter0-only
+                    kept_lines.append(stripped)
+            kept_lines.append(f"experiments/{EXP_NAME}/selfplay-it{it}")
+            ds.write_text("\n".join(kept_lines) + "\n")
             timings[f"train_iter{next_it}"] = run(
                 [str(PY), str(local_train),
                  "--dataset-txt", str(ds),
