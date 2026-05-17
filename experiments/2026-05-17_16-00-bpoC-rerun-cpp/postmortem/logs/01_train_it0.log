@@ -1,0 +1,26 @@
+  Resolved 1 data dirs from 1 base paths
+Train data: 1 dirs
+Loaded dataset into RAM in 4.7s
+Train: 810,000
+Epochs=2, steps_per_epoch=1582, max_steps=3164
+Model: SizeInvariantGoResNet-256ch-10b, params: 11,831,171
+LR=0.001, WD=0.005, time_budget=900s
+  Step 200: loss=3.8711 policy=3.2755 value=0.5955 teacher_frac=0.49 train_acc=7.56% (68s)
+  Step 400: loss=3.9420 policy=3.3471 value=0.5949 teacher_frac=0.52 train_acc=8.39% (137s)
+  Step 600: loss=3.9135 policy=3.3226 value=0.5909 teacher_frac=0.52 train_acc=8.70% (206s)
+  Step 800: loss=3.8746 policy=3.2624 value=0.6122 teacher_frac=0.44 train_acc=8.90% (275s)
+  Step 1000: loss=3.9340 policy=3.3637 value=0.5703 teacher_frac=0.47 train_acc=8.57% (345s)
+  Step 1200: loss=3.9218 policy=3.3347 value=0.5871 teacher_frac=0.51 train_acc=9.03% (414s)
+  Step 1400: loss=3.9095 policy=3.3433 value=0.5662 teacher_frac=0.53 train_acc=8.66% (483s)
+  Step 1600: loss=3.8286 policy=3.2751 value=0.5535 teacher_frac=0.52 train_acc=9.76% (553s)
+  Step 1800: loss=3.9536 policy=3.3610 value=0.5926 teacher_frac=0.48 train_acc=9.49% (622s)
+  Step 2000: loss=3.8108 policy=3.2350 value=0.5758 teacher_frac=0.49 train_acc=9.35% (692s)
+  Step 2200: loss=3.8806 policy=3.3063 value=0.5743 teacher_frac=0.48 train_acc=10.41% (761s)
+  Step 2400: loss=3.9100 policy=3.3466 value=0.5634 teacher_frac=0.52 train_acc=9.24% (831s)
+  Step 2600: loss=3.8284 policy=3.2588 value=0.5697 teacher_frac=0.52 train_acc=9.64% (900s)
+Training done: 2600 steps in 904s
+Train loss=3.7911, policy_acc=10.00%
+Saved: /nfs/checkpoints/2026-05-17_16-00-bpoC-rerun-cpp/iter0_best.pt
+
+===RESULT===
+{"iteration": 0, "train_loss": 3.791129, "train_policy_acc": 0.1, "train_value_acc": 0.6706, "steps_completed": 2600, "elapsed_seconds": 904.0, "peak_vram_mb": 4113.0, "checkpoint": "/nfs/checkpoints/2026-05-17_16-00-bpoC-rerun-cpp/iter0_best.pt", "resumed_from": ""}

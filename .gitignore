@@ -39,3 +39,4 @@ game_data/
 # Postmortem checkpoint (46 MB, local-only)
 experiments/2026-05-17_13-47-bpoC-katago-seed/postmortem/iter0_best.pt
 
+experiments/2026-05-17_16-00-bpoC-rerun-cpp/postmortem/iter4_best.pt

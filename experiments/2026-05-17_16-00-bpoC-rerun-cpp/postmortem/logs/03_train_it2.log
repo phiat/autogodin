@@ -1,0 +1,16 @@
+  Resolved 2 data dirs from 2 base paths
+Train data: 2 dirs
+Loaded dataset into RAM in 0.9s
+Train: 133,335
+Epochs=2, steps_per_epoch=260, max_steps=520
+Model: SizeInvariantGoResNet-256ch-10b, params: 11,831,171
+Loading checkpoint: /nfs/checkpoints/2026-05-17_16-00-bpoC-rerun-cpp/iter1_best.pt
+LR=0.001, WD=0.005, time_budget=900s
+  Step 200: loss=3.9308 policy=3.4117 value=0.5191 teacher_frac=0.51 train_acc=8.19% (67s)
+  Step 400: loss=3.9882 policy=3.4882 value=0.5000 teacher_frac=0.55 train_acc=8.91% (137s)
+Training done: 520 steps in 180s
+Train loss=3.8818, policy_acc=9.14%
+Saved: /nfs/checkpoints/2026-05-17_16-00-bpoC-rerun-cpp/iter2_best.pt
+
+===RESULT===
+{"iteration": 2, "train_loss": 3.881783, "train_policy_acc": 0.0914, "train_value_acc": 0.7165, "steps_completed": 520, "elapsed_seconds": 180.0, "peak_vram_mb": 4159.0, "checkpoint": "/nfs/checkpoints/2026-05-17_16-00-bpoC-rerun-cpp/iter2_best.pt", "resumed_from": "/nfs/checkpoints/2026-05-17_16-00-bpoC-rerun-cpp/iter1_best.pt"}
