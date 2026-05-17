@@ -4,7 +4,7 @@ upstream autogo C++ MCTS (no Odin shim).
 
 This is the C++ side of the end-to-end strength comparison. Pair this
 with the existing bpoC-rerun-postfix iter4 ckpt for a 100-game gauntlet
-under matched compute. See autogodin-<TBD> parent issue.
+under matched compute. See autogodin-ycy parent issue.
 
 Recipe (identical to bpoC-rerun-postfix):
   - 5,000 random×random pre_collect
@@ -113,9 +113,9 @@ def selfplay_collect_script(iter_n: int, ckpt: Path, num_games: int,
                             save_name: str) -> Path:
     """Generate the per-iter selfplay launcher.
 
-    Uses CppMCTSAgent + LeafBatchedNNEvaluator through the shim (which
-    aliases alpha_go_cpp.MCTSTree to alpha_go_odin.MCTSTree). The 7km
-    fix means the C++-style batched evaluator now works through Odin.
+    Uses CppMCTSAgent + LeafBatchedNNEvaluator backed by the upstream
+    autogo pybind11 alpha_go_cpp (no shim — see backend-check assertion
+    in main()).
     """
     out = EXP / f"_collect_iter{iter_n}.py"
     out.write_text(
@@ -257,7 +257,7 @@ def main() -> None:
             print(f"[iter{it}] selfplay already collected, skipping.")
         else:
             step(f"[iter{it}] collect {args.selfplay_games} selfplay games "
-                 f"(Odin MCTS, {args.mcts_sims} sims, "
+                 f"(C++ MCTS, {args.mcts_sims} sims, "
                  f"{args.selfplay_workers} workers)")
             sp_script = selfplay_collect_script(it, prev_ckpt,
                                                  args.selfplay_games,
