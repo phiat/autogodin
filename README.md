@@ -71,6 +71,10 @@ The Go-board port, the vendored MCTS core, the C-ABI export surface, and the Pyt
 - **Board parity** (`python/parity/random_games_dual.py`): Odin and upstream C++ produce a byte-identical SHA-256 fingerprint `109bd08a…` over 10 seeded games × ~200 moves.
 - **MCTS-layer A/B under a real NN evaluator** (`7v8`): 100 games of Odin-MCTS vs C++-MCTS at 200 sims/move, `SizeInvariantGoResNet(32ch × 4b)` random-init evaluator passed to both backends. **Result: Odin 53 – C++ 47 – 0 draws, Wilson 95% CI [0.433, 0.625] brackets 0.5.** Parity-complete under realistic priors. See `experiments/2026-05-16_18-41-7v8-nn-strength-ab/`.
 
+### Training loop
+
+A scaled training-loop baseline (5k random pre-collect + 4× selfplay/train iters, 256ch×10b model, Odin MCTS via the shim on GPU) is documented in [`experiments/2026-05-17_07-40-bpoC-rerun-postfix/`](experiments/2026-05-17_07-40-bpoC-rerun-postfix/report.md). The earlier attempt at [`2026-05-16_18-35-bpo-phaseC-baseline/`](experiments/2026-05-16_18-35-bpo-phaseC-baseline/report.md) surfaced (and motivated the one-line fix for) a dataset-carry-forward bug in the runner; the rerun above shows `train_value_acc` holding at 99% across iters instead of the regression. Stronger holdout / strength evaluation against an upstream parent is filed as `autogodin-mls`.
+
 ## Getting started
 
 ```bash
