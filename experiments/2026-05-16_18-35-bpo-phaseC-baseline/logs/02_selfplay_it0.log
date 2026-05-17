@@ -1,0 +1,1045 @@
+Game 1/500: W+13.5 (98 moves, double_pass) | bpoC-iter0 0 (0.132s/mv) - 1 (0.125s/mv) bpoC-iter0 (4.4 games/min)
+Game 2/500: W+33.5 (120 moves, double_pass) | bpoC-iter0 0 (0.127s/mv) - 2 (0.122s/mv) bpoC-iter0 (7.5 games/min)
+Game 3/500: W+80.5 (162 moves, max_moves) | bpoC-iter0 0 (0.124s/mv) - 3 (0.120s/mv) bpoC-iter0 (8.6 games/min)
+Game 4/500: W+83.5 (162 moves, max_moves) | bpoC-iter0 0 (0.125s/mv) - 4 (0.123s/mv) bpoC-iter0 (11.4 games/min)
+Game 5/500: B+68.5 (162 moves, max_moves) | bpoC-iter0 1 (0.116s/mv) - 4 (0.115s/mv) bpoC-iter0 (9.2 games/min)
+Game 6/500: B+34.5 (162 moves, max_moves) | bpoC-iter0 2 (0.116s/mv) - 4 (0.116s/mv) bpoC-iter0 (10.3 games/min)
+Game 7/500: W+48.5 (162 moves, max_moves) | bpoC-iter0 2 (0.117s/mv) - 5 (0.117s/mv) bpoC-iter0 (10.6 games/min)
+Game 8/500: B+61.5 (162 moves, max_moves) | bpoC-iter0 3 (0.118s/mv) - 5 (0.117s/mv) bpoC-iter0 (12.0 games/min)
+Game 9/500: W+88.5 (162 moves, max_moves) | bpoC-iter0 3 (0.114s/mv) - 6 (0.114s/mv) bpoC-iter0 (10.6 games/min)
+Game 10/500: B+57.5 (162 moves, max_moves) | bpoC-iter0 4 (0.114s/mv) - 6 (0.114s/mv) bpoC-iter0 (11.3 games/min)
+Game 11/500: B+12.5 (117 moves, double_pass) | bpoC-iter0 5 (0.114s/mv) - 6 (0.113s/mv) bpoC-iter0 (12.4 games/min)
+Game 12/500: B+36.5 (145 moves, double_pass) | bpoC-iter0 6 (0.114s/mv) - 6 (0.115s/mv) bpoC-iter0 (12.8 games/min)
+Game 13/500: W+82.5 (152 moves, double_pass) | bpoC-iter0 6 (0.115s/mv) - 7 (0.115s/mv) bpoC-iter0 (11.4 games/min)
+Game 14/500: W+12.5 (162 moves, max_moves) | bpoC-iter0 6 (0.115s/mv) - 8 (0.114s/mv) bpoC-iter0 (11.7 games/min)
+Game 15/500: W+77.5 (162 moves, max_moves) | bpoC-iter0 6 (0.115s/mv) - 9 (0.115s/mv) bpoC-iter0 (12.5 games/min)
+Game 16/500: B+33.5 (155 moves, double_pass) | bpoC-iter0 7 (0.114s/mv) - 9 (0.115s/mv) bpoC-iter0 (13.0 games/min)
+Game 17/500: W+21.5 (96 moves, double_pass) | bpoC-iter0 7 (0.115s/mv) - 10 (0.115s/mv) bpoC-iter0 (12.3 games/min)
+Game 18/500: W+29.5 (108 moves, double_pass) | bpoC-iter0 7 (0.114s/mv) - 11 (0.115s/mv) bpoC-iter0 (12.8 games/min)
+Game 19/500: B+54.5 (141 moves, double_pass) | bpoC-iter0 8 (0.115s/mv) - 11 (0.115s/mv) bpoC-iter0 (13.5 games/min)
+Game 20/500: W+70.5 (162 moves, max_moves) | bpoC-iter0 8 (0.116s/mv) - 12 (0.116s/mv) bpoC-iter0 (12.9 games/min)
+Game 21/500: W+15.5 (90 moves, double_pass) | bpoC-iter0 8 (0.116s/mv) - 13 (0.116s/mv) bpoC-iter0 (13.2 games/min)
+Game 22/500: W+14.5 (124 moves, double_pass) | bpoC-iter0 8 (0.116s/mv) - 14 (0.117s/mv) bpoC-iter0 (13.4 games/min)
+Game 23/500: B+54.5 (137 moves, double_pass) | bpoC-iter0 9 (0.117s/mv) - 14 (0.117s/mv) bpoC-iter0 (13.9 games/min)
+Game 24/500: B+61.5 (162 moves, max_moves) | bpoC-iter0 10 (0.115s/mv) - 14 (0.114s/mv) bpoC-iter0 (12.9 games/min)
+Game 25/500: W+83.5 (152 moves, double_pass) | bpoC-iter0 10 (0.114s/mv) - 15 (0.115s/mv) bpoC-iter0 (13.3 games/min)
+Game 26/500: W+88.5 (162 moves, max_moves) | bpoC-iter0 10 (0.114s/mv) - 16 (0.115s/mv) bpoC-iter0 (13.3 games/min)
+Game 27/500: W+67.5 (162 moves, max_moves) | bpoC-iter0 10 (0.115s/mv) - 17 (0.114s/mv) bpoC-iter0 (13.8 games/min)
+Game 28/500: W+68.5 (137 moves, double_pass) | bpoC-iter0 10 (0.115s/mv) - 18 (0.117s/mv) bpoC-iter0 (13.1 games/min)
+Game 29/500: W+85.5 (162 moves, max_moves) | bpoC-iter0 10 (0.116s/mv) - 19 (0.116s/mv) bpoC-iter0 (13.4 games/min)
+Game 30/500: W+37.5 (120 moves, double_pass) | bpoC-iter0 10 (0.114s/mv) - 20 (0.115s/mv) bpoC-iter0 (13.7 games/min)
+Game 31/500: B+63.5 (155 moves, double_pass) | bpoC-iter0 11 (0.117s/mv) - 20 (0.117s/mv) bpoC-iter0 (13.7 games/min)
+Game 32/500: B+2.5 (91 moves, double_pass) | bpoC-iter0 12 (0.115s/mv) - 20 (0.114s/mv) bpoC-iter0 (13.1 games/min)
+Game 33/500: W+88.5 (162 moves, max_moves) | bpoC-iter0 12 (0.117s/mv) - 21 (0.117s/mv) bpoC-iter0 (13.4 games/min)
+Game 34/500: W+71.5 (162 moves, max_moves) | bpoC-iter0 12 (0.117s/mv) - 22 (0.117s/mv) bpoC-iter0 (13.7 games/min)
+Game 35/500: B+50.5 (162 moves, max_moves) | bpoC-iter0 13 (0.117s/mv) - 22 (0.118s/mv) bpoC-iter0 (14.0 games/min)
+Game 36/500: W+27.5 (162 moves, max_moves) | bpoC-iter0 13 (0.116s/mv) - 23 (0.116s/mv) bpoC-iter0 (13.1 games/min)
+Game 37/500: B+17.5 (162 moves, max_moves) | bpoC-iter0 14 (0.115s/mv) - 23 (0.117s/mv) bpoC-iter0 (13.4 games/min)
+Game 38/500: B+51.5 (162 moves, max_moves) | bpoC-iter0 15 (0.116s/mv) - 23 (0.117s/mv) bpoC-iter0 (13.6 games/min)
+Game 39/500: W+88.5 (160 moves, double_pass) | bpoC-iter0 15 (0.116s/mv) - 24 (0.117s/mv) bpoC-iter0 (13.9 games/min)
+Game 40/500: W+2.5 (74 moves, double_pass) | bpoC-iter0 15 (0.120s/mv) - 25 (0.120s/mv) bpoC-iter0 (13.7 games/min)
+Game 41/500: W+21.5 (109 moves, double_pass) | bpoC-iter0 15 (0.116s/mv) - 26 (0.118s/mv) bpoC-iter0 (13.8 games/min)
+Game 42/500: B+65.5 (162 moves, max_moves) | bpoC-iter0 16 (0.118s/mv) - 26 (0.118s/mv) bpoC-iter0 (13.5 games/min)
+Game 43/500: W+33.5 (110 moves, double_pass) | bpoC-iter0 16 (0.115s/mv) - 27 (0.115s/mv) bpoC-iter0 (13.7 games/min)
+Game 44/500: B+46.5 (162 moves, max_moves) | bpoC-iter0 17 (0.117s/mv) - 27 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 45/500: W+21.5 (94 moves, double_pass) | bpoC-iter0 17 (0.114s/mv) - 28 (0.116s/mv) bpoC-iter0 (14.3 games/min)
+Game 46/500: W+30.5 (114 moves, double_pass) | bpoC-iter0 17 (0.117s/mv) - 29 (0.117s/mv) bpoC-iter0 (13.7 games/min)
+Game 47/500: B+52.5 (162 moves, max_moves) | bpoC-iter0 18 (0.118s/mv) - 29 (0.117s/mv) bpoC-iter0 (13.7 games/min)
+Game 48/500: B+31.5 (162 moves, max_moves) | bpoC-iter0 19 (0.117s/mv) - 29 (0.117s/mv) bpoC-iter0 (13.9 games/min)
+Game 49/500: B+43.5 (162 moves, max_moves) | bpoC-iter0 20 (0.117s/mv) - 29 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 50/500: W+9.5 (64 moves, double_pass) | bpoC-iter0 20 (0.121s/mv) - 30 (0.121s/mv) bpoC-iter0 (14.0 games/min)
+Game 51/500: W+60.5 (122 moves, double_pass) | bpoC-iter0 20 (0.117s/mv) - 31 (0.118s/mv) bpoC-iter0 (14.1 games/min)
+Game 52/500: B+37.5 (128 moves, double_pass) | bpoC-iter0 21 (0.119s/mv) - 31 (0.119s/mv) bpoC-iter0 (14.1 games/min)
+Game 53/500: W+65.5 (148 moves, double_pass) | bpoC-iter0 21 (0.119s/mv) - 32 (0.118s/mv) bpoC-iter0 (14.2 games/min)
+Game 54/500: W+76.5 (162 moves, max_moves) | bpoC-iter0 21 (0.114s/mv) - 33 (0.114s/mv) bpoC-iter0 (13.9 games/min)
+Game 55/500: W+27.5 (110 moves, double_pass) | bpoC-iter0 21 (0.111s/mv) - 34 (0.111s/mv) bpoC-iter0 (14.1 games/min)
+Game 56/500: W+78.5 (162 moves, max_moves) | bpoC-iter0 21 (0.113s/mv) - 35 (0.114s/mv) bpoC-iter0 (14.3 games/min)
+Game 57/500: B+60.5 (162 moves, max_moves) | bpoC-iter0 22 (0.114s/mv) - 35 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 58/500: B+53.5 (137 moves, double_pass) | bpoC-iter0 23 (0.114s/mv) - 35 (0.114s/mv) bpoC-iter0 (13.9 games/min)
+Game 59/500: W+78.5 (162 moves, max_moves) | bpoC-iter0 23 (0.114s/mv) - 36 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 60/500: W+49.5 (162 moves, max_moves) | bpoC-iter0 23 (0.113s/mv) - 37 (0.113s/mv) bpoC-iter0 (14.3 games/min)
+Game 61/500: W+54.5 (146 moves, double_pass) | bpoC-iter0 23 (0.115s/mv) - 38 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 62/500: B+6.5 (91 moves, double_pass) | bpoC-iter0 24 (0.116s/mv) - 38 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 63/500: W+51.5 (150 moves, double_pass) | bpoC-iter0 24 (0.117s/mv) - 39 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 64/500: W+59.5 (162 moves, max_moves) | bpoC-iter0 24 (0.116s/mv) - 40 (0.116s/mv) bpoC-iter0 (14.3 games/min)
+Game 65/500: W+7.5 (72 moves, double_pass) | bpoC-iter0 24 (0.118s/mv) - 41 (0.117s/mv) bpoC-iter0 (14.4 games/min)
+Game 66/500: B+45.5 (143 moves, double_pass) | bpoC-iter0 25 (0.117s/mv) - 41 (0.118s/mv) bpoC-iter0 (14.3 games/min)
+Game 67/500: W+57.5 (162 moves, max_moves) | bpoC-iter0 25 (0.116s/mv) - 42 (0.116s/mv) bpoC-iter0 (14.0 games/min)
+Game 68/500: W+33.5 (162 moves, max_moves) | bpoC-iter0 25 (0.116s/mv) - 43 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 69/500: B+58.5 (162 moves, max_moves) | bpoC-iter0 26 (0.116s/mv) - 43 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 70/500: B+60.5 (162 moves, max_moves) | bpoC-iter0 27 (0.115s/mv) - 43 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 71/500: B+49.5 (145 moves, double_pass) | bpoC-iter0 28 (0.117s/mv) - 43 (0.116s/mv) bpoC-iter0 (14.0 games/min)
+Game 72/500: B+52.5 (153 moves, double_pass) | bpoC-iter0 29 (0.116s/mv) - 43 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 73/500: W+70.5 (162 moves, max_moves) | bpoC-iter0 29 (0.115s/mv) - 44 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 74/500: W+9.5 (40 moves, double_pass) | bpoC-iter0 29 (0.116s/mv) - 45 (0.113s/mv) bpoC-iter0 (14.3 games/min)
+Game 75/500: B+50.5 (162 moves, max_moves) | bpoC-iter0 30 (0.117s/mv) - 45 (0.116s/mv) bpoC-iter0 (14.3 games/min)
+Game 76/500: W+3.5 (48 moves, double_pass) | bpoC-iter0 30 (0.115s/mv) - 46 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 77/500: B+30.5 (162 moves, max_moves) | bpoC-iter0 31 (0.117s/mv) - 46 (0.117s/mv) bpoC-iter0 (14.3 games/min)
+Game 78/500: B+41.5 (140 moves, double_pass) | bpoC-iter0 32 (0.117s/mv) - 46 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 79/500: W+26.5 (162 moves, max_moves) | bpoC-iter0 32 (0.118s/mv) - 47 (0.118s/mv) bpoC-iter0 (14.5 games/min)
+Game 80/500: W+13.5 (92 moves, double_pass) | bpoC-iter0 32 (0.113s/mv) - 48 (0.113s/mv) bpoC-iter0 (14.2 games/min)
+Game 81/500: B+57.5 (162 moves, max_moves) | bpoC-iter0 33 (0.115s/mv) - 48 (0.116s/mv) bpoC-iter0 (14.4 games/min)
+Game 82/500: B+70.5 (162 moves, max_moves) | bpoC-iter0 34 (0.116s/mv) - 48 (0.116s/mv) bpoC-iter0 (14.4 games/min)
+Game 83/500: B+57.5 (162 moves, max_moves) | bpoC-iter0 35 (0.115s/mv) - 48 (0.114s/mv) bpoC-iter0 (14.4 games/min)
+Game 84/500: W+72.5 (162 moves, max_moves) | bpoC-iter0 35 (0.113s/mv) - 49 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 85/500: W+76.5 (160 moves, double_pass) | bpoC-iter0 35 (0.113s/mv) - 50 (0.114s/mv) bpoC-iter0 (14.3 games/min)
+Game 86/500: B+57.5 (145 moves, double_pass) | bpoC-iter0 36 (0.114s/mv) - 50 (0.115s/mv) bpoC-iter0 (14.4 games/min)
+Game 87/500: B+60.5 (162 moves, max_moves) | bpoC-iter0 37 (0.114s/mv) - 50 (0.114s/mv) bpoC-iter0 (14.3 games/min)
+Game 88/500: W+67.5 (160 moves, double_pass) | bpoC-iter0 37 (0.114s/mv) - 51 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 89/500: W+76.5 (162 moves, max_moves) | bpoC-iter0 37 (0.115s/mv) - 52 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 90/500: B+3.5 (113 moves, double_pass) | bpoC-iter0 38 (0.113s/mv) - 52 (0.113s/mv) bpoC-iter0 (14.3 games/min)
+Game 91/500: B+70.5 (162 moves, max_moves) | bpoC-iter0 39 (0.116s/mv) - 52 (0.116s/mv) bpoC-iter0 (14.4 games/min)
+Game 92/500: B+53.5 (162 moves, max_moves) | bpoC-iter0 40 (0.115s/mv) - 52 (0.113s/mv) bpoC-iter0 (14.1 games/min)
+Game 93/500: W+78.5 (158 moves, double_pass) | bpoC-iter0 40 (0.114s/mv) - 53 (0.113s/mv) bpoC-iter0 (14.2 games/min)
+Game 94/500: B+66.5 (149 moves, double_pass) | bpoC-iter0 41 (0.114s/mv) - 53 (0.114s/mv) bpoC-iter0 (14.3 games/min)
+Game 95/500: W+83.5 (162 moves, max_moves) | bpoC-iter0 41 (0.114s/mv) - 54 (0.115s/mv) bpoC-iter0 (14.4 games/min)
+Game 96/500: B+60.5 (148 moves, double_pass) | bpoC-iter0 42 (0.118s/mv) - 54 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 97/500: W+73.5 (159 moves, double_pass) | bpoC-iter0 42 (0.116s/mv) - 55 (0.118s/mv) bpoC-iter0 (14.1 games/min)
+Game 98/500: W+60.5 (150 moves, double_pass) | bpoC-iter0 42 (0.118s/mv) - 56 (0.117s/mv) bpoC-iter0 (14.3 games/min)
+Game 99/500: B+34.5 (162 moves, max_moves) | bpoC-iter0 43 (0.117s/mv) - 56 (0.117s/mv) bpoC-iter0 (14.3 games/min)
+Game 100/500: W+6.5 (66 moves, double_pass) | bpoC-iter0 43 (0.120s/mv) - 57 (0.119s/mv) bpoC-iter0 (14.3 games/min)
+Game 101/500: B+51.5 (162 moves, max_moves) | bpoC-iter0 44 (0.117s/mv) - 57 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 102/500: B+49.5 (162 moves, max_moves) | bpoC-iter0 45 (0.117s/mv) - 57 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 103/500: W+2.5 (112 moves, double_pass) | bpoC-iter0 45 (0.114s/mv) - 58 (0.113s/mv) bpoC-iter0 (14.3 games/min)
+Game 104/500: W+85.5 (162 moves, max_moves) | bpoC-iter0 45 (0.117s/mv) - 59 (0.118s/mv) bpoC-iter0 (14.4 games/min)
+Game 105/500: W+9.5 (40 moves, double_pass) | bpoC-iter0 45 (0.121s/mv) - 60 (0.120s/mv) bpoC-iter0 (14.4 games/min)
+Game 106/500: W+83.5 (162 moves, max_moves) | bpoC-iter0 45 (0.115s/mv) - 61 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 107/500: B+64.5 (162 moves, max_moves) | bpoC-iter0 46 (0.116s/mv) - 61 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 108/500: B+55.5 (162 moves, max_moves) | bpoC-iter0 47 (0.115s/mv) - 61 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 109/500: B+30.5 (159 moves, double_pass) | bpoC-iter0 48 (0.115s/mv) - 61 (0.115s/mv) bpoC-iter0 (14.4 games/min)
+Game 110/500: W+49.5 (130 moves, double_pass) | bpoC-iter0 48 (0.115s/mv) - 62 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 111/500: W+71.5 (162 moves, max_moves) | bpoC-iter0 48 (0.114s/mv) - 63 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 112/500: W+71.5 (162 moves, max_moves) | bpoC-iter0 48 (0.114s/mv) - 64 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 113/500: W+69.5 (154 moves, double_pass) | bpoC-iter0 48 (0.114s/mv) - 65 (0.114s/mv) bpoC-iter0 (14.3 games/min)
+Game 114/500: B+20.5 (162 moves, max_moves) | bpoC-iter0 49 (0.112s/mv) - 65 (0.113s/mv) bpoC-iter0 (14.2 games/min)
+Game 115/500: B+54.5 (162 moves, max_moves) | bpoC-iter0 50 (0.114s/mv) - 65 (0.113s/mv) bpoC-iter0 (14.2 games/min)
+Game 116/500: B+45.5 (151 moves, double_pass) | bpoC-iter0 51 (0.115s/mv) - 65 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 117/500: B+51.5 (162 moves, max_moves) | bpoC-iter0 52 (0.115s/mv) - 65 (0.114s/mv) bpoC-iter0 (14.3 games/min)
+Game 118/500: W+79.5 (162 moves, max_moves) | bpoC-iter0 52 (0.115s/mv) - 66 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 119/500: W+82.5 (162 moves, max_moves) | bpoC-iter0 52 (0.115s/mv) - 67 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 120/500: W+22.5 (126 moves, double_pass) | bpoC-iter0 52 (0.114s/mv) - 68 (0.113s/mv) bpoC-iter0 (14.2 games/min)
+Game 121/500: W+65.5 (157 moves, double_pass) | bpoC-iter0 52 (0.115s/mv) - 69 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 122/500: B+62.5 (162 moves, max_moves) | bpoC-iter0 53 (0.115s/mv) - 69 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 123/500: W+11.5 (106 moves, double_pass) | bpoC-iter0 53 (0.116s/mv) - 70 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 124/500: W+71.5 (157 moves, double_pass) | bpoC-iter0 53 (0.116s/mv) - 71 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 125/500: B+51.5 (162 moves, max_moves) | bpoC-iter0 54 (0.118s/mv) - 71 (0.118s/mv) bpoC-iter0 (14.3 games/min)
+Game 126/500: W+7.5 (68 moves, double_pass) | bpoC-iter0 54 (0.114s/mv) - 72 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 127/500: W+52.5 (130 moves, double_pass) | bpoC-iter0 54 (0.116s/mv) - 73 (0.116s/mv) bpoC-iter0 (14.3 games/min)
+Game 128/500: B+7.5 (99 moves, double_pass) | bpoC-iter0 55 (0.115s/mv) - 73 (0.115s/mv) bpoC-iter0 (14.4 games/min)
+Game 129/500: B+60.5 (162 moves, max_moves) | bpoC-iter0 56 (0.118s/mv) - 73 (0.118s/mv) bpoC-iter0 (14.4 games/min)
+Game 130/500: W+51.5 (162 moves, max_moves) | bpoC-iter0 56 (0.115s/mv) - 74 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 131/500: W+31.5 (162 moves, max_moves) | bpoC-iter0 56 (0.116s/mv) - 75 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 132/500: B+49.5 (162 moves, max_moves) | bpoC-iter0 57 (0.116s/mv) - 75 (0.116s/mv) bpoC-iter0 (14.3 games/min)
+Game 133/500: W+54.5 (162 moves, max_moves) | bpoC-iter0 57 (0.116s/mv) - 76 (0.116s/mv) bpoC-iter0 (14.3 games/min)
+Game 134/500: B+48.5 (155 moves, double_pass) | bpoC-iter0 58 (0.114s/mv) - 76 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 135/500: B+70.5 (162 moves, max_moves) | bpoC-iter0 59 (0.114s/mv) - 76 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 136/500: W+78.5 (162 moves, max_moves) | bpoC-iter0 59 (0.114s/mv) - 77 (0.114s/mv) bpoC-iter0 (14.3 games/min)
+Game 137/500: B+46.5 (147 moves, double_pass) | bpoC-iter0 60 (0.113s/mv) - 77 (0.113s/mv) bpoC-iter0 (14.3 games/min)
+Game 138/500: W+74.5 (148 moves, double_pass) | bpoC-iter0 60 (0.114s/mv) - 78 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 139/500: W+74.5 (162 moves, max_moves) | bpoC-iter0 60 (0.114s/mv) - 79 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 140/500: W+83.5 (162 moves, double_pass) | bpoC-iter0 60 (0.114s/mv) - 80 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 141/500: B+29.5 (162 moves, max_moves) | bpoC-iter0 61 (0.114s/mv) - 80 (0.114s/mv) bpoC-iter0 (14.3 games/min)
+Game 142/500: B+55.5 (151 moves, double_pass) | bpoC-iter0 62 (0.115s/mv) - 80 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 143/500: W+14.5 (104 moves, double_pass) | bpoC-iter0 62 (0.114s/mv) - 81 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 144/500: W+62.5 (134 moves, double_pass) | bpoC-iter0 62 (0.115s/mv) - 82 (0.116s/mv) bpoC-iter0 (14.3 games/min)
+Game 145/500: B+48.5 (162 moves, max_moves) | bpoC-iter0 63 (0.116s/mv) - 82 (0.116s/mv) bpoC-iter0 (14.3 games/min)
+Game 146/500: B+43.5 (147 moves, double_pass) | bpoC-iter0 64 (0.115s/mv) - 82 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 147/500: W+72.5 (162 moves, max_moves) | bpoC-iter0 64 (0.115s/mv) - 83 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 148/500: W+69.5 (162 moves, max_moves) | bpoC-iter0 64 (0.115s/mv) - 84 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 149/500: B+66.5 (162 moves, max_moves) | bpoC-iter0 65 (0.115s/mv) - 84 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 150/500: W+8.5 (96 moves, double_pass) | bpoC-iter0 65 (0.117s/mv) - 85 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 151/500: W+28.5 (108 moves, double_pass) | bpoC-iter0 65 (0.115s/mv) - 86 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 152/500: B+41.5 (162 moves, max_moves) | bpoC-iter0 66 (0.116s/mv) - 86 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 153/500: W+64.5 (134 moves, double_pass) | bpoC-iter0 66 (0.116s/mv) - 87 (0.117s/mv) bpoC-iter0 (14.3 games/min)
+Game 154/500: B+3.5 (113 moves, double_pass) | bpoC-iter0 67 (0.115s/mv) - 87 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 155/500: W+70.5 (149 moves, double_pass) | bpoC-iter0 67 (0.114s/mv) - 88 (0.116s/mv) bpoC-iter0 (14.3 games/min)
+Game 156/500: W+7.5 (24 moves, double_pass) | bpoC-iter0 67 (0.116s/mv) - 89 (0.117s/mv) bpoC-iter0 (14.3 games/min)
+Game 157/500: W+76.5 (162 moves, max_moves) | bpoC-iter0 67 (0.117s/mv) - 90 (0.117s/mv) bpoC-iter0 (14.3 games/min)
+Game 158/500: W+19.5 (162 moves, max_moves) | bpoC-iter0 67 (0.115s/mv) - 91 (0.115s/mv) bpoC-iter0 (14.4 games/min)
+Game 159/500: B+68.5 (162 moves, max_moves) | bpoC-iter0 68 (0.115s/mv) - 91 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 160/500: W+83.5 (162 moves, max_moves) | bpoC-iter0 68 (0.114s/mv) - 92 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 161/500: W+85.5 (162 moves, max_moves) | bpoC-iter0 68 (0.114s/mv) - 93 (0.114s/mv) bpoC-iter0 (14.3 games/min)
+Game 162/500: B+51.5 (162 moves, max_moves) | bpoC-iter0 69 (0.114s/mv) - 93 (0.114s/mv) bpoC-iter0 (14.3 games/min)
+Game 163/500: W+83.5 (162 moves, max_moves) | bpoC-iter0 69 (0.115s/mv) - 94 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 164/500: W+7.5 (106 moves, double_pass) | bpoC-iter0 69 (0.114s/mv) - 95 (0.114s/mv) bpoC-iter0 (14.3 games/min)
+Game 165/500: B+64.5 (160 moves, double_pass) | bpoC-iter0 70 (0.116s/mv) - 95 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 166/500: W+58.5 (162 moves, max_moves) | bpoC-iter0 70 (0.117s/mv) - 96 (0.116s/mv) bpoC-iter0 (14.3 games/min)
+Game 167/500: W+79.5 (162 moves, max_moves) | bpoC-iter0 70 (0.115s/mv) - 97 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 168/500: B+63.5 (162 moves, max_moves) | bpoC-iter0 71 (0.116s/mv) - 97 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 169/500: B+41.5 (162 moves, max_moves) | bpoC-iter0 72 (0.116s/mv) - 97 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 170/500: B+73.5 (162 moves, max_moves) | bpoC-iter0 73 (0.117s/mv) - 97 (0.117s/mv) bpoC-iter0 (14.3 games/min)
+Game 171/500: W+4.5 (91 moves, double_pass) | bpoC-iter0 73 (0.120s/mv) - 98 (0.121s/mv) bpoC-iter0 (14.3 games/min)
+Game 172/500: W+71.5 (162 moves, max_moves) | bpoC-iter0 73 (0.117s/mv) - 99 (0.118s/mv) bpoC-iter0 (14.2 games/min)
+Game 173/500: W+53.5 (136 moves, double_pass) | bpoC-iter0 73 (0.118s/mv) - 100 (0.118s/mv) bpoC-iter0 (14.3 games/min)
+Game 174/500: W+25.5 (162 moves, max_moves) | bpoC-iter0 73 (0.114s/mv) - 101 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 175/500: B+73.5 (162 moves, max_moves) | bpoC-iter0 74 (0.113s/mv) - 101 (0.113s/mv) bpoC-iter0 (14.2 games/min)
+Game 176/500: B+29.5 (123 moves, double_pass) | bpoC-iter0 75 (0.115s/mv) - 101 (0.114s/mv) bpoC-iter0 (14.3 games/min)
+Game 177/500: W+83.5 (162 moves, max_moves) | bpoC-iter0 75 (0.115s/mv) - 102 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 178/500: W+82.5 (162 moves, max_moves) | bpoC-iter0 75 (0.113s/mv) - 103 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 179/500: W+67.5 (162 moves, max_moves) | bpoC-iter0 75 (0.113s/mv) - 104 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 180/500: W+85.5 (162 moves, max_moves) | bpoC-iter0 75 (0.114s/mv) - 105 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 181/500: W+66.5 (162 moves, max_moves) | bpoC-iter0 75 (0.114s/mv) - 106 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 182/500: W+69.5 (162 moves, max_moves) | bpoC-iter0 75 (0.115s/mv) - 107 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 183/500: B+55.5 (162 moves, max_moves) | bpoC-iter0 76 (0.114s/mv) - 107 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 184/500: B+54.5 (162 moves, max_moves) | bpoC-iter0 77 (0.115s/mv) - 107 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 185/500: W+74.5 (162 moves, max_moves) | bpoC-iter0 77 (0.114s/mv) - 108 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 186/500: W+83.5 (154 moves, double_pass) | bpoC-iter0 77 (0.114s/mv) - 109 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 187/500: W+8.5 (67 moves, double_pass) | bpoC-iter0 77 (0.111s/mv) - 110 (0.111s/mv) bpoC-iter0 (14.2 games/min)
+Game 188/500: B+67.5 (156 moves, double_pass) | bpoC-iter0 78 (0.115s/mv) - 110 (0.113s/mv) bpoC-iter0 (14.2 games/min)
+Game 189/500: W+25.5 (162 moves, max_moves) | bpoC-iter0 78 (0.115s/mv) - 111 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 190/500: B+20.5 (162 moves, max_moves) | bpoC-iter0 79 (0.115s/mv) - 111 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 191/500: B+17.5 (162 moves, max_moves) | bpoC-iter0 80 (0.114s/mv) - 111 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 192/500: W+85.5 (162 moves, max_moves) | bpoC-iter0 80 (0.115s/mv) - 112 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 193/500: B+47.5 (162 moves, max_moves) | bpoC-iter0 81 (0.115s/mv) - 112 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 194/500: W+23.5 (80 moves, double_pass) | bpoC-iter0 81 (0.116s/mv) - 113 (0.117s/mv) bpoC-iter0 (14.3 games/min)
+Game 195/500: W+16.5 (109 moves, double_pass) | bpoC-iter0 81 (0.115s/mv) - 114 (0.117s/mv) bpoC-iter0 (14.3 games/min)
+Game 196/500: B+50.5 (125 moves, double_pass) | bpoC-iter0 82 (0.118s/mv) - 114 (0.118s/mv) bpoC-iter0 (14.2 games/min)
+Game 197/500: B+37.5 (154 moves, double_pass) | bpoC-iter0 83 (0.116s/mv) - 114 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 198/500: B+60.5 (153 moves, double_pass) | bpoC-iter0 84 (0.118s/mv) - 114 (0.118s/mv) bpoC-iter0 (14.2 games/min)
+Game 199/500: W+79.5 (162 moves, max_moves) | bpoC-iter0 84 (0.116s/mv) - 115 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 200/500: W+77.5 (162 moves, max_moves) | bpoC-iter0 84 (0.115s/mv) - 116 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 201/500: B+70.5 (162 moves, max_moves) | bpoC-iter0 85 (0.114s/mv) - 116 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 202/500: B+51.5 (162 moves, max_moves) | bpoC-iter0 86 (0.113s/mv) - 116 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 203/500: B+50.5 (156 moves, double_pass) | bpoC-iter0 87 (0.116s/mv) - 116 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 204/500: W+57.5 (142 moves, double_pass) | bpoC-iter0 87 (0.118s/mv) - 117 (0.118s/mv) bpoC-iter0 (14.2 games/min)
+Game 205/500: W+40.5 (110 moves, double_pass) | bpoC-iter0 87 (0.118s/mv) - 118 (0.118s/mv) bpoC-iter0 (14.2 games/min)
+Game 206/500: W+47.5 (146 moves, double_pass) | bpoC-iter0 87 (0.118s/mv) - 119 (0.119s/mv) bpoC-iter0 (14.2 games/min)
+Game 207/500: B+0.5 (89 moves, double_pass) | bpoC-iter0 88 (0.115s/mv) - 119 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 208/500: B+70.5 (162 moves, max_moves) | bpoC-iter0 89 (0.116s/mv) - 119 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 209/500: W+13.5 (74 moves, double_pass) | bpoC-iter0 89 (0.115s/mv) - 120 (0.117s/mv) bpoC-iter0 (14.3 games/min)
+Game 210/500: B+58.5 (162 moves, max_moves) | bpoC-iter0 90 (0.116s/mv) - 120 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 211/500: W+80.5 (154 moves, double_pass) | bpoC-iter0 90 (0.115s/mv) - 121 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 212/500: W+54.5 (162 moves, max_moves) | bpoC-iter0 90 (0.115s/mv) - 122 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 213/500: W+80.5 (162 moves, max_moves) | bpoC-iter0 90 (0.114s/mv) - 123 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 214/500: B+65.5 (162 moves, max_moves) | bpoC-iter0 91 (0.114s/mv) - 123 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 215/500: W+28.5 (162 moves, max_moves) | bpoC-iter0 91 (0.114s/mv) - 124 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 216/500: B+18.5 (121 moves, double_pass) | bpoC-iter0 92 (0.114s/mv) - 124 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 217/500: B+49.5 (162 moves, max_moves) | bpoC-iter0 93 (0.115s/mv) - 124 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 218/500: B+28.5 (153 moves, double_pass) | bpoC-iter0 94 (0.115s/mv) - 124 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 219/500: B+54.5 (146 moves, double_pass) | bpoC-iter0 95 (0.115s/mv) - 124 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 220/500: W+71.5 (162 moves, max_moves) | bpoC-iter0 95 (0.114s/mv) - 125 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 221/500: W+77.5 (162 moves, max_moves) | bpoC-iter0 95 (0.115s/mv) - 126 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 222/500: W+74.5 (157 moves, double_pass) | bpoC-iter0 95 (0.113s/mv) - 127 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 223/500: B+37.5 (118 moves, double_pass) | bpoC-iter0 96 (0.114s/mv) - 127 (0.113s/mv) bpoC-iter0 (14.2 games/min)
+Game 224/500: W+77.5 (162 moves, max_moves) | bpoC-iter0 96 (0.113s/mv) - 128 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 225/500: W+72.5 (162 moves, max_moves) | bpoC-iter0 96 (0.114s/mv) - 129 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 226/500: B+55.5 (162 moves, max_moves) | bpoC-iter0 97 (0.116s/mv) - 129 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 227/500: W+4.5 (66 moves, double_pass) | bpoC-iter0 97 (0.117s/mv) - 130 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 228/500: B+67.5 (162 moves, max_moves) | bpoC-iter0 98 (0.115s/mv) - 130 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 229/500: W+75.5 (162 moves, max_moves) | bpoC-iter0 98 (0.115s/mv) - 131 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 230/500: B+64.5 (155 moves, double_pass) | bpoC-iter0 99 (0.115s/mv) - 131 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 231/500: B+58.5 (137 moves, double_pass) | bpoC-iter0 100 (0.115s/mv) - 131 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 232/500: W+58.5 (162 moves, max_moves) | bpoC-iter0 100 (0.114s/mv) - 132 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 233/500: W+64.5 (162 moves, max_moves) | bpoC-iter0 100 (0.116s/mv) - 133 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 234/500: W+80.5 (162 moves, max_moves) | bpoC-iter0 100 (0.117s/mv) - 134 (0.118s/mv) bpoC-iter0 (14.2 games/min)
+Game 235/500: W+50.5 (162 moves, max_moves) | bpoC-iter0 100 (0.115s/mv) - 135 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 236/500: B+51.5 (141 moves, double_pass) | bpoC-iter0 101 (0.117s/mv) - 135 (0.116s/mv) bpoC-iter0 (14.3 games/min)
+Game 237/500: W+25.5 (88 moves, double_pass) | bpoC-iter0 101 (0.114s/mv) - 136 (0.113s/mv) bpoC-iter0 (14.2 games/min)
+Game 238/500: W+65.5 (124 moves, double_pass) | bpoC-iter0 101 (0.115s/mv) - 137 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 239/500: W+65.5 (150 moves, double_pass) | bpoC-iter0 101 (0.117s/mv) - 138 (0.118s/mv) bpoC-iter0 (14.3 games/min)
+Game 240/500: W+81.5 (162 moves, max_moves) | bpoC-iter0 101 (0.116s/mv) - 139 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 241/500: W+9.5 (100 moves, double_pass) | bpoC-iter0 101 (0.116s/mv) - 140 (0.116s/mv) bpoC-iter0 (14.3 games/min)
+Game 242/500: B+68.5 (162 moves, max_moves) | bpoC-iter0 102 (0.116s/mv) - 140 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 243/500: W+77.5 (162 moves, max_moves) | bpoC-iter0 102 (0.115s/mv) - 141 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 244/500: W+53.5 (134 moves, double_pass) | bpoC-iter0 102 (0.113s/mv) - 142 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 245/500: W+88.5 (162 moves, max_moves) | bpoC-iter0 102 (0.115s/mv) - 143 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 246/500: B+8.5 (87 moves, double_pass) | bpoC-iter0 103 (0.115s/mv) - 143 (0.113s/mv) bpoC-iter0 (14.3 games/min)
+Game 247/500: W+49.5 (141 moves, double_pass) | bpoC-iter0 103 (0.113s/mv) - 144 (0.116s/mv) bpoC-iter0 (14.3 games/min)
+Game 248/500: W+65.5 (140 moves, double_pass) | bpoC-iter0 103 (0.115s/mv) - 145 (0.116s/mv) bpoC-iter0 (14.3 games/min)
+Game 249/500: B+56.5 (162 moves, max_moves) | bpoC-iter0 104 (0.114s/mv) - 145 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 250/500: B+70.5 (162 moves, max_moves) | bpoC-iter0 105 (0.114s/mv) - 145 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 251/500: B+51.5 (162 moves, max_moves) | bpoC-iter0 106 (0.113s/mv) - 145 (0.113s/mv) bpoC-iter0 (14.3 games/min)
+Game 252/500: W+61.5 (151 moves, double_pass) | bpoC-iter0 106 (0.114s/mv) - 146 (0.114s/mv) bpoC-iter0 (14.3 games/min)
+Game 253/500: B+45.5 (155 moves, double_pass) | bpoC-iter0 107 (0.115s/mv) - 146 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 254/500: W+67.5 (154 moves, double_pass) | bpoC-iter0 107 (0.114s/mv) - 147 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 255/500: B+70.5 (162 moves, max_moves) | bpoC-iter0 108 (0.115s/mv) - 147 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 256/500: W+71.5 (162 moves, max_moves) | bpoC-iter0 108 (0.115s/mv) - 148 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 257/500: B+45.5 (145 moves, double_pass) | bpoC-iter0 109 (0.116s/mv) - 148 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 258/500: W+78.5 (162 moves, max_moves) | bpoC-iter0 109 (0.116s/mv) - 149 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 259/500: B+28.5 (162 moves, max_moves) | bpoC-iter0 110 (0.118s/mv) - 149 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 260/500: B+58.5 (162 moves, max_moves) | bpoC-iter0 111 (0.117s/mv) - 149 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 261/500: B+46.5 (137 moves, double_pass) | bpoC-iter0 112 (0.117s/mv) - 149 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 262/500: W+10.5 (94 moves, double_pass) | bpoC-iter0 112 (0.112s/mv) - 150 (0.112s/mv) bpoC-iter0 (14.2 games/min)
+Game 263/500: W+73.5 (162 moves, max_moves) | bpoC-iter0 112 (0.117s/mv) - 151 (0.118s/mv) bpoC-iter0 (14.3 games/min)
+Game 264/500: W+6.5 (92 moves, double_pass) | bpoC-iter0 112 (0.113s/mv) - 152 (0.113s/mv) bpoC-iter0 (14.2 games/min)
+Game 265/500: W+76.5 (162 moves, max_moves) | bpoC-iter0 112 (0.114s/mv) - 153 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 266/500: W+19.5 (162 moves, max_moves) | bpoC-iter0 112 (0.115s/mv) - 154 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 267/500: B+42.5 (158 moves, double_pass) | bpoC-iter0 113 (0.114s/mv) - 154 (0.113s/mv) bpoC-iter0 (14.2 games/min)
+Game 268/500: W+66.5 (138 moves, double_pass) | bpoC-iter0 113 (0.114s/mv) - 155 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 269/500: B+68.5 (162 moves, max_moves) | bpoC-iter0 114 (0.114s/mv) - 155 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 270/500: W+8.5 (96 moves, double_pass) | bpoC-iter0 114 (0.112s/mv) - 156 (0.112s/mv) bpoC-iter0 (14.3 games/min)
+Game 271/500: W+59.5 (138 moves, double_pass) | bpoC-iter0 114 (0.114s/mv) - 157 (0.115s/mv) bpoC-iter0 (14.3 games/min)
+Game 272/500: W+57.5 (128 moves, double_pass) | bpoC-iter0 114 (0.118s/mv) - 158 (0.118s/mv) bpoC-iter0 (14.3 games/min)
+Game 273/500: W+8.5 (89 moves, double_pass) | bpoC-iter0 114 (0.110s/mv) - 159 (0.111s/mv) bpoC-iter0 (14.2 games/min)
+Game 274/500: W+80.5 (162 moves, max_moves) | bpoC-iter0 114 (0.117s/mv) - 160 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 275/500: W+85.5 (162 moves, max_moves) | bpoC-iter0 114 (0.117s/mv) - 161 (0.119s/mv) bpoC-iter0 (14.3 games/min)
+Game 276/500: B+54.5 (162 moves, max_moves) | bpoC-iter0 115 (0.118s/mv) - 161 (0.119s/mv) bpoC-iter0 (14.3 games/min)
+Game 277/500: W+77.5 (153 moves, double_pass) | bpoC-iter0 115 (0.115s/mv) - 162 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 278/500: W+56.5 (158 moves, double_pass) | bpoC-iter0 115 (0.116s/mv) - 163 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 279/500: W+74.5 (162 moves, max_moves) | bpoC-iter0 115 (0.117s/mv) - 164 (0.117s/mv) bpoC-iter0 (14.3 games/min)
+Game 280/500: B+57.5 (159 moves, double_pass) | bpoC-iter0 116 (0.116s/mv) - 164 (0.118s/mv) bpoC-iter0 (14.3 games/min)
+Game 281/500: B+26.5 (162 moves, max_moves) | bpoC-iter0 117 (0.117s/mv) - 164 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 282/500: W+85.5 (162 moves, max_moves) | bpoC-iter0 117 (0.116s/mv) - 165 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 283/500: W+82.5 (162 moves, max_moves) | bpoC-iter0 117 (0.116s/mv) - 166 (0.117s/mv) bpoC-iter0 (14.2 games/min)
+Game 284/500: W+75.5 (162 moves, max_moves) | bpoC-iter0 117 (0.117s/mv) - 167 (0.117s/mv) bpoC-iter0 (14.3 games/min)
+Game 285/500: B+2.5 (105 moves, double_pass) | bpoC-iter0 118 (0.120s/mv) - 167 (0.119s/mv) bpoC-iter0 (14.2 games/min)
+Game 286/500: B+73.5 (162 moves, max_moves) | bpoC-iter0 119 (0.120s/mv) - 167 (0.118s/mv) bpoC-iter0 (14.2 games/min)
+Game 287/500: W+43.5 (162 moves, max_moves) | bpoC-iter0 119 (0.119s/mv) - 168 (0.119s/mv) bpoC-iter0 (14.2 games/min)
+Game 288/500: B+55.5 (162 moves, max_moves) | bpoC-iter0 120 (0.119s/mv) - 168 (0.119s/mv) bpoC-iter0 (14.3 games/min)
+Game 289/500: B+67.5 (162 moves, max_moves) | bpoC-iter0 121 (0.118s/mv) - 168 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 290/500: W+34.5 (131 moves, double_pass) | bpoC-iter0 121 (0.118s/mv) - 169 (0.119s/mv) bpoC-iter0 (14.2 games/min)
+Game 291/500: B+62.5 (162 moves, max_moves) | bpoC-iter0 122 (0.118s/mv) - 169 (0.118s/mv) bpoC-iter0 (14.2 games/min)
+Game 292/500: W+88.5 (160 moves, double_pass) | bpoC-iter0 122 (0.117s/mv) - 170 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 293/500: B+1.5 (107 moves, double_pass) | bpoC-iter0 123 (0.119s/mv) - 170 (0.119s/mv) bpoC-iter0 (14.2 games/min)
+Game 294/500: W+76.5 (162 moves, max_moves) | bpoC-iter0 123 (0.118s/mv) - 171 (0.118s/mv) bpoC-iter0 (14.2 games/min)
+Game 295/500: W+47.5 (143 moves, double_pass) | bpoC-iter0 123 (0.116s/mv) - 172 (0.118s/mv) bpoC-iter0 (14.2 games/min)
+Game 296/500: B+15.5 (162 moves, max_moves) | bpoC-iter0 124 (0.118s/mv) - 172 (0.118s/mv) bpoC-iter0 (14.2 games/min)
+Game 297/500: W+81.5 (162 moves, max_moves) | bpoC-iter0 124 (0.115s/mv) - 173 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 298/500: W+76.5 (162 moves, max_moves) | bpoC-iter0 124 (0.115s/mv) - 174 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 299/500: B+17.5 (162 moves, max_moves) | bpoC-iter0 125 (0.115s/mv) - 174 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 300/500: B+42.5 (145 moves, double_pass) | bpoC-iter0 126 (0.115s/mv) - 174 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 301/500: W+44.5 (162 moves, max_moves) | bpoC-iter0 126 (0.117s/mv) - 175 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 302/500: B+34.5 (162 moves, max_moves) | bpoC-iter0 127 (0.116s/mv) - 175 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 303/500: B+59.5 (162 moves, max_moves) | bpoC-iter0 128 (0.116s/mv) - 175 (0.115s/mv) bpoC-iter0 (14.2 games/min)
+Game 304/500: B+31.5 (162 moves, max_moves) | bpoC-iter0 129 (0.115s/mv) - 175 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 305/500: W+84.5 (162 moves, max_moves) | bpoC-iter0 129 (0.116s/mv) - 176 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 306/500: W+81.5 (160 moves, double_pass) | bpoC-iter0 129 (0.115s/mv) - 177 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 307/500: B+65.5 (162 moves, max_moves) | bpoC-iter0 130 (0.117s/mv) - 177 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 308/500: W+82.5 (162 moves, max_moves) | bpoC-iter0 130 (0.115s/mv) - 178 (0.116s/mv) bpoC-iter0 (14.2 games/min)
+Game 309/500: W+78.5 (162 moves, max_moves) | bpoC-iter0 130 (0.115s/mv) - 179 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 310/500: W+80.5 (162 moves, max_moves) | bpoC-iter0 130 (0.116s/mv) - 180 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 311/500: B+67.5 (162 moves, max_moves) | bpoC-iter0 131 (0.115s/mv) - 180 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 312/500: W+34.5 (162 moves, max_moves) | bpoC-iter0 131 (0.114s/mv) - 181 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 313/500: W+71.5 (162 moves, max_moves) | bpoC-iter0 131 (0.114s/mv) - 182 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 314/500: B+2.5 (109 moves, double_pass) | bpoC-iter0 132 (0.114s/mv) - 182 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 315/500: B+60.5 (138 moves, double_pass) | bpoC-iter0 133 (0.116s/mv) - 182 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 316/500: W+82.5 (162 moves, max_moves) | bpoC-iter0 133 (0.117s/mv) - 183 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 317/500: B+9.5 (89 moves, double_pass) | bpoC-iter0 134 (0.119s/mv) - 183 (0.118s/mv) bpoC-iter0 (14.1 games/min)
+Game 318/500: W+65.5 (158 moves, double_pass) | bpoC-iter0 134 (0.116s/mv) - 184 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 319/500: W+68.5 (157 moves, double_pass) | bpoC-iter0 134 (0.116s/mv) - 185 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 320/500: B+10.5 (162 moves, max_moves) | bpoC-iter0 135 (0.114s/mv) - 185 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 321/500: B+57.5 (162 moves, max_moves) | bpoC-iter0 136 (0.114s/mv) - 185 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 322/500: B+55.5 (162 moves, max_moves) | bpoC-iter0 137 (0.116s/mv) - 185 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 323/500: B+62.5 (162 moves, max_moves) | bpoC-iter0 138 (0.114s/mv) - 185 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 324/500: B+49.5 (162 moves, max_moves) | bpoC-iter0 139 (0.114s/mv) - 185 (0.113s/mv) bpoC-iter0 (14.1 games/min)
+Game 325/500: B+42.5 (162 moves, max_moves) | bpoC-iter0 140 (0.113s/mv) - 185 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 326/500: W+6.5 (50 moves, double_pass) | bpoC-iter0 140 (0.110s/mv) - 186 (0.109s/mv) bpoC-iter0 (14.1 games/min)
+Game 327/500: W+79.5 (152 moves, double_pass) | bpoC-iter0 140 (0.113s/mv) - 187 (0.113s/mv) bpoC-iter0 (14.1 games/min)
+Game 328/500: B+53.5 (162 moves, max_moves) | bpoC-iter0 141 (0.114s/mv) - 187 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 329/500: W+72.5 (162 moves, max_moves) | bpoC-iter0 141 (0.115s/mv) - 188 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 330/500: W+53.5 (158 moves, double_pass) | bpoC-iter0 141 (0.114s/mv) - 189 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 331/500: W+70.5 (162 moves, max_moves) | bpoC-iter0 141 (0.114s/mv) - 190 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 332/500: B+63.5 (147 moves, double_pass) | bpoC-iter0 142 (0.116s/mv) - 190 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 333/500: W+76.5 (162 moves, max_moves) | bpoC-iter0 142 (0.115s/mv) - 191 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 334/500: B+58.5 (162 moves, max_moves) | bpoC-iter0 143 (0.114s/mv) - 191 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 335/500: W+82.5 (162 moves, max_moves) | bpoC-iter0 143 (0.115s/mv) - 192 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 336/500: W+74.5 (162 moves, max_moves) | bpoC-iter0 143 (0.114s/mv) - 193 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 337/500: W+55.5 (162 moves, max_moves) | bpoC-iter0 143 (0.117s/mv) - 194 (0.118s/mv) bpoC-iter0 (14.1 games/min)
+Game 338/500: B+57.5 (162 moves, max_moves) | bpoC-iter0 144 (0.118s/mv) - 194 (0.118s/mv) bpoC-iter0 (14.1 games/min)
+Game 339/500: W+22.5 (162 moves, max_moves) | bpoC-iter0 144 (0.117s/mv) - 195 (0.118s/mv) bpoC-iter0 (14.1 games/min)
+Game 340/500: B+45.5 (152 moves, double_pass) | bpoC-iter0 145 (0.119s/mv) - 195 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 341/500: B+67.5 (162 moves, max_moves) | bpoC-iter0 146 (0.113s/mv) - 195 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 342/500: W+7.5 (100 moves, double_pass) | bpoC-iter0 146 (0.115s/mv) - 196 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 343/500: W+68.5 (140 moves, double_pass) | bpoC-iter0 146 (0.115s/mv) - 197 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 344/500: B+61.5 (162 moves, max_moves) | bpoC-iter0 147 (0.115s/mv) - 197 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 345/500: B+33.5 (119 moves, double_pass) | bpoC-iter0 148 (0.115s/mv) - 197 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 346/500: W+15.5 (121 moves, double_pass) | bpoC-iter0 148 (0.114s/mv) - 198 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 347/500: W+8.5 (44 moves, double_pass) | bpoC-iter0 148 (0.115s/mv) - 199 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 348/500: B+46.5 (162 moves, max_moves) | bpoC-iter0 149 (0.117s/mv) - 199 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 349/500: B+63.5 (162 moves, max_moves) | bpoC-iter0 150 (0.116s/mv) - 199 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 350/500: W+71.5 (162 moves, max_moves) | bpoC-iter0 150 (0.114s/mv) - 200 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 351/500: W+69.5 (144 moves, double_pass) | bpoC-iter0 150 (0.114s/mv) - 201 (0.114s/mv) bpoC-iter0 (14.2 games/min)
+Game 352/500: B+64.5 (162 moves, max_moves) | bpoC-iter0 151 (0.115s/mv) - 201 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 353/500: B+52.5 (162 moves, max_moves) | bpoC-iter0 152 (0.114s/mv) - 201 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 354/500: W+65.5 (162 moves, double_pass) | bpoC-iter0 152 (0.115s/mv) - 202 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 355/500: W+80.5 (162 moves, max_moves) | bpoC-iter0 152 (0.115s/mv) - 203 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 356/500: W+33.5 (113 moves, double_pass) | bpoC-iter0 152 (0.113s/mv) - 204 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 357/500: B+56.5 (162 moves, max_moves) | bpoC-iter0 153 (0.115s/mv) - 204 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 358/500: B+57.5 (162 moves, max_moves) | bpoC-iter0 154 (0.115s/mv) - 204 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 359/500: W+51.5 (162 moves, max_moves) | bpoC-iter0 154 (0.115s/mv) - 205 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 360/500: W+29.5 (162 moves, max_moves) | bpoC-iter0 154 (0.116s/mv) - 206 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 361/500: B+56.5 (162 moves, max_moves) | bpoC-iter0 155 (0.116s/mv) - 206 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 362/500: B+60.5 (162 moves, max_moves) | bpoC-iter0 156 (0.116s/mv) - 206 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 363/500: W+73.5 (162 moves, max_moves) | bpoC-iter0 156 (0.115s/mv) - 207 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 364/500: W+44.5 (162 moves, max_moves) | bpoC-iter0 156 (0.117s/mv) - 208 (0.118s/mv) bpoC-iter0 (14.1 games/min)
+Game 365/500: B+49.5 (162 moves, max_moves) | bpoC-iter0 157 (0.118s/mv) - 208 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 366/500: B+52.5 (162 moves, max_moves) | bpoC-iter0 158 (0.117s/mv) - 208 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 367/500: B+58.5 (162 moves, max_moves) | bpoC-iter0 159 (0.117s/mv) - 208 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 368/500: W+81.5 (162 moves, max_moves) | bpoC-iter0 159 (0.114s/mv) - 209 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 369/500: W+68.5 (146 moves, double_pass) | bpoC-iter0 159 (0.114s/mv) - 210 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 370/500: W+0.5 (97 moves, double_pass) | bpoC-iter0 159 (0.115s/mv) - 211 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 371/500: B+45.5 (158 moves, double_pass) | bpoC-iter0 160 (0.116s/mv) - 211 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 372/500: B+5.5 (101 moves, double_pass) | bpoC-iter0 161 (0.113s/mv) - 211 (0.113s/mv) bpoC-iter0 (14.1 games/min)
+Game 373/500: B+4.5 (120 moves, double_pass) | bpoC-iter0 162 (0.114s/mv) - 211 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 374/500: B+63.5 (162 moves, max_moves) | bpoC-iter0 163 (0.117s/mv) - 211 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 375/500: W+29.5 (118 moves, double_pass) | bpoC-iter0 163 (0.117s/mv) - 212 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 376/500: B+55.5 (162 moves, max_moves) | bpoC-iter0 164 (0.116s/mv) - 212 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 377/500: W+56.5 (139 moves, double_pass) | bpoC-iter0 164 (0.115s/mv) - 213 (0.118s/mv) bpoC-iter0 (14.1 games/min)
+Game 378/500: W+58.5 (147 moves, double_pass) | bpoC-iter0 164 (0.117s/mv) - 214 (0.118s/mv) bpoC-iter0 (14.1 games/min)
+Game 379/500: W+74.5 (162 moves, max_moves) | bpoC-iter0 164 (0.115s/mv) - 215 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 380/500: B+41.5 (162 moves, max_moves) | bpoC-iter0 165 (0.115s/mv) - 215 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 381/500: B+14.5 (162 moves, max_moves) | bpoC-iter0 166 (0.115s/mv) - 215 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 382/500: B+65.5 (162 moves, max_moves) | bpoC-iter0 167 (0.116s/mv) - 215 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 383/500: W+4.5 (104 moves, double_pass) | bpoC-iter0 167 (0.117s/mv) - 216 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 384/500: W+72.5 (162 moves, max_moves) | bpoC-iter0 167 (0.116s/mv) - 217 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 385/500: W+71.5 (162 moves, max_moves) | bpoC-iter0 167 (0.118s/mv) - 218 (0.118s/mv) bpoC-iter0 (14.1 games/min)
+Game 386/500: B+53.5 (162 moves, max_moves) | bpoC-iter0 168 (0.116s/mv) - 218 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 387/500: W+82.5 (162 moves, max_moves) | bpoC-iter0 168 (0.114s/mv) - 219 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 388/500: W+73.5 (162 moves, max_moves) | bpoC-iter0 168 (0.113s/mv) - 220 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 389/500: W+85.5 (162 moves, max_moves) | bpoC-iter0 168 (0.113s/mv) - 221 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 390/500: B+42.5 (153 moves, double_pass) | bpoC-iter0 169 (0.114s/mv) - 221 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 391/500: W+23.5 (115 moves, double_pass) | bpoC-iter0 169 (0.113s/mv) - 222 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 392/500: B+63.5 (162 moves, max_moves) | bpoC-iter0 170 (0.115s/mv) - 222 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 393/500: W+41.5 (162 moves, max_moves) | bpoC-iter0 170 (0.115s/mv) - 223 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 394/500: B+73.5 (162 moves, max_moves) | bpoC-iter0 171 (0.114s/mv) - 223 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 395/500: B+50.5 (162 moves, double_pass) | bpoC-iter0 172 (0.115s/mv) - 223 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 396/500: B+54.5 (148 moves, double_pass) | bpoC-iter0 173 (0.114s/mv) - 223 (0.113s/mv) bpoC-iter0 (14.0 games/min)
+Game 397/500: B+54.5 (162 moves, max_moves) | bpoC-iter0 174 (0.115s/mv) - 223 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 398/500: W+48.5 (158 moves, double_pass) | bpoC-iter0 174 (0.115s/mv) - 224 (0.113s/mv) bpoC-iter0 (14.1 games/min)
+Game 399/500: B+61.5 (159 moves, double_pass) | bpoC-iter0 175 (0.116s/mv) - 224 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 400/500: W+5.5 (115 moves, double_pass) | bpoC-iter0 175 (0.114s/mv) - 225 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 401/500: W+74.5 (162 moves, max_moves) | bpoC-iter0 175 (0.115s/mv) - 226 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 402/500: W+52.5 (130 moves, double_pass) | bpoC-iter0 175 (0.114s/mv) - 227 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 403/500: B+73.5 (162 moves, max_moves) | bpoC-iter0 176 (0.114s/mv) - 227 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 404/500: B+56.5 (162 moves, max_moves) | bpoC-iter0 177 (0.114s/mv) - 227 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 405/500: W+68.5 (162 moves, max_moves) | bpoC-iter0 177 (0.116s/mv) - 228 (0.115s/mv) bpoC-iter0 (14.0 games/min)
+Game 406/500: B+67.5 (162 moves, max_moves) | bpoC-iter0 178 (0.116s/mv) - 228 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 407/500: B+8.5 (121 moves, double_pass) | bpoC-iter0 179 (0.115s/mv) - 228 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 408/500: W+73.5 (154 moves, double_pass) | bpoC-iter0 179 (0.115s/mv) - 229 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 409/500: B+53.5 (149 moves, double_pass) | bpoC-iter0 180 (0.117s/mv) - 229 (0.116s/mv) bpoC-iter0 (14.0 games/min)
+Game 410/500: B+62.5 (162 moves, max_moves) | bpoC-iter0 181 (0.116s/mv) - 229 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 411/500: W+66.5 (160 moves, double_pass) | bpoC-iter0 181 (0.116s/mv) - 230 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 412/500: W+72.5 (162 moves, max_moves) | bpoC-iter0 181 (0.113s/mv) - 231 (0.114s/mv) bpoC-iter0 (14.0 games/min)
+Game 413/500: W+66.5 (162 moves, max_moves) | bpoC-iter0 181 (0.113s/mv) - 232 (0.113s/mv) bpoC-iter0 (14.0 games/min)
+Game 414/500: B+41.5 (155 moves, double_pass) | bpoC-iter0 182 (0.114s/mv) - 232 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 415/500: B+32.5 (147 moves, double_pass) | bpoC-iter0 183 (0.113s/mv) - 232 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 416/500: B+54.5 (162 moves, max_moves) | bpoC-iter0 184 (0.113s/mv) - 232 (0.113s/mv) bpoC-iter0 (14.0 games/min)
+Game 417/500: W+62.5 (132 moves, double_pass) | bpoC-iter0 184 (0.115s/mv) - 233 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 418/500: W+57.5 (134 moves, double_pass) | bpoC-iter0 184 (0.113s/mv) - 234 (0.113s/mv) bpoC-iter0 (14.1 games/min)
+Game 419/500: W+72.5 (162 moves, max_moves) | bpoC-iter0 184 (0.114s/mv) - 235 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 420/500: B+38.5 (162 moves, max_moves) | bpoC-iter0 185 (0.114s/mv) - 235 (0.114s/mv) bpoC-iter0 (14.0 games/min)
+Game 421/500: B+40.5 (162 moves, max_moves) | bpoC-iter0 186 (0.115s/mv) - 235 (0.115s/mv) bpoC-iter0 (14.0 games/min)
+Game 422/500: B+58.5 (157 moves, double_pass) | bpoC-iter0 187 (0.116s/mv) - 235 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 423/500: W+82.5 (158 moves, double_pass) | bpoC-iter0 187 (0.116s/mv) - 236 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 424/500: W+14.5 (162 moves, max_moves) | bpoC-iter0 187 (0.115s/mv) - 237 (0.115s/mv) bpoC-iter0 (14.0 games/min)
+Game 425/500: W+50.5 (162 moves, max_moves) | bpoC-iter0 187 (0.113s/mv) - 238 (0.114s/mv) bpoC-iter0 (14.0 games/min)
+Game 426/500: W+54.5 (150 moves, double_pass) | bpoC-iter0 187 (0.114s/mv) - 239 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 427/500: W+59.5 (142 moves, double_pass) | bpoC-iter0 187 (0.114s/mv) - 240 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 428/500: B+64.5 (162 moves, max_moves) | bpoC-iter0 188 (0.116s/mv) - 240 (0.116s/mv) bpoC-iter0 (14.0 games/min)
+Game 429/500: W+73.5 (162 moves, max_moves) | bpoC-iter0 188 (0.115s/mv) - 241 (0.115s/mv) bpoC-iter0 (14.0 games/min)
+Game 430/500: B+54.5 (155 moves, double_pass) | bpoC-iter0 189 (0.116s/mv) - 241 (0.116s/mv) bpoC-iter0 (14.0 games/min)
+Game 431/500: W+31.5 (162 moves, max_moves) | bpoC-iter0 189 (0.116s/mv) - 242 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 432/500: W+17.5 (87 moves, double_pass) | bpoC-iter0 189 (0.118s/mv) - 243 (0.118s/mv) bpoC-iter0 (14.1 games/min)
+Game 433/500: B+14.5 (107 moves, double_pass) | bpoC-iter0 190 (0.118s/mv) - 243 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 434/500: B+42.5 (135 moves, double_pass) | bpoC-iter0 191 (0.118s/mv) - 243 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 435/500: W+55.5 (162 moves, max_moves) | bpoC-iter0 191 (0.115s/mv) - 244 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 436/500: B+70.5 (162 moves, max_moves) | bpoC-iter0 192 (0.114s/mv) - 244 (0.114s/mv) bpoC-iter0 (14.0 games/min)
+Game 437/500: W+42.5 (162 moves, max_moves) | bpoC-iter0 192 (0.114s/mv) - 245 (0.113s/mv) bpoC-iter0 (14.0 games/min)
+Game 438/500: B+48.5 (162 moves, max_moves) | bpoC-iter0 193 (0.115s/mv) - 245 (0.114s/mv) bpoC-iter0 (14.0 games/min)
+Game 439/500: W+72.5 (162 moves, max_moves) | bpoC-iter0 193 (0.114s/mv) - 246 (0.115s/mv) bpoC-iter0 (14.0 games/min)
+Game 440/500: W+54.5 (104 moves, double_pass) | bpoC-iter0 193 (0.114s/mv) - 247 (0.115s/mv) bpoC-iter0 (14.0 games/min)
+Game 441/500: B+59.5 (162 moves, max_moves) | bpoC-iter0 194 (0.116s/mv) - 247 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 442/500: B+70.5 (162 moves, max_moves) | bpoC-iter0 195 (0.116s/mv) - 247 (0.116s/mv) bpoC-iter0 (14.0 games/min)
+Game 443/500: B+49.5 (137 moves, double_pass) | bpoC-iter0 196 (0.116s/mv) - 247 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 444/500: W+18.5 (102 moves, double_pass) | bpoC-iter0 196 (0.114s/mv) - 248 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 445/500: W+20.5 (162 moves, max_moves) | bpoC-iter0 196 (0.118s/mv) - 249 (0.118s/mv) bpoC-iter0 (14.0 games/min)
+Game 446/500: W+59.5 (148 moves, double_pass) | bpoC-iter0 196 (0.118s/mv) - 250 (0.118s/mv) bpoC-iter0 (14.0 games/min)
+Game 447/500: W+70.5 (162 moves, max_moves) | bpoC-iter0 196 (0.117s/mv) - 251 (0.117s/mv) bpoC-iter0 (14.0 games/min)
+Game 448/500: B+31.5 (162 moves, max_moves) | bpoC-iter0 197 (0.117s/mv) - 251 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 449/500: W+71.5 (162 moves, max_moves) | bpoC-iter0 197 (0.114s/mv) - 252 (0.115s/mv) bpoC-iter0 (14.0 games/min)
+Game 450/500: B+61.5 (149 moves, double_pass) | bpoC-iter0 198 (0.116s/mv) - 252 (0.116s/mv) bpoC-iter0 (14.0 games/min)
+Game 451/500: W+85.5 (162 moves, max_moves) | bpoC-iter0 198 (0.116s/mv) - 253 (0.117s/mv) bpoC-iter0 (14.0 games/min)
+Game 452/500: B+17.5 (162 moves, max_moves) | bpoC-iter0 199 (0.116s/mv) - 253 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 453/500: W+77.5 (162 moves, max_moves) | bpoC-iter0 199 (0.117s/mv) - 254 (0.117s/mv) bpoC-iter0 (14.0 games/min)
+Game 454/500: B+45.5 (136 moves, double_pass) | bpoC-iter0 200 (0.118s/mv) - 254 (0.117s/mv) bpoC-iter0 (14.0 games/min)
+Game 455/500: B+54.5 (162 moves, max_moves) | bpoC-iter0 201 (0.118s/mv) - 254 (0.116s/mv) bpoC-iter0 (14.0 games/min)
+Game 456/500: W+45.5 (162 moves, max_moves) | bpoC-iter0 201 (0.118s/mv) - 255 (0.118s/mv) bpoC-iter0 (14.0 games/min)
+Game 457/500: B+47.5 (162 moves, max_moves) | bpoC-iter0 202 (0.117s/mv) - 255 (0.116s/mv) bpoC-iter0 (14.0 games/min)
+Game 458/500: W+0.5 (110 moves, double_pass) | bpoC-iter0 202 (0.117s/mv) - 256 (0.117s/mv) bpoC-iter0 (14.0 games/min)
+Game 459/500: W+77.5 (162 moves, max_moves) | bpoC-iter0 202 (0.117s/mv) - 257 (0.118s/mv) bpoC-iter0 (14.0 games/min)
+Game 460/500: W+75.5 (162 moves, max_moves) | bpoC-iter0 202 (0.116s/mv) - 258 (0.117s/mv) bpoC-iter0 (14.0 games/min)
+Game 461/500: W+9.5 (102 moves, double_pass) | bpoC-iter0 202 (0.116s/mv) - 259 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 462/500: W+80.5 (162 moves, max_moves) | bpoC-iter0 202 (0.116s/mv) - 260 (0.116s/mv) bpoC-iter0 (14.0 games/min)
+Game 463/500: W+75.5 (162 moves, max_moves) | bpoC-iter0 202 (0.114s/mv) - 261 (0.115s/mv) bpoC-iter0 (14.0 games/min)
+Game 464/500: W+78.5 (154 moves, double_pass) | bpoC-iter0 202 (0.115s/mv) - 262 (0.115s/mv) bpoC-iter0 (14.0 games/min)
+Game 465/500: B+41.5 (143 moves, double_pass) | bpoC-iter0 203 (0.115s/mv) - 262 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 466/500: W+6.5 (100 moves, double_pass) | bpoC-iter0 203 (0.114s/mv) - 263 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 467/500: W+8.5 (38 moves, double_pass) | bpoC-iter0 203 (0.114s/mv) - 264 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 468/500: W+81.5 (158 moves, double_pass) | bpoC-iter0 203 (0.115s/mv) - 265 (0.115s/mv) bpoC-iter0 (14.0 games/min)
+Game 469/500: W+74.5 (148 moves, double_pass) | bpoC-iter0 203 (0.115s/mv) - 266 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 470/500: W+0.5 (95 moves, double_pass) | bpoC-iter0 203 (0.110s/mv) - 267 (0.112s/mv) bpoC-iter0 (14.1 games/min)
+Game 471/500: B+49.5 (162 moves, max_moves) | bpoC-iter0 204 (0.115s/mv) - 267 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 472/500: B+1.5 (95 moves, double_pass) | bpoC-iter0 205 (0.115s/mv) - 267 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 473/500: W+50.5 (117 moves, double_pass) | bpoC-iter0 205 (0.113s/mv) - 268 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 474/500: W+72.5 (162 moves, max_moves) | bpoC-iter0 205 (0.115s/mv) - 269 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 475/500: B+57.5 (157 moves, double_pass) | bpoC-iter0 206 (0.116s/mv) - 269 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 476/500: W+5.5 (104 moves, double_pass) | bpoC-iter0 206 (0.116s/mv) - 270 (0.113s/mv) bpoC-iter0 (14.1 games/min)
+Game 477/500: W+11.5 (162 moves, max_moves) | bpoC-iter0 206 (0.116s/mv) - 271 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 478/500: W+38.5 (162 moves, max_moves) | bpoC-iter0 206 (0.116s/mv) - 272 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 479/500: W+23.5 (162 moves, max_moves) | bpoC-iter0 206 (0.117s/mv) - 273 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 480/500: W+55.5 (147 moves, double_pass) | bpoC-iter0 206 (0.114s/mv) - 274 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 481/500: W+44.5 (118 moves, double_pass) | bpoC-iter0 206 (0.115s/mv) - 275 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 482/500: W+64.5 (150 moves, double_pass) | bpoC-iter0 206 (0.116s/mv) - 276 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 483/500: W+22.5 (100 moves, double_pass) | bpoC-iter0 206 (0.114s/mv) - 277 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 484/500: W+85.5 (162 moves, max_moves) | bpoC-iter0 206 (0.116s/mv) - 278 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 485/500: W+75.5 (162 moves, max_moves) | bpoC-iter0 206 (0.119s/mv) - 279 (0.119s/mv) bpoC-iter0 (14.1 games/min)
+Game 486/500: B+40.5 (149 moves, double_pass) | bpoC-iter0 207 (0.118s/mv) - 279 (0.117s/mv) bpoC-iter0 (14.1 games/min)
+Game 487/500: W+46.5 (162 moves, max_moves) | bpoC-iter0 207 (0.117s/mv) - 280 (0.118s/mv) bpoC-iter0 (14.1 games/min)
+Game 488/500: W+33.5 (162 moves, max_moves) | bpoC-iter0 207 (0.119s/mv) - 281 (0.118s/mv) bpoC-iter0 (14.1 games/min)
+Game 489/500: B+65.5 (162 moves, max_moves) | bpoC-iter0 208 (0.115s/mv) - 281 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 490/500: W+56.5 (162 moves, max_moves) | bpoC-iter0 208 (0.114s/mv) - 282 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 491/500: B+53.5 (162 moves, max_moves) | bpoC-iter0 209 (0.114s/mv) - 282 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 492/500: W+72.5 (162 moves, max_moves) | bpoC-iter0 209 (0.114s/mv) - 283 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 493/500: B+64.5 (162 moves, max_moves) | bpoC-iter0 210 (0.114s/mv) - 283 (0.114s/mv) bpoC-iter0 (14.1 games/min)
+Game 494/500: W+74.5 (162 moves, max_moves) | bpoC-iter0 210 (0.116s/mv) - 284 (0.116s/mv) bpoC-iter0 (14.0 games/min)
+Game 495/500: B+65.5 (162 moves, max_moves) | bpoC-iter0 211 (0.115s/mv) - 284 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 496/500: W+57.5 (162 moves, max_moves) | bpoC-iter0 211 (0.115s/mv) - 285 (0.116s/mv) bpoC-iter0 (14.1 games/min)
+Game 497/500: B+41.5 (140 moves, double_pass) | bpoC-iter0 212 (0.117s/mv) - 285 (0.115s/mv) bpoC-iter0 (14.1 games/min)
+Game 498/500: W+82.5 (156 moves, double_pass) | bpoC-iter0 212 (0.090s/mv) - 286 (0.090s/mv) bpoC-iter0 (14.1 games/min)
+Game 499/500: W+39.5 (122 moves, double_pass) | bpoC-iter0 212 (0.082s/mv) - 287 (0.082s/mv) bpoC-iter0 (14.1 games/min)
+Game 500/500: B+65.5 (162 moves, max_moves) | bpoC-iter0 213 (0.091s/mv) - 287 (0.091s/mv) bpoC-iter0 (14.1 games/min)
+                               Self-Play Results                                
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Metric                      ┃ Value                                          ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Total Games                 │ 500                                            │
+│ bpoC-iter0 (Black) Wins     │ 213/500 (42.6%)                                │
+│ bpoC-iter0 (White) Wins     │ 287/500 (57.4%)                                │
+│ Draws                       │ 0                                              │
+│ Score (Black perspective)   │ -10.9 ± 56.2                                   │
+│ Avg Game Length             │ 147.1                                          │
+│ bpoC-iter0 (Black) sec/move │ 0.115                                          │
+│ bpoC-iter0 (White) sec/move │ 0.115                                          │
+│ Ended by Double Pass        │ 215/500                                        │
+│ Ended by Max Moves          │ 285/500                                        │
+│ Workers                     │ 4                                              │
+│ Output Dir                  │ /home/nfs-local/game_data_root/experiments/20… │
+└─────────────────────────────┴────────────────────────────────────────────────┘
+{
+  "total_games": 500,
+  "black_wins": 213,
+  "white_wins": 287,
+  "draws": 0,
+  "black_win_rate": 0.426,
+  "white_win_rate": 0.574,
+  "avg_game_length": 147.102,
+  "min_game_length": 24,
+  "max_game_length": 162,
+  "total_positions": 73551,
+  "score_mean": -10.948,
+  "score_std": 56.17076905295138,
+  "double_pass_ends": 215,
+  "max_moves_ends": 285,
+  "resign_ends": 0,
+  "black_sec_per_move": 0.11531133382211377,
+  "white_sec_per_move": 0.11541927089357473,
+  "black_total_seconds": 4245.763311330229,
+  "white_total_seconds": 4239.4652391918935,
+  "black_agent": "bpoC-iter0",
+  "white_agent": "bpoC-iter0",
+  "board_size": 9,
+  "num_workers": 4,
+  "data_files": [
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000000.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000001.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000002.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000003.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000004.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000005.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000006.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000007.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000008.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000009.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000010.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000011.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000012.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000013.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000014.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000015.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000016.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000017.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000018.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000019.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000020.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000021.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000022.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000023.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000024.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000025.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000026.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000027.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000028.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000029.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000030.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000031.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000032.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000033.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000034.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000035.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000036.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000037.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000038.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000039.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000040.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000041.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000042.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000043.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000044.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000045.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000046.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000047.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000048.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000049.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000050.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000051.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000052.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000053.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000054.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000055.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000056.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000057.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000058.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000059.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000060.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000061.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000062.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000063.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000064.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000065.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000066.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000067.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000068.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000069.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000070.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000071.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000072.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000073.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000074.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000075.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000076.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000077.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000078.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000079.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000080.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000081.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000082.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000083.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000084.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000085.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000086.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000087.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000088.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000089.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000090.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000091.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000092.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000093.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000094.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000095.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000096.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000097.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000098.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000099.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000100.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000101.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000102.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000103.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000104.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000105.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000106.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000107.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000108.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000109.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000110.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000111.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000112.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000113.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000114.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000115.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000116.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000117.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000118.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000119.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000120.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000121.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000122.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000123.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000124.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000125.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000126.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000127.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000128.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000129.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000130.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000131.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000132.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000133.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000134.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000135.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000136.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000137.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000138.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000139.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000140.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000141.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000142.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000143.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000144.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000145.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000146.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000147.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000148.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000149.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000150.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000151.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000152.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000153.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000154.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000155.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000156.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000157.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000158.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000159.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000160.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000161.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000162.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000163.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000164.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000165.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000166.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000167.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000168.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000169.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000170.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000171.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000172.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000173.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000174.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000175.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000176.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000177.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000178.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000179.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000180.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000181.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000182.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000183.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000184.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000185.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000186.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000187.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000188.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000189.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000190.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000191.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000192.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000193.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000194.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000195.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000196.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000197.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000198.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000199.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000200.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000201.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000202.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000203.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000204.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000205.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000206.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000207.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000208.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000209.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000210.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000211.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000212.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000213.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000214.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000215.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000216.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000217.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000218.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000219.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000220.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000221.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000222.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000223.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000224.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000225.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000226.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000227.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000228.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000229.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000230.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000231.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000232.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000233.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000234.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000235.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000236.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000237.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000238.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000239.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000240.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000241.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000242.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000243.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000244.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000245.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000246.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000247.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000248.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000249.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000250.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000251.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000252.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000253.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000254.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000255.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000256.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000257.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000258.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000259.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000260.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000261.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000262.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000263.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000264.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000265.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000266.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000267.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000268.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000269.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000270.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000271.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000272.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000273.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000274.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000275.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000276.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000277.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000278.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000279.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000280.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000281.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000282.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000283.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000284.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000285.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000286.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000287.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000288.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000289.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000290.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000291.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000292.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000293.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000294.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000295.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000296.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000297.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000298.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000299.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000300.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000301.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000302.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000303.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000304.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000305.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000306.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000307.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000308.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000309.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000310.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000311.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000312.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000313.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000314.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000315.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000316.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000317.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000318.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000319.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000320.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000321.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000322.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000323.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000324.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000325.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000326.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000327.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000328.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000329.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000330.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000331.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000332.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000333.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000334.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000335.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000336.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000337.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000338.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000339.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000340.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000341.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000342.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000343.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000344.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000345.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000346.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000347.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000348.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000349.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000350.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000351.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000352.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000353.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000354.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000355.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000356.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000357.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000358.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000359.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000360.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000361.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000362.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000363.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000364.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000365.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000366.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000367.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000368.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000369.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000370.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000371.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000372.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000373.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000374.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000375.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000376.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000377.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000378.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000379.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000380.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000381.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000382.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000383.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000384.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000385.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000386.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000387.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000388.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000389.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000390.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000391.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000392.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000393.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000394.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000395.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000396.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000397.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000398.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000399.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000400.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000401.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000402.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000403.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000404.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000405.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000406.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000407.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000408.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000409.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000410.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000411.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000412.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000413.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000414.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000415.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000416.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000417.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000418.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000419.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000420.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000421.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000422.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000423.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000424.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000425.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000426.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000427.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000428.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000429.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000430.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000431.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000432.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000433.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000434.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000435.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000436.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000437.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000438.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000439.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000440.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000441.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000442.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000443.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000444.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000445.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000446.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000447.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000448.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000449.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000450.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000451.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000452.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000453.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000454.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000455.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000456.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000457.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000458.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000459.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000460.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000461.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000462.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000463.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000464.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000465.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000466.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000467.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000468.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000469.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000470.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000471.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000472.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000473.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000474.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000475.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000476.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000477.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000478.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000479.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000480.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000481.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000482.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000483.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000484.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000485.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000486.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000487.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000488.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000489.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000490.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000491.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000492.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000493.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000494.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000495.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000496.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000497.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000498.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0/20260517-015618-game0000499.npz"
+  ],
+  "output_dir": "/home/nfs-local/game_data_root/experiments/2026-05-16_18-35-bpo-phaseC-baseline/selfplay-it0"
+}
