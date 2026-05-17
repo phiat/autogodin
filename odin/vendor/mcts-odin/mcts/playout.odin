@@ -197,7 +197,7 @@ fast_rollout :: proc(
 	for !t.game.is_terminal(t.working_state) && depth < remaining_depth {
 		n := evaluator(t.working_state, t.eval_a_buf, t.eval_p_buf, &value, user_data)
 		if n == 0 {break}
-		action := sample_packed_action(t.eval_a_buf[:n], t.eval_p_buf[:n], t.config.rollout_temperature, t.scratch_allocator)
+		action := sample_packed_action(&t.rng_state, t.eval_a_buf[:n], t.eval_p_buf[:n], t.config.rollout_temperature, t.scratch_allocator)
 		d := t.game.do_move(t.working_state, action)
 		append(&deltas, d)
 		depth += 1
@@ -217,6 +217,12 @@ fast_rollout :: proc(
 
 // Sample Dirichlet noise over the root's slot list and mix it into priors.
 // alpha and weight come from t.config. No-op if root has no slots yet.
+//
+// Batched: the alpha-dependent Marsaglia-Tsang constants (`d`, `c`) are
+// computed ONCE up front instead of in every per-slot gamma sample, and
+// the inner gamma loop is inlined to skip the function-call/recursion
+// overhead. Normalisation is folded into the prior-mix step so the noise
+// buffer is touched exactly twice (fill+sum, then mix).
 @(private)
 add_dirichlet_noise :: proc(t: ^Tree, alpha, weight: f32) {
 	root := &t.nodes[t.root_idx]
@@ -225,15 +231,42 @@ add_dirichlet_noise :: proc(t: ^Tree, alpha, weight: f32) {
 
 	noise := make([]f32, n, t.scratch_allocator)
 	defer delete(noise, t.scratch_allocator)
+
+	rng := &t.rng_state
+	cache := &t.rng_normal_cache
+
+	// For alpha < 1, Marsaglia-Tsang boosts via G(alpha+1) × U^(1/alpha).
+	alpha_eff := alpha if alpha >= 1.0 else alpha + 1.0
+	d := alpha_eff - 1.0 / 3.0
+	c := 1.0 / math.sqrt(9.0 * d)
+	use_boost := alpha < 1.0
+	inv_alpha := f32(0)
+	if use_boost {inv_alpha = 1.0 / alpha}
+
 	sum := f32(0)
 	for k in 0 ..< n {
-		noise[k] = gamma_sample(alpha)
-		sum += noise[k]
+		g: f32
+		sample: for {
+			x := xoshiro_normal(rng, cache)
+			v := 1.0 + c * x
+			if v <= 0.0 {continue sample}
+			v = v * v * v
+			u := xoshiro_next_f32(rng)
+			if u < 1.0 - 0.0331 * x * x * x * x {g = d * v; break sample}
+			if math.ln(u) < 0.5 * x * x + d * (1.0 - v + math.ln(v)) {g = d * v; break sample}
+		}
+		if use_boost {
+			u := xoshiro_next_f32(rng)
+			g *= math.pow(u, inv_alpha)
+		}
+		noise[k] = g
+		sum += g
 	}
-	for k in 0 ..< n {noise[k] /= sum}
 
+	inv_sum := 1.0 / sum
+	one_minus_weight := 1.0 - weight
 	for k in 0 ..< n {
-		root.priors[k] = (1.0 - weight) * root.priors[k] + weight * noise[k]
+		root.priors[k] = one_minus_weight * root.priors[k] + weight * noise[k] * inv_sum
 	}
 }
 
@@ -242,7 +275,6 @@ add_dirichlet_noise :: proc(t: ^Tree, alpha, weight: f32) {
 //
 // API stability: stable.
 run_simulations :: proc(t: ^Tree, num_simulations: int, evaluator: Evaluator, user_data: rawptr = nil) {
-	use_tree_rng(t)
 	free_all(t.scratch_allocator)
 	n_sims := resolve_n_sims(t, num_simulations)
 

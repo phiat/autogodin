@@ -1,5 +1,5 @@
 repo:    https://github.com/phiat/mcts-odin
-commit:  862207b  # v0.4.0 — preamble refactor (resolve_n_sims / maybe_add_root_dirichlet); undo_move now documented as required (no behavior change for autogodin)
+commit:  2517513  # v0.7.0 — Xoshiro256++ RNG (inlined, no context indirection), batched dirichlet noise rewrite (Marsaglia-Tsang constants once, inline gamma sampling, NormalCache), same propagated to threaded MCTS
 synced:  2026-05-16
 
 Files copied from mcts-odin/mcts/. Pure Odin, no submodule. To refresh:

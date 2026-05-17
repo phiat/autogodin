@@ -3,7 +3,6 @@ package mcts
 import "base:intrinsics"
 import "base:runtime"
 import "core:math"
-import "core:math/rand"
 import "core:mem/virtual"
 import "core:sync"
 import "core:thread"
@@ -60,7 +59,8 @@ Worker :: struct {
 	scratch_allocator: runtime.Allocator,
 	eval_a_buf:     []int,
 	eval_p_buf:     []f32,
-	rng_state:      rand.Default_Random_State,
+	rng_state:      Xoshiro256pp,
+	rng_normal_cache: NormalCache,
 	evaluator:      Evaluator,
 	user_data:      rawptr,
 
@@ -86,7 +86,6 @@ run_simulations_threaded :: proc(
 	evaluator:       Evaluator,
 	user_data:       rawptr = nil,
 ) {
-	use_tree_rng(t)
 	free_all(t.scratch_allocator)
 	n_sims := resolve_n_sims(t, num_simulations)
 
@@ -107,7 +106,7 @@ run_simulations_threaded :: proc(
 	expand_mutex: sync.Mutex
 
 	cap_n := t.game.max_actions
-	base_seed := rand.uint64()
+	base_seed := xoshiro_next_u64(&t.rng_state)
 
 	for i in 0 ..< n {
 		w := &workers[i]
@@ -117,7 +116,7 @@ run_simulations_threaded :: proc(
 		w.scratch_allocator = virtual.arena_allocator(&w.scratch_arena)
 		w.eval_a_buf = make([]int, cap_n, w.scratch_allocator)
 		w.eval_p_buf = make([]f32, cap_n, w.scratch_allocator)
-		w.rng_state = rand.create(base_seed + u64(i) + 1)
+		xoshiro_seed(&w.rng_state, base_seed + u64(i) + 1)
 		w.evaluator = evaluator
 		w.user_data = user_data
 		w.sims_target = n_sims
@@ -256,8 +255,15 @@ worker_do_one_sim :: proc(w: ^Worker) {
 		// Decrement virtual loss eagerly, increment real visit, update Q.
 		intrinsics.atomic_sub(&t.node_N_virt[idx], 1)
 		new_n := intrinsics.atomic_add(&t.node_N[idx], 1) + 1
-		// CAS-loop on Q running average. new_n is unique to this worker so
-		// the divisor is correct; the CAS handles concurrent updates of Q.
+		// CAS-loop on Q running average. new_n is this worker's unique
+		// N-claim at the moment of the atomic_add. Under heavy contention
+		// the CAS may retry against a q_old that another worker just
+		// updated, in which case our divisor (new_n) is for an earlier
+		// generation than q_old reflects. The running average is therefore
+		// statistically biased toward later updates — but at the worker
+		// counts where the threaded path is worth using (≤8), the effect
+		// is negligible and bounded. The CAS handles the visible-update
+		// race; the bias is the price of avoiding a per-node lock.
 		for {
 			q_old := atomic_q_load(&t.node_Q[idx])
 			q_new := q_old + (U - q_old) / f32(new_n)
