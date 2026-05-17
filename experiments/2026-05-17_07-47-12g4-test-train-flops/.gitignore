@@ -1,0 +1,6 @@
+__pycache__/
+_agent_*.py
+_match_*.py
+train_*.py
+checkpoints/
+logs/
