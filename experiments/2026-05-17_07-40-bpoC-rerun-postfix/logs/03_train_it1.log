@@ -1,0 +1,14 @@
+  Resolved 1 data dirs from 1 base paths
+Train data: 1 dirs
+Loaded dataset into RAM in 0.5s
+Train: 45,000
+Epochs=2, steps_per_epoch=87, max_steps=174
+Model: SizeInvariantGoResNet-256ch-10b, params: 11,831,171
+Loading checkpoint: /nfs/checkpoints/2026-05-17_07-40-bpoC-rerun-postfix/iter0_best.pt
+LR=0.001, WD=0.005, time_budget=900s
+Training done: 174 steps in 59s
+Train loss=3.7765, policy_acc=93.37%
+Saved: /nfs/checkpoints/2026-05-17_07-40-bpoC-rerun-postfix/iter1_best.pt
+
+===RESULT===
+{"iteration": 1, "train_loss": 3.776453, "train_policy_acc": 0.9337, "train_value_acc": 0.9891, "steps_completed": 174, "elapsed_seconds": 59.0, "peak_vram_mb": 4159.0, "checkpoint": "/nfs/checkpoints/2026-05-17_07-40-bpoC-rerun-postfix/iter1_best.pt", "resumed_from": "/nfs/checkpoints/2026-05-17_07-40-bpoC-rerun-postfix/iter0_best.pt"}

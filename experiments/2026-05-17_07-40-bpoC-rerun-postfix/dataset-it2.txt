@@ -1,0 +1,2 @@
+experiments/2026-05-17_07-40-bpoC-rerun-postfix/selfplay-it0
+experiments/2026-05-17_07-40-bpoC-rerun-postfix/selfplay-it1

@@ -1,0 +1,53 @@
+{
+  "exp_name": "2026-05-17_07-40-bpoC-rerun-postfix",
+  "config": {
+    "random_games": 5000,
+    "selfplay_games_per_iter": 500,
+    "num_iters": 4,
+    "mcts_sims": 200,
+    "selfplay_workers": 4,
+    "model": "SizeInvariantGoResNet-256ch-10b",
+    "batch_size": 512
+  },
+  "timings_seconds": {
+    "pre_collect": 85.07729530334473,
+    "train_iter0": 918.6698670387268,
+    "selfplay_it0": 1359.1069016456604,
+    "train_iter1": 71.09199953079224,
+    "selfplay_it1": 1307.949341058731,
+    "train_iter2": 131.0168640613556,
+    "selfplay_it2": 1082.753838300705,
+    "train_iter3": 154.31168055534363,
+    "selfplay_it3": 1095.497169971466,
+    "train_iter4": 154.71592950820923
+  },
+  "iterations": [
+    {
+      "iter": 1,
+      "trained_from": "/nfs/checkpoints/2026-05-17_07-40-bpoC-rerun-postfix/iter0_best.pt",
+      "checkpoint": "/nfs/checkpoints/2026-05-17_07-40-bpoC-rerun-postfix/iter1_best.pt"
+    },
+    {
+      "iter": 2,
+      "trained_from": "/nfs/checkpoints/2026-05-17_07-40-bpoC-rerun-postfix/iter1_best.pt",
+      "checkpoint": "/nfs/checkpoints/2026-05-17_07-40-bpoC-rerun-postfix/iter2_best.pt"
+    },
+    {
+      "iter": 3,
+      "trained_from": "/nfs/checkpoints/2026-05-17_07-40-bpoC-rerun-postfix/iter2_best.pt",
+      "checkpoint": "/nfs/checkpoints/2026-05-17_07-40-bpoC-rerun-postfix/iter3_best.pt"
+    },
+    {
+      "iter": 4,
+      "trained_from": "/nfs/checkpoints/2026-05-17_07-40-bpoC-rerun-postfix/iter3_best.pt",
+      "checkpoint": "/nfs/checkpoints/2026-05-17_07-40-bpoC-rerun-postfix/iter4_best.pt"
+    }
+  ],
+  "checkpoints": [
+    "iter0_best.pt",
+    "iter1_best.pt",
+    "iter2_best.pt",
+    "iter3_best.pt",
+    "iter4_best.pt"
+  ]
+}
