@@ -20,6 +20,7 @@ from __future__ import annotations
 import ctypes as ct
 import os
 import pathlib
+import secrets
 from typing import Any, Callable
 
 import numpy as np
@@ -390,7 +391,18 @@ FlatBatchedEvaluatorFn = Callable[
 
 
 class MCTSTree:
-    def __init__(self, root_state: GoBoard, config: MCTSConfig, seed: int = 0):
+    def __init__(self, root_state: GoBoard, config: MCTSConfig, seed: int | None = None):
+        # seed=None matches the C++ MCTSTree behavior (`rng_(std::random_device{}())`):
+        # fresh entropy per construction. Callers that need reproducibility (parity
+        # benches, tests) must pass an explicit integer seed. The previous default
+        # of seed=0 was a misleading footgun — it silently made every shim-using
+        # MCTSTree's Dirichlet RNG start from the same state. A local CPU repro
+        # (experiments/2026-05-17_13-47-bpoC-katago-seed/postmortem/repro.py) shows
+        # the non-batched path is non-deterministic across game seeds even with
+        # seed=0, so this alone doesn't explain autogodin-6qt; that bug appears
+        # to live in the batched-inference path.
+        if seed is None:
+            seed = secrets.randbits(64)
         config._sync_to_native()
         self._board_size = root_state.size()
         self._h = _t_new(root_state._h, config._h, ct.c_uint64(seed))

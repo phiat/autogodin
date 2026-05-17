@@ -35,7 +35,10 @@ def make_agent():
         c_puct=1.0,
         temperature=1.0,
         add_noise=True,
-        leaf_batch_size=16,
+        # leaf_batch_size=0 forces the non-batched MCTS path, which uses
+        # evaluator.evaluate(single_board) -> (dict, float). The batched path
+        # has a separate WIP contract issue unrelated to autogodin-6qt.
+        leaf_batch_size=0,
     )
 
 
