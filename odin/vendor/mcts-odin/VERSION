@@ -2,11 +2,20 @@ repo:    https://github.com/phiat/mcts-odin
 commit:  2517513  # v0.7.0 — Xoshiro256++ RNG (inlined, no context indirection), batched dirichlet noise rewrite (Marsaglia-Tsang constants once, inline gamma sampling, NormalCache), same propagated to threaded MCTS
 synced:  2026-05-16
 
-Files copied from mcts-odin/mcts/. Pure Odin, no submodule. To refresh:
+Files copied from mcts-odin/mcts/. Pure Odin, no submodule.
+Full refresh procedure (smoke gate, API-drift checks, throughput
+sanity, when-NOT-to-refresh) lives in:
+
+    docs/vendor-refresh-mcts-odin.md
+
+Quick recipe (the doc has the full version):
 
     cp ../../../mcts-odin/mcts/*.odin odin/vendor/mcts-odin/mcts/
     cp ../../../mcts-odin/LICENSE      odin/vendor/mcts-odin/LICENSE
-    # bump `commit:` and `synced:` above with new HEAD info
+    # bump `commit:` + `synced:` + headline above
+    just check                                 # build + 37 tests + parity
+    just parity-readouts && just parity-batched
+    git commit -m "vendor: bump mcts-odin <old>-><new> (<headline>)"
 
 See docs/design-mcts-odin-integration.md for the integration rationale.
 mcts-odin is MIT-licensed; LICENSE preserved alongside.
