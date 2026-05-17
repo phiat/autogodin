@@ -36,6 +36,10 @@ parity:
 parity-readouts:
     PYTHONPATH=python autogo/.venv/bin/python python/parity/readouts_dual.py
 
+# Batched-evaluator return-shape compatibility (regression for autogodin-7km).
+parity-batched:
+    PYTHONPATH=python autogo/.venv/bin/python python/parity/batched_shape_compat.py
+
 # ydh.2 throughput bench (3 trials, 1600 sims x 32 moves). Writes CSV to /tmp.
 bench backend='odin' trials='3' sims='1600' moves='32':
     timeout 120s python {{bench_dir}}/bench.py \

@@ -518,7 +518,18 @@ class MCTSTree:
                 view._owned = False
                 view._size = board_size
                 views.append(view)
-            policies, values = evaluator(views)
+            result = evaluator(views)
+            # Accept both batched-evaluator return shapes:
+            #   - native Odin shape:  (policies_list, values_list)
+            #   - alpha_go_cpp shape: list[(policy_dict, value)]
+            # The shim (python/odin_backend) aliases alpha_go_cpp.MCTSTree
+            # to this class, so evaluators written against the C++ batched
+            # API land here unmodified. See autogodin-7km.
+            if isinstance(result, tuple) and len(result) == 2:
+                policies, values = result
+            else:
+                policies = [item[0] for item in result]
+                values   = [item[1] for item in result]
             # Pack into the row-major out_actions / out_probs buffers.
             for i, (policy, value) in enumerate(zip(policies, values)):
                 row_base = i * max_n
