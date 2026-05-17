@@ -64,7 +64,7 @@ The Go-board port, the vendored MCTS core, the C-ABI export surface, and the Pyt
 - GoBoard: Zobrist-incremental positional superko, KataGo-aligned no-suicide rule, Tromp-Taylor area scoring.
 - MCTS: vendored from [mcts-odin](https://github.com/phiat/mcts-odin) (`odin/vendor/mcts-odin/`, pinned commit; see `VERSION`). Packed-slot nodes, branchless PUCT, linear-space priors, FPU (parent-Q with reduction), per-tree scratch arena, leaf-parallel batched with virtual loss, Dirichlet noise, PCR, subtree reuse, root-parallel threading. The local `go_adapter.odin` is a ~140-LOC Game vtable bridging GoBoard.
 - 37/37 Odin `@(test)` cases pass clean under the memory tracker.
-- 43 `alphago_*` C-ABI symbols in `libalpha_go_odin.so`. Python ctypes shim mirrors upstream `alpha_go_cpp`'s OO API plus `run_simulations_batched` (leaf-parallel + virtual loss), `run_simulations_batched_flat` (no-dict scratch-ndarray evaluator; `cg0`), `run_simulations_threaded` (root-parallel worker pool), and `run_simulations_flat` (no-dict sequential; `cz9`).
+- 48 `alphago_*` C-ABI symbols in `libalpha_go_odin.so`. Python ctypes shim mirrors upstream `alpha_go_cpp`'s OO API plus `run_simulations_batched` (leaf-parallel + virtual loss), `run_simulations_batched_flat` (no-dict scratch-ndarray evaluator; `cz9`), `run_simulations_threaded` (root-parallel worker pool), and `run_simulations_flat` (no-dict sequential; `cz9`). Batched evaluator return shape works for both `(policies, values)` (Odin native) and `list[(p, v)]` (alpha_go_cpp shape) so `CppMCTSAgent` runs safely through the shim (`autogodin-7km`, regression: `just parity-batched`).
 
 ### Correctness
 
@@ -91,9 +91,17 @@ just            # list recipes
 just build      # build/libalpha_go_odin.so
 just test       # full Odin test suite
 just smoke      # single-test smoke (override with: just smoke <name>)
-just parity     # Zobrist-fingerprint parity check vs committed fixture
+just parity              # Zobrist-fingerprint parity check vs committed fixture
+just parity-readouts     # MCTSTree readout contract parity (Odin + C++)
+just parity-batched      # batched-evaluator return-shape compatibility (7km regression)
 just bench      # ydh.2 MCTS throughput bench (just bench cpp ... for cpp backend)
 just check      # pre-push gate: build + test + parity
+
+# JarvisLabs one-shot GPU runs (requires `jl` CLI + jl setup):
+just jl-gpus               # availability + pricing
+just jl-create [gpu] [region] [name]
+just jl-bootstrap <id>     # provision a fresh PyTorch instance for autogodin
+just jl-destroy <id>
 ```
 
 Underlying scripts still work directly (`./scripts/build_odin.sh`, `odin test odin/tests`, etc.) — `just` is convenience, not a wrapper requirement. Build flags can be overridden via `ODIN_OPT` in `.env` or inline.
