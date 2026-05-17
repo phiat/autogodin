@@ -110,9 +110,20 @@ def make_train_script(channels: int, n_blocks: int, batch: int = 512) -> Path:
     return dst
 
 
+def _mod(name: str) -> str:
+    """Sanitize a name for use as a Python module/identifier (no hyphens)."""
+    return name.replace("-", "_")
+
+
 def make_gauntlet_agent_script(name: str, ckpt: Path, sims: int, model_tag: str) -> Path:
-    """Generate a one-off agent-registration script for the gauntlet."""
-    out = EXP / f"_agent_{name}.py"
+    """Generate a one-off agent-registration script for the gauntlet.
+
+    `name` is the registered agent ID seen by self_play CLI (kept human-readable,
+    may contain hyphens). The on-disk module name uses an underscore-sanitized
+    variant so `import` statements parse.
+    """
+    mod = _mod(name)
+    out = EXP / f"_agent_{mod}.py"
     out.write_text(
         f"""# auto-generated; do not edit.
 from alpha_go.agents.nn_mcts import CppMCTSAgent, LeafBatchedNNEvaluator
@@ -135,9 +146,13 @@ class _Agent(CppMCTSAgent):
 def head_to_head(black: str, white: str, num_games: int, save_name: str,
                   agent_imports: list[str], dry_run: bool = False,
                   log: Path | None = None) -> float:
-    """Run num_games of black vs white via self_play.main."""
+    """Run num_games of black vs white via self_play.main.
+
+    `agent_imports` is a list of agent-name strings (with possible hyphens);
+    we sanitize each to the on-disk module name.
+    """
     runner = EXP / f"_match_{save_name.replace('/', '_')}.py"
-    imports = "\n".join(f"import {m}" for m in agent_imports)
+    imports = "\n".join(f"import _agent_{_mod(m)}" for m in agent_imports)
     runner.write_text(
         f"""# auto-generated; do not edit.
 import sys
@@ -282,7 +297,7 @@ def main():
                      f"{args.games_per_pair} games")
                 dt = head_to_head(
                     cand_name, ref_name, args.games_per_pair, save,
-                    [f"_agent_{cand_name}", f"_agent_{ref_name}"],
+                    [cand_name, ref_name],
                     log=logs_dir / f"02_g_{cand_name}-vs-{ref_name}_asB.log")
                 results.append((cand_name, ref_name, "B", args.games_per_pair, dt))
                 # reference as black, candidate as white
@@ -291,7 +306,7 @@ def main():
                      f"{args.games_per_pair} games")
                 dt = head_to_head(
                     ref_name, cand_name, args.games_per_pair, save,
-                    [f"_agent_{ref_name}", f"_agent_{cand_name}"],
+                    [ref_name, cand_name],
                     log=logs_dir / f"02_g_{cand_name}-vs-{ref_name}_asW.log")
                 results.append((cand_name, ref_name, "W", args.games_per_pair, dt))
             # vs random
@@ -304,7 +319,7 @@ def main():
                     black, white = "random", cand_name
                 dt = head_to_head(
                     black, white, args.games_per_pair, save,
-                    [f"_agent_{cand_name}"],
+                    [cand_name],
                     log=logs_dir / f"02_g_{cand_name}-vs-random_as{color}.log")
                 results.append((cand_name, "random", color, args.games_per_pair, dt))
 
