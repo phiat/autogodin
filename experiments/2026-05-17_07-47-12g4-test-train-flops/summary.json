@@ -1,0 +1,404 @@
+{
+  "exp_name": "2026-05-17_07-47-12g4-test-train-flops",
+  "config": {
+    "random_games": 5000,
+    "time_budget_s": 900,
+    "games_per_pair": 20,
+    "candidates": [
+      "small-3M",
+      "mid-7M",
+      "big-18M"
+    ],
+    "budgets": [
+      "budget-S",
+      "budget-M",
+      "budget-L"
+    ],
+    "reference_panel": [
+      "ref-bpoC-iter0",
+      "ref-bpoC-iter4",
+      "random"
+    ]
+  },
+  "timings_seconds": {},
+  "match_results_meta": [
+    {
+      "cand": "budget-S-small-3M",
+      "ref": "ref-bpoC-iter0",
+      "color": "B",
+      "games": 20,
+      "wall_s": 81.52672624588013
+    },
+    {
+      "cand": "budget-S-small-3M",
+      "ref": "ref-bpoC-iter0",
+      "color": "W",
+      "games": 20,
+      "wall_s": 81.66844296455383
+    },
+    {
+      "cand": "budget-S-small-3M",
+      "ref": "ref-bpoC-iter4",
+      "color": "B",
+      "games": 20,
+      "wall_s": 59.957398414611816
+    },
+    {
+      "cand": "budget-S-small-3M",
+      "ref": "ref-bpoC-iter4",
+      "color": "W",
+      "games": 20,
+      "wall_s": 61.07714509963989
+    },
+    {
+      "cand": "budget-S-small-3M",
+      "ref": "random",
+      "color": "B",
+      "games": 20,
+      "wall_s": 21.495248317718506
+    },
+    {
+      "cand": "budget-S-small-3M",
+      "ref": "random",
+      "color": "W",
+      "games": 20,
+      "wall_s": 21.77066993713379
+    },
+    {
+      "cand": "budget-S-mid-7M",
+      "ref": "ref-bpoC-iter0",
+      "color": "B",
+      "games": 20,
+      "wall_s": 83.81639528274536
+    },
+    {
+      "cand": "budget-S-mid-7M",
+      "ref": "ref-bpoC-iter0",
+      "color": "W",
+      "games": 20,
+      "wall_s": 80.70046710968018
+    },
+    {
+      "cand": "budget-S-mid-7M",
+      "ref": "ref-bpoC-iter4",
+      "color": "B",
+      "games": 20,
+      "wall_s": 66.91979384422302
+    },
+    {
+      "cand": "budget-S-mid-7M",
+      "ref": "ref-bpoC-iter4",
+      "color": "W",
+      "games": 20,
+      "wall_s": 68.2272036075592
+    },
+    {
+      "cand": "budget-S-mid-7M",
+      "ref": "random",
+      "color": "B",
+      "games": 20,
+      "wall_s": 24.733272790908813
+    },
+    {
+      "cand": "budget-S-mid-7M",
+      "ref": "random",
+      "color": "W",
+      "games": 20,
+      "wall_s": 25.25703740119934
+    },
+    {
+      "cand": "budget-S-big-18M",
+      "ref": "ref-bpoC-iter0",
+      "color": "B",
+      "games": 20,
+      "wall_s": 84.09835076332092
+    },
+    {
+      "cand": "budget-S-big-18M",
+      "ref": "ref-bpoC-iter0",
+      "color": "W",
+      "games": 20,
+      "wall_s": 83.01346707344055
+    },
+    {
+      "cand": "budget-S-big-18M",
+      "ref": "ref-bpoC-iter4",
+      "color": "B",
+      "games": 20,
+      "wall_s": 55.64728307723999
+    },
+    {
+      "cand": "budget-S-big-18M",
+      "ref": "ref-bpoC-iter4",
+      "color": "W",
+      "games": 20,
+      "wall_s": 42.85783529281616
+    },
+    {
+      "cand": "budget-S-big-18M",
+      "ref": "random",
+      "color": "B",
+      "games": 20,
+      "wall_s": 25.706456899642944
+    },
+    {
+      "cand": "budget-S-big-18M",
+      "ref": "random",
+      "color": "W",
+      "games": 20,
+      "wall_s": 26.5481436252594
+    },
+    {
+      "cand": "budget-M-small-3M",
+      "ref": "ref-bpoC-iter0",
+      "color": "B",
+      "games": 20,
+      "wall_s": 94.61812901496887
+    },
+    {
+      "cand": "budget-M-small-3M",
+      "ref": "ref-bpoC-iter0",
+      "color": "W",
+      "games": 20,
+      "wall_s": 91.3887448310852
+    },
+    {
+      "cand": "budget-M-small-3M",
+      "ref": "ref-bpoC-iter4",
+      "color": "B",
+      "games": 20,
+      "wall_s": 71.55142426490784
+    },
+    {
+      "cand": "budget-M-small-3M",
+      "ref": "ref-bpoC-iter4",
+      "color": "W",
+      "games": 20,
+      "wall_s": 68.80972814559937
+    },
+    {
+      "cand": "budget-M-small-3M",
+      "ref": "random",
+      "color": "B",
+      "games": 20,
+      "wall_s": 34.543291091918945
+    },
+    {
+      "cand": "budget-M-small-3M",
+      "ref": "random",
+      "color": "W",
+      "games": 20,
+      "wall_s": 37.54900622367859
+    },
+    {
+      "cand": "budget-M-mid-7M",
+      "ref": "ref-bpoC-iter0",
+      "color": "B",
+      "games": 20,
+      "wall_s": 83.78670287132263
+    },
+    {
+      "cand": "budget-M-mid-7M",
+      "ref": "ref-bpoC-iter0",
+      "color": "W",
+      "games": 20,
+      "wall_s": 83.60630798339844
+    },
+    {
+      "cand": "budget-M-mid-7M",
+      "ref": "ref-bpoC-iter4",
+      "color": "B",
+      "games": 20,
+      "wall_s": 75.37483954429626
+    },
+    {
+      "cand": "budget-M-mid-7M",
+      "ref": "ref-bpoC-iter4",
+      "color": "W",
+      "games": 20,
+      "wall_s": 67.3493103981018
+    },
+    {
+      "cand": "budget-M-mid-7M",
+      "ref": "random",
+      "color": "B",
+      "games": 20,
+      "wall_s": 25.680649757385254
+    },
+    {
+      "cand": "budget-M-mid-7M",
+      "ref": "random",
+      "color": "W",
+      "games": 20,
+      "wall_s": 25.87812876701355
+    },
+    {
+      "cand": "budget-M-big-18M",
+      "ref": "ref-bpoC-iter0",
+      "color": "B",
+      "games": 20,
+      "wall_s": 80.84361481666565
+    },
+    {
+      "cand": "budget-M-big-18M",
+      "ref": "ref-bpoC-iter0",
+      "color": "W",
+      "games": 20,
+      "wall_s": 80.31127381324768
+    },
+    {
+      "cand": "budget-M-big-18M",
+      "ref": "ref-bpoC-iter4",
+      "color": "B",
+      "games": 20,
+      "wall_s": 73.59756231307983
+    },
+    {
+      "cand": "budget-M-big-18M",
+      "ref": "ref-bpoC-iter4",
+      "color": "W",
+      "games": 20,
+      "wall_s": 58.55389404296875
+    },
+    {
+      "cand": "budget-M-big-18M",
+      "ref": "random",
+      "color": "B",
+      "games": 20,
+      "wall_s": 26.79912257194519
+    },
+    {
+      "cand": "budget-M-big-18M",
+      "ref": "random",
+      "color": "W",
+      "games": 20,
+      "wall_s": 26.268301963806152
+    },
+    {
+      "cand": "budget-L-small-3M",
+      "ref": "ref-bpoC-iter0",
+      "color": "B",
+      "games": 20,
+      "wall_s": 153.27478432655334
+    },
+    {
+      "cand": "budget-L-small-3M",
+      "ref": "ref-bpoC-iter0",
+      "color": "W",
+      "games": 20,
+      "wall_s": 157.1067249774933
+    },
+    {
+      "cand": "budget-L-small-3M",
+      "ref": "ref-bpoC-iter4",
+      "color": "B",
+      "games": 20,
+      "wall_s": 50.704609870910645
+    },
+    {
+      "cand": "budget-L-small-3M",
+      "ref": "ref-bpoC-iter4",
+      "color": "W",
+      "games": 20,
+      "wall_s": 43.10655665397644
+    },
+    {
+      "cand": "budget-L-small-3M",
+      "ref": "random",
+      "color": "B",
+      "games": 20,
+      "wall_s": 95.26884174346924
+    },
+    {
+      "cand": "budget-L-small-3M",
+      "ref": "random",
+      "color": "W",
+      "games": 20,
+      "wall_s": 101.79565477371216
+    },
+    {
+      "cand": "budget-L-mid-7M",
+      "ref": "ref-bpoC-iter0",
+      "color": "B",
+      "games": 20,
+      "wall_s": 114.10923337936401
+    },
+    {
+      "cand": "budget-L-mid-7M",
+      "ref": "ref-bpoC-iter0",
+      "color": "W",
+      "games": 20,
+      "wall_s": 115.03807663917542
+    },
+    {
+      "cand": "budget-L-mid-7M",
+      "ref": "ref-bpoC-iter4",
+      "color": "B",
+      "games": 20,
+      "wall_s": 82.09466457366943
+    },
+    {
+      "cand": "budget-L-mid-7M",
+      "ref": "ref-bpoC-iter4",
+      "color": "W",
+      "games": 20,
+      "wall_s": 92.57628035545349
+    },
+    {
+      "cand": "budget-L-mid-7M",
+      "ref": "random",
+      "color": "B",
+      "games": 20,
+      "wall_s": 51.199410915374756
+    },
+    {
+      "cand": "budget-L-mid-7M",
+      "ref": "random",
+      "color": "W",
+      "games": 20,
+      "wall_s": 55.91646933555603
+    },
+    {
+      "cand": "budget-L-big-18M",
+      "ref": "ref-bpoC-iter0",
+      "color": "B",
+      "games": 20,
+      "wall_s": 106.843496799469
+    },
+    {
+      "cand": "budget-L-big-18M",
+      "ref": "ref-bpoC-iter0",
+      "color": "W",
+      "games": 20,
+      "wall_s": 99.52681183815002
+    },
+    {
+      "cand": "budget-L-big-18M",
+      "ref": "ref-bpoC-iter4",
+      "color": "B",
+      "games": 20,
+      "wall_s": 72.15969896316528
+    },
+    {
+      "cand": "budget-L-big-18M",
+      "ref": "ref-bpoC-iter4",
+      "color": "W",
+      "games": 20,
+      "wall_s": 70.5516402721405
+    },
+    {
+      "cand": "budget-L-big-18M",
+      "ref": "random",
+      "color": "B",
+      "games": 20,
+      "wall_s": 41.80727553367615
+    },
+    {
+      "cand": "budget-L-big-18M",
+      "ref": "random",
+      "color": "W",
+      "games": 20,
+      "wall_s": 44.84222888946533
+    }
+  ]
+}

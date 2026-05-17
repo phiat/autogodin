@@ -1,0 +1,527 @@
+{
+  "budget-S-small-3M": {
+    "_budget": "S",
+    "_model": "small-3M",
+    "random": {
+      "asB_wins": 12,
+      "asB_total": 20,
+      "asW_wins": 16,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 28,
+      "total": 40,
+      "winrate": 0.7,
+      "wilson_lo": 0.545696893456796,
+      "wilson_hi": 0.8192532908430471,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter0": {
+      "asB_wins": 0,
+      "asB_total": 20,
+      "asW_wins": 0,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 0,
+      "total": 40,
+      "winrate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.08762453925039232,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter4": {
+      "asB_wins": 20,
+      "asB_total": 20,
+      "asW_wins": 20,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 40,
+      "total": 40,
+      "winrate": 1.0,
+      "wilson_lo": 0.9123754607496077,
+      "wilson_hi": 1.0,
+      "asB_terminations": {
+        "resign": 20
+      },
+      "asW_terminations": {
+        "resign": 20
+      }
+    }
+  },
+  "budget-S-mid-7M": {
+    "_budget": "S",
+    "_model": "mid-7M",
+    "random": {
+      "asB_wins": 3,
+      "asB_total": 20,
+      "asW_wins": 12,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 15,
+      "total": 40,
+      "winrate": 0.375,
+      "wilson_lo": 0.2422277353579172,
+      "wilson_hi": 0.529678399454681,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter0": {
+      "asB_wins": 20,
+      "asB_total": 20,
+      "asW_wins": 0,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 20,
+      "total": 40,
+      "winrate": 0.5,
+      "wilson_lo": 0.35199278797099753,
+      "wilson_hi": 0.6480072120290025,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter4": {
+      "asB_wins": 20,
+      "asB_total": 20,
+      "asW_wins": 20,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 40,
+      "total": 40,
+      "winrate": 1.0,
+      "wilson_lo": 0.9123754607496077,
+      "wilson_hi": 1.0,
+      "asB_terminations": {
+        "double_pass": 20
+      },
+      "asW_terminations": {
+        "double_pass": 20
+      }
+    }
+  },
+  "budget-S-big-18M": {
+    "_budget": "S",
+    "_model": "big-18M",
+    "random": {
+      "asB_wins": 8,
+      "asB_total": 20,
+      "asW_wins": 8,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 16,
+      "total": 40,
+      "winrate": 0.4,
+      "wilson_lo": 0.2634811061240136,
+      "wilson_hi": 0.5540438017260649,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter0": {
+      "asB_wins": 0,
+      "asB_total": 20,
+      "asW_wins": 20,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 20,
+      "total": 40,
+      "winrate": 0.5,
+      "wilson_lo": 0.35199278797099753,
+      "wilson_hi": 0.6480072120290025,
+      "asB_terminations": {
+        "double_pass": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter4": {
+      "asB_wins": 0,
+      "asB_total": 20,
+      "asW_wins": 20,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 20,
+      "total": 40,
+      "winrate": 0.5,
+      "wilson_lo": 0.35199278797099753,
+      "wilson_hi": 0.6480072120290025,
+      "asB_terminations": {
+        "double_pass": 20
+      },
+      "asW_terminations": {
+        "resign": 20
+      }
+    }
+  },
+  "budget-M-small-3M": {
+    "_budget": "M",
+    "_model": "small-3M",
+    "random": {
+      "asB_wins": 15,
+      "asB_total": 20,
+      "asW_wins": 18,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 33,
+      "total": 40,
+      "winrate": 0.825,
+      "wilson_lo": 0.6804970794560755,
+      "wilson_hi": 0.9125469700311694,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter0": {
+      "asB_wins": 20,
+      "asB_total": 20,
+      "asW_wins": 20,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 40,
+      "total": 40,
+      "winrate": 1.0,
+      "wilson_lo": 0.9123754607496077,
+      "wilson_hi": 1.0,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter4": {
+      "asB_wins": 20,
+      "asB_total": 20,
+      "asW_wins": 20,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 40,
+      "total": 40,
+      "winrate": 1.0,
+      "wilson_lo": 0.9123754607496077,
+      "wilson_hi": 1.0,
+      "asB_terminations": {
+        "resign": 20
+      },
+      "asW_terminations": {
+        "resign": 20
+      }
+    }
+  },
+  "budget-M-mid-7M": {
+    "_budget": "M",
+    "_model": "mid-7M",
+    "random": {
+      "asB_wins": 13,
+      "asB_total": 20,
+      "asW_wins": 11,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 24,
+      "total": 40,
+      "winrate": 0.6,
+      "wilson_lo": 0.445956198273935,
+      "wilson_hi": 0.7365188938759863,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter0": {
+      "asB_wins": 0,
+      "asB_total": 20,
+      "asW_wins": 20,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 20,
+      "total": 40,
+      "winrate": 0.5,
+      "wilson_lo": 0.35199278797099753,
+      "wilson_hi": 0.6480072120290025,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter4": {
+      "asB_wins": 20,
+      "asB_total": 20,
+      "asW_wins": 20,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 40,
+      "total": 40,
+      "winrate": 1.0,
+      "wilson_lo": 0.9123754607496077,
+      "wilson_hi": 1.0,
+      "asB_terminations": {
+        "resign": 20
+      },
+      "asW_terminations": {
+        "resign": 20
+      }
+    }
+  },
+  "budget-M-big-18M": {
+    "_budget": "M",
+    "_model": "big-18M",
+    "random": {
+      "asB_wins": 11,
+      "asB_total": 20,
+      "asW_wins": 12,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 23,
+      "total": 40,
+      "winrate": 0.575,
+      "wilson_lo": 0.42194800436059987,
+      "wilson_hi": 0.7149083147518411,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter0": {
+      "asB_wins": 0,
+      "asB_total": 20,
+      "asW_wins": 0,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 0,
+      "total": 40,
+      "winrate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.08762453925039232,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter4": {
+      "asB_wins": 20,
+      "asB_total": 20,
+      "asW_wins": 20,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 40,
+      "total": 40,
+      "winrate": 1.0,
+      "wilson_lo": 0.9123754607496077,
+      "wilson_hi": 1.0,
+      "asB_terminations": {
+        "resign": 20
+      },
+      "asW_terminations": {
+        "double_pass": 20
+      }
+    }
+  },
+  "budget-L-small-3M": {
+    "_budget": "L",
+    "_model": "small-3M",
+    "random": {
+      "asB_wins": 18,
+      "asB_total": 20,
+      "asW_wins": 20,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 38,
+      "total": 40,
+      "winrate": 0.95,
+      "wilson_lo": 0.834958291820748,
+      "wilson_hi": 0.9861796228538989,
+      "asB_terminations": {
+        "max_moves": 13,
+        "double_pass": 7
+      },
+      "asW_terminations": {
+        "max_moves": 15,
+        "double_pass": 5
+      }
+    },
+    "ref-bpoC-iter0": {
+      "asB_wins": 20,
+      "asB_total": 20,
+      "asW_wins": 20,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 40,
+      "total": 40,
+      "winrate": 1.0,
+      "wilson_lo": 0.9123754607496077,
+      "wilson_hi": 1.0,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter4": {
+      "asB_wins": 20,
+      "asB_total": 20,
+      "asW_wins": 20,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 40,
+      "total": 40,
+      "winrate": 1.0,
+      "wilson_lo": 0.9123754607496077,
+      "wilson_hi": 1.0,
+      "asB_terminations": {
+        "double_pass": 20
+      },
+      "asW_terminations": {
+        "double_pass": 20
+      }
+    }
+  },
+  "budget-L-mid-7M": {
+    "_budget": "L",
+    "_model": "mid-7M",
+    "random": {
+      "asB_wins": 15,
+      "asB_total": 20,
+      "asW_wins": 14,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 29,
+      "total": 40,
+      "winrate": 0.725,
+      "wilson_lo": 0.5716474916687543,
+      "wilson_hi": 0.8389214656685692,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter0": {
+      "asB_wins": 20,
+      "asB_total": 20,
+      "asW_wins": 0,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 20,
+      "total": 40,
+      "winrate": 0.5,
+      "wilson_lo": 0.35199278797099753,
+      "wilson_hi": 0.6480072120290025,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter4": {
+      "asB_wins": 20,
+      "asB_total": 20,
+      "asW_wins": 20,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 40,
+      "total": 40,
+      "winrate": 1.0,
+      "wilson_lo": 0.9123754607496077,
+      "wilson_hi": 1.0,
+      "asB_terminations": {
+        "resign": 20
+      },
+      "asW_terminations": {
+        "double_pass": 20
+      }
+    }
+  },
+  "budget-L-big-18M": {
+    "_budget": "L",
+    "_model": "big-18M",
+    "random": {
+      "asB_wins": 17,
+      "asB_total": 20,
+      "asW_wins": 18,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 35,
+      "total": 40,
+      "winrate": 0.875,
+      "wilson_lo": 0.7388757932976187,
+      "wilson_hi": 0.9454058022645873,
+      "asB_terminations": {
+        "max_moves": 19,
+        "double_pass": 1
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter0": {
+      "asB_wins": 0,
+      "asB_total": 20,
+      "asW_wins": 0,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 0,
+      "total": 40,
+      "winrate": 0.0,
+      "wilson_lo": 0.0,
+      "wilson_hi": 0.08762453925039232,
+      "asB_terminations": {
+        "max_moves": 20
+      },
+      "asW_terminations": {
+        "max_moves": 20
+      }
+    },
+    "ref-bpoC-iter4": {
+      "asB_wins": 20,
+      "asB_total": 20,
+      "asW_wins": 20,
+      "asW_total": 20,
+      "draws": 0,
+      "wins": 40,
+      "total": 40,
+      "winrate": 1.0,
+      "wilson_lo": 0.9123754607496077,
+      "wilson_hi": 1.0,
+      "asB_terminations": {
+        "resign": 20
+      },
+      "asW_terminations": {
+        "double_pass": 20
+      }
+    }
+  }
+}
