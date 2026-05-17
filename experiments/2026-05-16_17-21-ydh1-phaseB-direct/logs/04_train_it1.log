@@ -1,0 +1,16 @@
+  Resolved 1 data dirs from 1 base paths
+Train data: 1 dirs
+Loaded dataset into RAM in 0.3s
+Train: 29,034
+Epochs=2, steps_per_epoch=226, max_steps=452
+Model: SizeInvariantGoResNet-128ch-10b, params: 2,966,531
+Loading checkpoint: /nfs/checkpoints/2026-05-16_17-21-ydh1-phaseB-direct/iter0_best.pt
+LR=0.001, WD=0.005, time_budget=900s
+  Step 200: loss=3.8480 policy=3.3413 value=0.5068 teacher_frac=0.56 train_acc=7.65% (6s)
+  Step 400: loss=3.7786 policy=3.2865 value=0.4921 teacher_frac=0.52 train_acc=7.55% (11s)
+Training done: 452 steps in 13s
+Train loss=3.8422, policy_acc=8.79%
+Saved: /nfs/checkpoints/2026-05-16_17-21-ydh1-phaseB-direct/iter1_best.pt
+
+===RESULT===
+{"iteration": 1, "train_loss": 3.842241, "train_policy_acc": 0.0879, "train_value_acc": 0.7306, "steps_completed": 452, "elapsed_seconds": 13.0, "peak_vram_mb": 560.0, "checkpoint": "/nfs/checkpoints/2026-05-16_17-21-ydh1-phaseB-direct/iter1_best.pt", "resumed_from": "/nfs/checkpoints/2026-05-16_17-21-ydh1-phaseB-direct/iter0_best.pt"}

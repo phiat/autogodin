@@ -1,0 +1,10 @@
+{
+  "exp_name": "2026-05-16_17-21-ydh1-phaseB-direct",
+  "random_games": 500,
+  "selfplay_games": 200,
+  "mcts_sims_per_move": 200,
+  "iter0_ckpt": "/nfs/checkpoints/2026-05-16_17-21-ydh1-phaseB-direct/iter0_best.pt",
+  "iter1_ckpt": "/nfs/checkpoints/2026-05-16_17-21-ydh1-phaseB-direct/iter1_best.pt",
+  "iter0_ckpt_bytes": 11925634,
+  "iter1_ckpt_bytes": 11925634
+}

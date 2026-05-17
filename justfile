@@ -56,3 +56,45 @@ ready:
 # Show a beads issue by id, e.g. `just show autogodin-dsi`.
 show id:
     bd show {{id}}
+
+# --- JarvisLabs GPU runs -----------------------------------------------------
+# These wrap the `jl` CLI for autogodin-specific defaults. Defaults come from
+# .env (JL_GPU, JL_REGION); override per-call: `just jl-create H100`.
+
+jl_gpu    := env_var_or_default('JL_GPU', 'A100')
+jl_region := env_var_or_default('JL_REGION', 'IN2')
+jl_name   := env_var_or_default('JL_NAME', 'autogodin')
+
+# Show JL GPU availability + pricing.
+jl-gpus:
+    jl gpus
+
+# List your JL instances.
+jl-ls:
+    jl list
+
+# Create a fresh PyTorch container instance. Override gpu/region/name as args.
+jl-create gpu=jl_gpu region=jl_region name=jl_name:
+    jl create --gpu {{gpu}} --region {{region}} --template pytorch \
+        --storage 40 --name {{name}} --yes --json
+
+# SSH into instance by id.
+jl-ssh id:
+    jl ssh {{id}}
+
+# Exec a one-shot command on instance by id.
+jl-exec id cmd:
+    jl exec {{id}} '{{cmd}}'
+
+# Bootstrap an instance for autogodin (apt deps + Odin + uv + clone + build).
+jl-bootstrap id:
+    jl upload {{id}} scripts/jl_bootstrap.sh /tmp/jl_bootstrap.sh
+    jl exec {{id}} 'bash /tmp/jl_bootstrap.sh'
+
+# Pause (stop billing, keep data).
+jl-pause id:
+    jl pause {{id}}
+
+# Destroy permanently.
+jl-destroy id:
+    jl destroy {{id}} --yes

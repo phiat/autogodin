@@ -1,0 +1,644 @@
+Game 1/200: B+53.5 |  ydh1-iter0  1/1 (100.0%) 0.049s/mv - 0/1 (0.0%) 0.044s/mv 
+ydh1-iter0 
+Game 2/200: W+2.5 |  ydh1-iter0  1/2 (50.0%) 0.044s/mv - 1/2 (50.0%) 0.044s/mv  
+ydh1-iter0 
+Game 3/200: B+58.5 |  ydh1-iter0  2/3 (66.7%) 0.044s/mv - 1/3 (33.3%) 0.043s/mv 
+ydh1-iter0 
+Game 4/200: B+60.5 |  ydh1-iter0  3/4 (75.0%) 0.043s/mv - 1/4 (25.0%) 0.043s/mv 
+ydh1-iter0 
+Game 5/200: B+49.5 |  ydh1-iter0  4/5 (80.0%) 0.045s/mv - 1/5 (20.0%) 0.044s/mv 
+ydh1-iter0 
+Game 6/200: B+63.5 |  ydh1-iter0  5/6 (83.3%) 0.044s/mv - 1/6 (16.7%) 0.044s/mv 
+ydh1-iter0 
+Game 7/200: B+27.5 |  ydh1-iter0  6/7 (85.7%) 0.049s/mv - 1/7 (14.3%) 0.049s/mv 
+ydh1-iter0 
+Game 8/200: B+24.5 |  ydh1-iter0  7/8 (87.5%) 0.043s/mv - 1/8 (12.5%) 0.042s/mv 
+ydh1-iter0 
+Game 9/200: W+69.5 |  ydh1-iter0  7/9 (77.8%) 0.044s/mv - 2/9 (22.2%) 0.044s/mv 
+ydh1-iter0 
+Game 10/200: W+63.5 |  ydh1-iter0  7/10 (70.0%) 0.046s/mv - 3/10 (30.0%) 
+0.046s/mv  ydh1-iter0 
+Game 11/200: W+17.5 |  ydh1-iter0  7/11 (63.6%) 0.043s/mv - 4/11 (36.4%) 
+0.042s/mv  ydh1-iter0 
+Game 12/200: B+61.5 |  ydh1-iter0  8/12 (66.7%) 0.044s/mv - 4/12 (33.3%) 
+0.043s/mv  ydh1-iter0 
+Game 13/200: B+67.5 |  ydh1-iter0  9/13 (69.2%) 0.044s/mv - 4/13 (30.8%) 
+0.044s/mv  ydh1-iter0 
+Game 14/200: B+42.5 |  ydh1-iter0  10/14 (71.4%) 0.046s/mv - 4/14 (28.6%) 
+0.045s/mv  ydh1-iter0 
+Game 15/200: W+24.5 |  ydh1-iter0  10/15 (66.7%) 0.046s/mv - 5/15 (33.3%) 
+0.046s/mv  ydh1-iter0 
+Game 16/200: W+75.5 |  ydh1-iter0  10/16 (62.5%) 0.043s/mv - 6/16 (37.5%) 
+0.043s/mv  ydh1-iter0 
+Game 17/200: B+16.5 |  ydh1-iter0  11/17 (64.7%) 0.044s/mv - 6/17 (35.3%) 
+0.043s/mv  ydh1-iter0 
+Game 18/200: W+18.5 |  ydh1-iter0  11/18 (61.1%) 0.042s/mv - 7/18 (38.9%) 
+0.042s/mv  ydh1-iter0 
+Game 19/200: W+63.5 |  ydh1-iter0  11/19 (57.9%) 0.047s/mv - 8/19 (42.1%) 
+0.047s/mv  ydh1-iter0 
+Game 20/200: W+76.5 |  ydh1-iter0  11/20 (55.0%) 0.044s/mv - 9/20 (45.0%) 
+0.044s/mv  ydh1-iter0 
+Game 21/200: W+20.5 |  ydh1-iter0  11/21 (52.4%) 0.043s/mv - 10/21 (47.6%) 
+0.043s/mv  ydh1-iter0 
+Game 22/200: W+49.5 |  ydh1-iter0  11/22 (50.0%) 0.045s/mv - 11/22 (50.0%) 
+0.045s/mv  ydh1-iter0 
+Game 23/200: B+9.5 |  ydh1-iter0  12/23 (52.2%) 0.047s/mv - 11/23 (47.8%) 
+0.047s/mv  ydh1-iter0 
+Game 24/200: W+17.5 |  ydh1-iter0  12/24 (50.0%) 0.043s/mv - 12/24 (50.0%) 
+0.042s/mv  ydh1-iter0 
+Game 25/200: W+85.5 |  ydh1-iter0  12/25 (48.0%) 0.044s/mv - 13/25 (52.0%) 
+0.044s/mv  ydh1-iter0 
+Game 26/200: B+51.5 |  ydh1-iter0  13/26 (50.0%) 0.045s/mv - 13/26 (50.0%) 
+0.044s/mv  ydh1-iter0 
+Game 27/200: B+42.5 |  ydh1-iter0  14/27 (51.9%) 0.046s/mv - 13/27 (48.1%) 
+0.045s/mv  ydh1-iter0 
+Game 28/200: B+58.5 |  ydh1-iter0  15/28 (53.6%) 0.045s/mv - 13/28 (46.4%) 
+0.044s/mv  ydh1-iter0 
+Game 29/200: W+73.5 |  ydh1-iter0  15/29 (51.7%) 0.043s/mv - 14/29 (48.3%) 
+0.043s/mv  ydh1-iter0 
+Game 30/200: B+46.5 |  ydh1-iter0  16/30 (53.3%) 0.043s/mv - 14/30 (46.7%) 
+0.042s/mv  ydh1-iter0 
+Game 31/200: B+44.5 |  ydh1-iter0  17/31 (54.8%) 0.046s/mv - 14/31 (45.2%) 
+0.046s/mv  ydh1-iter0 
+Game 32/200: W+45.5 |  ydh1-iter0  17/32 (53.1%) 0.045s/mv - 15/32 (46.9%) 
+0.044s/mv  ydh1-iter0 
+Game 33/200: B+52.5 |  ydh1-iter0  18/33 (54.5%) 0.046s/mv - 15/33 (45.5%) 
+0.045s/mv  ydh1-iter0 
+Game 34/200: W+64.5 |  ydh1-iter0  18/34 (52.9%) 0.045s/mv - 16/34 (47.1%) 
+0.044s/mv  ydh1-iter0 
+Game 35/200: W+25.5 |  ydh1-iter0  18/35 (51.4%) 0.046s/mv - 17/35 (48.6%) 
+0.046s/mv  ydh1-iter0 
+Game 36/200: B+2.5 |  ydh1-iter0  19/36 (52.8%) 0.043s/mv - 17/36 (47.2%) 
+0.043s/mv  ydh1-iter0 
+Game 37/200: W+5.5 |  ydh1-iter0  19/37 (51.4%) 0.044s/mv - 18/37 (48.6%) 
+0.043s/mv  ydh1-iter0 
+Game 38/200: B+57.5 |  ydh1-iter0  20/38 (52.6%) 0.044s/mv - 18/38 (47.4%) 
+0.044s/mv  ydh1-iter0 
+Game 39/200: W+65.5 |  ydh1-iter0  20/39 (51.3%) 0.047s/mv - 19/39 (48.7%) 
+0.047s/mv  ydh1-iter0 
+Game 40/200: B+9.5 |  ydh1-iter0  21/40 (52.5%) 0.043s/mv - 19/40 (47.5%) 
+0.043s/mv  ydh1-iter0 
+Game 41/200: W+73.5 |  ydh1-iter0  21/41 (51.2%) 0.044s/mv - 20/41 (48.8%) 
+0.044s/mv  ydh1-iter0 
+Game 42/200: W+47.5 |  ydh1-iter0  21/42 (50.0%) 0.045s/mv - 21/42 (50.0%) 
+0.045s/mv  ydh1-iter0 
+Game 43/200: W+63.5 |  ydh1-iter0  21/43 (48.8%) 0.043s/mv - 22/43 (51.2%) 
+0.044s/mv  ydh1-iter0 
+Game 44/200: B+50.5 |  ydh1-iter0  22/44 (50.0%) 0.044s/mv - 22/44 (50.0%) 
+0.043s/mv  ydh1-iter0 
+Game 45/200: W+82.5 |  ydh1-iter0  22/45 (48.9%) 0.045s/mv - 23/45 (51.1%) 
+0.045s/mv  ydh1-iter0 
+Game 46/200: W+50.5 |  ydh1-iter0  22/46 (47.8%) 0.046s/mv - 24/46 (52.2%) 
+0.045s/mv  ydh1-iter0 
+Game 47/200: W+72.5 |  ydh1-iter0  22/47 (46.8%) 0.045s/mv - 25/47 (53.2%) 
+0.045s/mv  ydh1-iter0 
+Game 48/200: W+85.5 |  ydh1-iter0  22/48 (45.8%) 0.044s/mv - 26/48 (54.2%) 
+0.044s/mv  ydh1-iter0 
+Game 49/200: W+80.5 |  ydh1-iter0  22/49 (44.9%) 0.044s/mv - 27/49 (55.1%) 
+0.044s/mv  ydh1-iter0 
+Game 50/200: W+16.5 |  ydh1-iter0  22/50 (44.0%) 0.042s/mv - 28/50 (56.0%) 
+0.042s/mv  ydh1-iter0 
+Game 51/200: B+59.5 |  ydh1-iter0  23/51 (45.1%) 0.045s/mv - 28/51 (54.9%) 
+0.045s/mv  ydh1-iter0 
+Game 52/200: W+24.5 |  ydh1-iter0  23/52 (44.2%) 0.042s/mv - 29/52 (55.8%) 
+0.043s/mv  ydh1-iter0 
+Game 53/200: B+5.5 |  ydh1-iter0  24/53 (45.3%) 0.043s/mv - 29/53 (54.7%) 
+0.043s/mv  ydh1-iter0 
+Game 54/200: B+52.5 |  ydh1-iter0  25/54 (46.3%) 0.044s/mv - 29/54 (53.7%) 
+0.044s/mv  ydh1-iter0 
+Game 55/200: W+55.5 |  ydh1-iter0  25/55 (45.5%) 0.044s/mv - 30/55 (54.5%) 
+0.044s/mv  ydh1-iter0 
+Game 56/200: W+66.5 |  ydh1-iter0  25/56 (44.6%) 0.047s/mv - 31/56 (55.4%) 
+0.046s/mv  ydh1-iter0 
+Game 57/200: W+85.5 |  ydh1-iter0  25/57 (43.9%) 0.043s/mv - 32/57 (56.1%) 
+0.043s/mv  ydh1-iter0 
+Game 58/200: W+9.5 |  ydh1-iter0  25/58 (43.1%) 0.042s/mv - 33/58 (56.9%) 
+0.041s/mv  ydh1-iter0 
+Game 59/200: W+16.5 |  ydh1-iter0  25/59 (42.4%) 0.042s/mv - 34/59 (57.6%) 
+0.042s/mv  ydh1-iter0 
+Game 60/200: W+59.5 |  ydh1-iter0  25/60 (41.7%) 0.048s/mv - 35/60 (58.3%) 
+0.047s/mv  ydh1-iter0 
+Game 61/200: W+31.5 |  ydh1-iter0  25/61 (41.0%) 0.043s/mv - 36/61 (59.0%) 
+0.043s/mv  ydh1-iter0 
+Game 62/200: B+70.5 |  ydh1-iter0  26/62 (41.9%) 0.044s/mv - 36/62 (58.1%) 
+0.044s/mv  ydh1-iter0 
+Game 63/200: B+70.5 |  ydh1-iter0  27/63 (42.9%) 0.043s/mv - 36/63 (57.1%) 
+0.043s/mv  ydh1-iter0 
+Game 64/200: W+12.5 |  ydh1-iter0  27/64 (42.2%) 0.043s/mv - 37/64 (57.8%) 
+0.042s/mv  ydh1-iter0 
+Game 65/200: B+41.5 |  ydh1-iter0  28/65 (43.1%) 0.047s/mv - 37/65 (56.9%) 
+0.047s/mv  ydh1-iter0 
+Game 66/200: B+70.5 |  ydh1-iter0  29/66 (43.9%) 0.043s/mv - 37/66 (56.1%) 
+0.042s/mv  ydh1-iter0 
+Game 67/200: W+8.5 |  ydh1-iter0  29/67 (43.3%) 0.042s/mv - 38/67 (56.7%) 
+0.042s/mv  ydh1-iter0 
+Game 68/200: W+63.5 |  ydh1-iter0  29/68 (42.6%) 0.046s/mv - 39/68 (57.4%) 
+0.046s/mv  ydh1-iter0 
+Game 69/200: B+60.5 |  ydh1-iter0  30/69 (43.5%) 0.044s/mv - 39/69 (56.5%) 
+0.044s/mv  ydh1-iter0 
+Game 70/200: W+74.5 |  ydh1-iter0  30/70 (42.9%) 0.046s/mv - 40/70 (57.1%) 
+0.045s/mv  ydh1-iter0 
+Game 71/200: B+33.5 |  ydh1-iter0  31/71 (43.7%) 0.045s/mv - 40/71 (56.3%) 
+0.045s/mv  ydh1-iter0 
+Game 72/200: B+4.5 |  ydh1-iter0  32/72 (44.4%) 0.047s/mv - 40/72 (55.6%) 
+0.048s/mv  ydh1-iter0 
+Game 73/200: W+27.5 |  ydh1-iter0  32/73 (43.8%) 0.049s/mv - 41/73 (56.2%) 
+0.049s/mv  ydh1-iter0 
+Game 74/200: B+45.5 |  ydh1-iter0  33/74 (44.6%) 0.045s/mv - 41/74 (55.4%) 
+0.045s/mv  ydh1-iter0 
+Game 75/200: W+79.5 |  ydh1-iter0  33/75 (44.0%) 0.044s/mv - 42/75 (56.0%) 
+0.045s/mv  ydh1-iter0 
+Game 76/200: W+69.5 |  ydh1-iter0  33/76 (43.4%) 0.044s/mv - 43/76 (56.6%) 
+0.044s/mv  ydh1-iter0 
+Game 77/200: B+56.5 |  ydh1-iter0  34/77 (44.2%) 0.044s/mv - 43/77 (55.8%) 
+0.043s/mv  ydh1-iter0 
+Game 78/200: W+66.5 |  ydh1-iter0  34/78 (43.6%) 0.047s/mv - 44/78 (56.4%) 
+0.047s/mv  ydh1-iter0 
+Game 79/200: W+85.5 |  ydh1-iter0  34/79 (43.0%) 0.042s/mv - 45/79 (57.0%) 
+0.042s/mv  ydh1-iter0 
+Game 80/200: W+77.5 |  ydh1-iter0  34/80 (42.5%) 0.044s/mv - 46/80 (57.5%) 
+0.044s/mv  ydh1-iter0 
+Game 81/200: W+8.5 |  ydh1-iter0  34/81 (42.0%) 0.044s/mv - 47/81 (58.0%) 
+0.044s/mv  ydh1-iter0 
+Game 82/200: B+34.5 |  ydh1-iter0  35/82 (42.7%) 0.046s/mv - 47/82 (57.3%) 
+0.046s/mv  ydh1-iter0 
+Game 83/200: B+68.5 |  ydh1-iter0  36/83 (43.4%) 0.044s/mv - 47/83 (56.6%) 
+0.043s/mv  ydh1-iter0 
+Game 84/200: W+5.5 |  ydh1-iter0  36/84 (42.9%) 0.043s/mv - 48/84 (57.1%) 
+0.042s/mv  ydh1-iter0 
+Game 85/200: W+83.5 |  ydh1-iter0  36/85 (42.4%) 0.044s/mv - 49/85 (57.6%) 
+0.044s/mv  ydh1-iter0 
+Game 86/200: W+15.5 |  ydh1-iter0  36/86 (41.9%) 0.042s/mv - 50/86 (58.1%) 
+0.042s/mv  ydh1-iter0 
+Game 87/200: B+24.5 |  ydh1-iter0  37/87 (42.5%) 0.044s/mv - 50/87 (57.5%) 
+0.044s/mv  ydh1-iter0 
+Game 88/200: W+59.5 |  ydh1-iter0  37/88 (42.0%) 0.043s/mv - 51/88 (58.0%) 
+0.044s/mv  ydh1-iter0 
+Game 89/200: W+14.5 |  ydh1-iter0  37/89 (41.6%) 0.042s/mv - 52/89 (58.4%) 
+0.042s/mv  ydh1-iter0 
+Game 90/200: B+20.5 |  ydh1-iter0  38/90 (42.2%) 0.044s/mv - 52/90 (57.8%) 
+0.044s/mv  ydh1-iter0 
+Game 91/200: B+7.5 |  ydh1-iter0  39/91 (42.9%) 0.044s/mv - 52/91 (57.1%) 
+0.042s/mv  ydh1-iter0 
+Game 92/200: B+69.5 |  ydh1-iter0  40/92 (43.5%) 0.044s/mv - 52/92 (56.5%) 
+0.044s/mv  ydh1-iter0 
+Game 93/200: W+77.5 |  ydh1-iter0  40/93 (43.0%) 0.043s/mv - 53/93 (57.0%) 
+0.043s/mv  ydh1-iter0 
+Game 94/200: W+83.5 |  ydh1-iter0  40/94 (42.6%) 0.044s/mv - 54/94 (57.4%) 
+0.044s/mv  ydh1-iter0 
+Game 95/200: W+81.5 |  ydh1-iter0  40/95 (42.1%) 0.045s/mv - 55/95 (57.9%) 
+0.046s/mv  ydh1-iter0 
+Game 96/200: W+55.5 |  ydh1-iter0  40/96 (41.7%) 0.045s/mv - 56/96 (58.3%) 
+0.045s/mv  ydh1-iter0 
+Game 97/200: B+22.5 |  ydh1-iter0  41/97 (42.3%) 0.043s/mv - 56/97 (57.7%) 
+0.042s/mv  ydh1-iter0 
+Game 98/200: B+73.5 |  ydh1-iter0  42/98 (42.9%) 0.043s/mv - 56/98 (57.1%) 
+0.043s/mv  ydh1-iter0 
+Game 99/200: B+41.5 |  ydh1-iter0  43/99 (43.4%) 0.045s/mv - 56/99 (56.6%) 
+0.045s/mv  ydh1-iter0 
+Game 100/200: B+10.5 |  ydh1-iter0  44/100 (44.0%) 0.050s/mv - 56/100 (56.0%) 
+0.051s/mv  ydh1-iter0 
+Game 101/200: B+55.5 |  ydh1-iter0  45/101 (44.6%) 0.044s/mv - 56/101 (55.4%) 
+0.043s/mv  ydh1-iter0 
+Game 102/200: W+85.5 |  ydh1-iter0  45/102 (44.1%) 0.042s/mv - 57/102 (55.9%) 
+0.042s/mv  ydh1-iter0 
+Game 103/200: W+77.5 |  ydh1-iter0  45/103 (43.7%) 0.045s/mv - 58/103 (56.3%) 
+0.045s/mv  ydh1-iter0 
+Game 104/200: W+83.5 |  ydh1-iter0  45/104 (43.3%) 0.044s/mv - 59/104 (56.7%) 
+0.045s/mv  ydh1-iter0 
+Game 105/200: B+8.5 |  ydh1-iter0  46/105 (43.8%) 0.042s/mv - 59/105 (56.2%) 
+0.042s/mv  ydh1-iter0 
+Game 106/200: B+61.5 |  ydh1-iter0  47/106 (44.3%) 0.044s/mv - 59/106 (55.7%) 
+0.044s/mv  ydh1-iter0 
+Game 107/200: W+21.5 |  ydh1-iter0  47/107 (43.9%) 0.042s/mv - 60/107 (56.1%) 
+0.042s/mv  ydh1-iter0 
+Game 108/200: W+35.5 |  ydh1-iter0  47/108 (43.5%) 0.043s/mv - 61/108 (56.5%) 
+0.043s/mv  ydh1-iter0 
+Game 109/200: B+41.5 |  ydh1-iter0  48/109 (44.0%) 0.045s/mv - 61/109 (56.0%) 
+0.045s/mv  ydh1-iter0 
+Game 110/200: B+73.5 |  ydh1-iter0  49/110 (44.5%) 0.042s/mv - 61/110 (55.5%) 
+0.042s/mv  ydh1-iter0 
+Game 111/200: W+79.5 |  ydh1-iter0  49/111 (44.1%) 0.043s/mv - 62/111 (55.9%) 
+0.044s/mv  ydh1-iter0 
+Game 112/200: B+26.5 |  ydh1-iter0  50/112 (44.6%) 0.047s/mv - 62/112 (55.4%) 
+0.046s/mv  ydh1-iter0 
+Game 113/200: B+6.5 |  ydh1-iter0  51/113 (45.1%) 0.043s/mv - 62/113 (54.9%) 
+0.042s/mv  ydh1-iter0 
+Game 114/200: B+20.5 |  ydh1-iter0  52/114 (45.6%) 0.044s/mv - 62/114 (54.4%) 
+0.043s/mv  ydh1-iter0 
+Game 115/200: B+47.5 |  ydh1-iter0  53/115 (46.1%) 0.046s/mv - 62/115 (53.9%) 
+0.046s/mv  ydh1-iter0 
+Game 116/200: W+7.5 |  ydh1-iter0  53/116 (45.7%) 0.044s/mv - 63/116 (54.3%) 
+0.044s/mv  ydh1-iter0 
+Game 117/200: B+63.5 |  ydh1-iter0  54/117 (46.2%) 0.043s/mv - 63/117 (53.8%) 
+0.042s/mv  ydh1-iter0 
+Game 118/200: B+42.5 |  ydh1-iter0  55/118 (46.6%) 0.044s/mv - 63/118 (53.4%) 
+0.044s/mv  ydh1-iter0 
+Game 119/200: W+42.5 |  ydh1-iter0  55/119 (46.2%) 0.044s/mv - 64/119 (53.8%) 
+0.045s/mv  ydh1-iter0 
+Game 120/200: B+35.5 |  ydh1-iter0  56/120 (46.7%) 0.044s/mv - 64/120 (53.3%) 
+0.044s/mv  ydh1-iter0 
+Game 121/200: B+35.5 |  ydh1-iter0  57/121 (47.1%) 0.043s/mv - 64/121 (52.9%) 
+0.042s/mv  ydh1-iter0 
+Game 122/200: B+12.5 |  ydh1-iter0  58/122 (47.5%) 0.042s/mv - 64/122 (52.5%) 
+0.041s/mv  ydh1-iter0 
+Game 123/200: B+24.5 |  ydh1-iter0  59/123 (48.0%) 0.046s/mv - 64/123 (52.0%) 
+0.046s/mv  ydh1-iter0 
+Game 124/200: W+41.5 |  ydh1-iter0  59/124 (47.6%) 0.048s/mv - 65/124 (52.4%) 
+0.048s/mv  ydh1-iter0 
+Game 125/200: W+72.5 |  ydh1-iter0  59/125 (47.2%) 0.044s/mv - 66/125 (52.8%) 
+0.044s/mv  ydh1-iter0 
+Game 126/200: W+73.5 |  ydh1-iter0  59/126 (46.8%) 0.044s/mv - 67/126 (53.2%) 
+0.044s/mv  ydh1-iter0 
+Game 127/200: W+85.5 |  ydh1-iter0  59/127 (46.5%) 0.043s/mv - 68/127 (53.5%) 
+0.043s/mv  ydh1-iter0 
+Game 128/200: W+14.5 |  ydh1-iter0  59/128 (46.1%) 0.042s/mv - 69/128 (53.9%) 
+0.042s/mv  ydh1-iter0 
+Game 129/200: B+7.5 |  ydh1-iter0  60/129 (46.5%) 0.044s/mv - 69/129 (53.5%) 
+0.043s/mv  ydh1-iter0 
+Game 130/200: B+28.5 |  ydh1-iter0  61/130 (46.9%) 0.046s/mv - 69/130 (53.1%) 
+0.045s/mv  ydh1-iter0 
+Game 131/200: W+73.5 |  ydh1-iter0  61/131 (46.6%) 0.044s/mv - 70/131 (53.4%) 
+0.044s/mv  ydh1-iter0 
+Game 132/200: W+22.5 |  ydh1-iter0  61/132 (46.2%) 0.042s/mv - 71/132 (53.8%) 
+0.042s/mv  ydh1-iter0 
+Game 133/200: B+11.5 |  ydh1-iter0  62/133 (46.6%) 0.045s/mv - 71/133 (53.4%) 
+0.044s/mv  ydh1-iter0 
+Game 134/200: B+24.5 |  ydh1-iter0  63/134 (47.0%) 0.047s/mv - 71/134 (53.0%) 
+0.047s/mv  ydh1-iter0 
+Game 135/200: W+56.5 |  ydh1-iter0  63/135 (46.7%) 0.044s/mv - 72/135 (53.3%) 
+0.043s/mv  ydh1-iter0 
+Game 136/200: B+73.5 |  ydh1-iter0  64/136 (47.1%) 0.044s/mv - 72/136 (52.9%) 
+0.044s/mv  ydh1-iter0 
+Game 137/200: B+65.5 |  ydh1-iter0  65/137 (47.4%) 0.043s/mv - 72/137 (52.6%) 
+0.042s/mv  ydh1-iter0 
+Game 138/200: W+88.5 |  ydh1-iter0  65/138 (47.1%) 0.043s/mv - 73/138 (52.9%) 
+0.043s/mv  ydh1-iter0 
+Game 139/200: B+63.5 |  ydh1-iter0  66/139 (47.5%) 0.045s/mv - 73/139 (52.5%) 
+0.045s/mv  ydh1-iter0 
+Game 140/200: W+72.5 |  ydh1-iter0  66/140 (47.1%) 0.045s/mv - 74/140 (52.9%) 
+0.045s/mv  ydh1-iter0 
+Game 141/200: W+80.5 |  ydh1-iter0  66/141 (46.8%) 0.042s/mv - 75/141 (53.2%) 
+0.042s/mv  ydh1-iter0 
+Game 142/200: B+47.5 |  ydh1-iter0  67/142 (47.2%) 0.045s/mv - 75/142 (52.8%) 
+0.044s/mv  ydh1-iter0 
+Game 143/200: W+34.5 |  ydh1-iter0  67/143 (46.9%) 0.050s/mv - 76/143 (53.1%) 
+0.049s/mv  ydh1-iter0 
+Game 144/200: W+50.5 |  ydh1-iter0  67/144 (46.5%) 0.045s/mv - 77/144 (53.5%) 
+0.045s/mv  ydh1-iter0 
+Game 145/200: B+70.5 |  ydh1-iter0  68/145 (46.9%) 0.043s/mv - 77/145 (53.1%) 
+0.043s/mv  ydh1-iter0 
+Game 146/200: B+47.5 |  ydh1-iter0  69/146 (47.3%) 0.046s/mv - 77/146 (52.7%) 
+0.045s/mv  ydh1-iter0 
+Game 147/200: W+49.5 |  ydh1-iter0  69/147 (46.9%) 0.045s/mv - 78/147 (53.1%) 
+0.046s/mv  ydh1-iter0 
+Game 148/200: W+12.5 |  ydh1-iter0  69/148 (46.6%) 0.042s/mv - 79/148 (53.4%) 
+0.042s/mv  ydh1-iter0 
+Game 149/200: W+8.5 |  ydh1-iter0  69/149 (46.3%) 0.042s/mv - 80/149 (53.7%) 
+0.042s/mv  ydh1-iter0 
+Game 150/200: W+79.5 |  ydh1-iter0  69/150 (46.0%) 0.044s/mv - 81/150 (54.0%) 
+0.044s/mv  ydh1-iter0 
+Game 151/200: B+39.5 |  ydh1-iter0  70/151 (46.4%) 0.045s/mv - 81/151 (53.6%) 
+0.045s/mv  ydh1-iter0 
+Game 152/200: W+88.5 |  ydh1-iter0  70/152 (46.1%) 0.043s/mv - 82/152 (53.9%) 
+0.043s/mv  ydh1-iter0 
+Game 153/200: W+59.5 |  ydh1-iter0  70/153 (45.8%) 0.044s/mv - 83/153 (54.2%) 
+0.045s/mv  ydh1-iter0 
+Game 154/200: B+73.5 |  ydh1-iter0  71/154 (46.1%) 0.042s/mv - 83/154 (53.9%) 
+0.042s/mv  ydh1-iter0 
+Game 155/200: W+55.5 |  ydh1-iter0  71/155 (45.8%) 0.043s/mv - 84/155 (54.2%) 
+0.043s/mv  ydh1-iter0 
+Game 156/200: B+66.5 |  ydh1-iter0  72/156 (46.2%) 0.045s/mv - 84/156 (53.8%) 
+0.044s/mv  ydh1-iter0 
+Game 157/200: W+73.5 |  ydh1-iter0  72/157 (45.9%) 0.045s/mv - 85/157 (54.1%) 
+0.045s/mv  ydh1-iter0 
+Game 158/200: W+88.5 |  ydh1-iter0  72/158 (45.6%) 0.043s/mv - 86/158 (54.4%) 
+0.043s/mv  ydh1-iter0 
+Game 159/200: B+54.5 |  ydh1-iter0  73/159 (45.9%) 0.044s/mv - 86/159 (54.1%) 
+0.044s/mv  ydh1-iter0 
+Game 160/200: W+88.5 |  ydh1-iter0  73/160 (45.6%) 0.043s/mv - 87/160 (54.4%) 
+0.042s/mv  ydh1-iter0 
+Game 161/200: B+15.5 |  ydh1-iter0  74/161 (46.0%) 0.043s/mv - 87/161 (54.0%) 
+0.043s/mv  ydh1-iter0 
+Game 162/200: B+73.5 |  ydh1-iter0  75/162 (46.3%) 0.044s/mv - 87/162 (53.7%) 
+0.044s/mv  ydh1-iter0 
+Game 163/200: W+85.5 |  ydh1-iter0  75/163 (46.0%) 0.043s/mv - 88/163 (54.0%) 
+0.044s/mv  ydh1-iter0 
+Game 164/200: W+79.5 |  ydh1-iter0  75/164 (45.7%) 0.045s/mv - 89/164 (54.3%) 
+0.045s/mv  ydh1-iter0 
+Game 165/200: B+2.5 |  ydh1-iter0  76/165 (46.1%) 0.044s/mv - 89/165 (53.9%) 
+0.044s/mv  ydh1-iter0 
+Game 166/200: B+70.5 |  ydh1-iter0  77/166 (46.4%) 0.045s/mv - 89/166 (53.6%) 
+0.044s/mv  ydh1-iter0 
+Game 167/200: W+14.5 |  ydh1-iter0  77/167 (46.1%) 0.043s/mv - 90/167 (53.9%) 
+0.042s/mv  ydh1-iter0 
+Game 168/200: W+80.5 |  ydh1-iter0  77/168 (45.8%) 0.043s/mv - 91/168 (54.2%) 
+0.043s/mv  ydh1-iter0 
+Game 169/200: W+27.5 |  ydh1-iter0  77/169 (45.6%) 0.047s/mv - 92/169 (54.4%) 
+0.047s/mv  ydh1-iter0 
+Game 170/200: B+73.5 |  ydh1-iter0  78/170 (45.9%) 0.042s/mv - 92/170 (54.1%) 
+0.042s/mv  ydh1-iter0 
+Game 171/200: B+44.5 |  ydh1-iter0  79/171 (46.2%) 0.044s/mv - 92/171 (53.8%) 
+0.044s/mv  ydh1-iter0 
+Game 172/200: W+56.5 |  ydh1-iter0  79/172 (45.9%) 0.045s/mv - 93/172 (54.1%) 
+0.045s/mv  ydh1-iter0 
+Game 173/200: B+12.5 |  ydh1-iter0  80/173 (46.2%) 0.043s/mv - 93/173 (53.8%) 
+0.043s/mv  ydh1-iter0 
+Game 174/200: B+14.5 |  ydh1-iter0  81/174 (46.6%) 0.047s/mv - 93/174 (53.4%) 
+0.047s/mv  ydh1-iter0 
+Game 175/200: W+81.5 |  ydh1-iter0  81/175 (46.3%) 0.044s/mv - 94/175 (53.7%) 
+0.043s/mv  ydh1-iter0 
+Game 176/200: W+88.5 |  ydh1-iter0  81/176 (46.0%) 0.044s/mv - 95/176 (54.0%) 
+0.044s/mv  ydh1-iter0 
+Game 177/200: B+52.5 |  ydh1-iter0  82/177 (46.3%) 0.045s/mv - 95/177 (53.7%) 
+0.045s/mv  ydh1-iter0 
+Game 178/200: B+1.5 |  ydh1-iter0  83/178 (46.6%) 0.043s/mv - 95/178 (53.4%) 
+0.042s/mv  ydh1-iter0 
+Game 179/200: B+30.5 |  ydh1-iter0  84/179 (46.9%) 0.043s/mv - 95/179 (53.1%) 
+0.042s/mv  ydh1-iter0 
+Game 180/200: B+58.5 |  ydh1-iter0  85/180 (47.2%) 0.043s/mv - 95/180 (52.8%) 
+0.043s/mv  ydh1-iter0 
+Game 181/200: B+57.5 |  ydh1-iter0  86/181 (47.5%) 0.045s/mv - 95/181 (52.5%) 
+0.045s/mv  ydh1-iter0 
+Game 182/200: W+13.5 |  ydh1-iter0  86/182 (47.3%) 0.042s/mv - 96/182 (52.7%) 
+0.042s/mv  ydh1-iter0 
+Game 183/200: W+8.5 |  ydh1-iter0  86/183 (47.0%) 0.042s/mv - 97/183 (53.0%) 
+0.042s/mv  ydh1-iter0 
+Game 184/200: B+56.5 |  ydh1-iter0  87/184 (47.3%) 0.044s/mv - 97/184 (52.7%) 
+0.044s/mv  ydh1-iter0 
+Game 185/200: W+59.5 |  ydh1-iter0  87/185 (47.0%) 0.044s/mv - 98/185 (53.0%) 
+0.044s/mv  ydh1-iter0 
+Game 186/200: B+37.5 |  ydh1-iter0  88/186 (47.3%) 0.046s/mv - 98/186 (52.7%) 
+0.046s/mv  ydh1-iter0 
+Game 187/200: W+2.5 |  ydh1-iter0  88/187 (47.1%) 0.043s/mv - 99/187 (52.9%) 
+0.043s/mv  ydh1-iter0 
+Game 188/200: W+49.5 |  ydh1-iter0  88/188 (46.8%) 0.047s/mv - 100/188 (53.2%) 
+0.046s/mv  ydh1-iter0 
+Game 189/200: W+78.5 |  ydh1-iter0  88/189 (46.6%) 0.044s/mv - 101/189 (53.4%) 
+0.044s/mv  ydh1-iter0 
+Game 190/200: W+77.5 |  ydh1-iter0  88/190 (46.3%) 0.043s/mv - 102/190 (53.7%) 
+0.043s/mv  ydh1-iter0 
+Game 191/200: W+76.5 |  ydh1-iter0  88/191 (46.1%) 0.043s/mv - 103/191 (53.9%) 
+0.043s/mv  ydh1-iter0 
+Game 192/200: W+67.5 |  ydh1-iter0  88/192 (45.8%) 0.044s/mv - 104/192 (54.2%) 
+0.044s/mv  ydh1-iter0 
+Game 193/200: W+75.5 |  ydh1-iter0  88/193 (45.6%) 0.044s/mv - 105/193 (54.4%) 
+0.045s/mv  ydh1-iter0 
+Game 194/200: W+13.5 |  ydh1-iter0  88/194 (45.4%) 0.043s/mv - 106/194 (54.6%) 
+0.043s/mv  ydh1-iter0 
+Game 195/200: B+50.5 |  ydh1-iter0  89/195 (45.6%) 0.044s/mv - 106/195 (54.4%) 
+0.043s/mv  ydh1-iter0 
+Game 196/200: B+50.5 |  ydh1-iter0  90/196 (45.9%) 0.046s/mv - 106/196 (54.1%) 
+0.045s/mv  ydh1-iter0 
+Game 197/200: W+81.5 |  ydh1-iter0  90/197 (45.7%) 0.043s/mv - 107/197 (54.3%) 
+0.043s/mv  ydh1-iter0 
+Game 198/200: W+58.5 |  ydh1-iter0  90/198 (45.5%) 0.045s/mv - 108/198 (54.5%) 
+0.045s/mv  ydh1-iter0 
+Game 199/200: W+44.5 |  ydh1-iter0  90/199 (45.2%) 0.045s/mv - 109/199 (54.8%) 
+0.045s/mv  ydh1-iter0 
+Game 200/200: W+13.5 |  ydh1-iter0  90/200 (45.0%) 0.043s/mv - 110/200 (55.0%) 
+0.043s/mv  ydh1-iter0 
+                               Self-Play Results                                
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Metric                      ┃ Value                                          ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ Total Games                 │ 200                                            │
+│ ydh1-iter0 (Black) Wins     │ 90/200 (45.0%)                                 │
+│ ydh1-iter0 (White) Wins     │ 110/200 (55.0%)                                │
+│ Draws                       │ 0                                              │
+│ Score (Black perspective)   │ -10.2 ± 54.0                                   │
+│ Avg Game Length             │ 145.2                                          │
+│ ydh1-iter0 (Black) sec/move │ 0.044                                          │
+│ ydh1-iter0 (White) sec/move │ 0.044                                          │
+│ Ended by Double Pass        │ 92/200                                         │
+│ Ended by Max Moves          │ 108/200                                        │
+│ Output Dir                  │ /home/nfs-local/game_data_root/experiments/20… │
+└─────────────────────────────┴────────────────────────────────────────────────┘
+{
+  "total_games": 200,
+  "black_wins": 90,
+  "white_wins": 110,
+  "draws": 0,
+  "black_win_rate": 0.45,
+  "white_win_rate": 0.55,
+  "avg_game_length": 145.17,
+  "min_game_length": 72,
+  "max_game_length": 162,
+  "total_positions": 29034,
+  "score_mean": -10.235,
+  "score_std": 54.04937349313126,
+  "double_pass_ends": 92,
+  "max_moves_ends": 108,
+  "resign_ends": 0,
+  "black_sec_per_move": 0.04435370336378985,
+  "white_sec_per_move": 0.04411347058375174,
+  "black_total_seconds": 644.7254320960492,
+  "white_total_seconds": 639.5570965232328,
+  "black_agent": "ydh1-iter0",
+  "white_agent": "ydh1-iter0",
+  "board_size": 9,
+  "num_workers": 1,
+  "data_files": [
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000000.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000001.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000002.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000003.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000004.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000005.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000006.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000007.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000008.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000009.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000010.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000011.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000012.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000013.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000014.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000015.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000016.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000017.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000018.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000019.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000020.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000021.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000022.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000023.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000024.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000025.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000026.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000027.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000028.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000029.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000030.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000031.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000032.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000033.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000034.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000035.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000036.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000037.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000038.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000039.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000040.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000041.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000042.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000043.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000044.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000045.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000046.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000047.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000048.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000049.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000050.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000051.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000052.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000053.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000054.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000055.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000056.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000057.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000058.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000059.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000060.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000061.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000062.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000063.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000064.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000065.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000066.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000067.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000068.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000069.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000070.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000071.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000072.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000073.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000074.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000075.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000076.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000077.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000078.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000079.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000080.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000081.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000082.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000083.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000084.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000085.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000086.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000087.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000088.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000089.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000090.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000091.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000092.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000093.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000094.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000095.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000096.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000097.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000098.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000099.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000100.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000101.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000102.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000103.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000104.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000105.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000106.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000107.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000108.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000109.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000110.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000111.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000112.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000113.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000114.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000115.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000116.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000117.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000118.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000119.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000120.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000121.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000122.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000123.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000124.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000125.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000126.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000127.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000128.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000129.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000130.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000131.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000132.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000133.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000134.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000135.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000136.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000137.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000138.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000139.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000140.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000141.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000142.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000143.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000144.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000145.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000146.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000147.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000148.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000149.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000150.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000151.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000152.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000153.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000154.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000155.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000156.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000157.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000158.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000159.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000160.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000161.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000162.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000163.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000164.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000165.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000166.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000167.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000168.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000169.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000170.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000171.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000172.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000173.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000174.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000175.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000176.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000177.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000178.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000179.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000180.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000181.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000182.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000183.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000184.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000185.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000186.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000187.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000188.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000189.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000190.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000191.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000192.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000193.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000194.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000195.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000196.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000197.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000198.npz",
+    "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0/20260517-004549-game0000199.npz"
+  ],
+  "output_dir": "/home/nfs-local/game_data_root/experiments/2026-05-16_17-21-ydh1-phaseB-direct/selfplay-it0"
+}
