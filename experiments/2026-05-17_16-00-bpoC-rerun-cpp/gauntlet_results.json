@@ -1,0 +1,143 @@
+{
+  "games": 21,
+  "odin_wins": 0,
+  "cpp_wins": 21,
+  "draws": 0,
+  "odin_winrate": 0.0,
+  "wilson_95_lo": 0,
+  "wilson_95_hi": 0.15464382326420195,
+  "as_black_odin": 0,
+  "as_black_n": 11,
+  "as_white_odin": 0,
+  "as_white_n": 10,
+  "mean_moves": 160.95238095238096,
+  "binomial_null_p": 4.76837158203125e-07,
+  "rows": [
+    {
+      "game": 1,
+      "a_color": "B",
+      "winner": "CPP",
+      "moves": 158
+    },
+    {
+      "game": 2,
+      "a_color": "W",
+      "winner": "CPP",
+      "moves": 157
+    },
+    {
+      "game": 3,
+      "a_color": "B",
+      "winner": "CPP",
+      "moves": 158
+    },
+    {
+      "game": 4,
+      "a_color": "W",
+      "winner": "CPP",
+      "moves": 157
+    },
+    {
+      "game": 5,
+      "a_color": "B",
+      "winner": "CPP",
+      "moves": 162
+    },
+    {
+      "game": 6,
+      "a_color": "W",
+      "winner": "CPP",
+      "moves": 157
+    },
+    {
+      "game": 7,
+      "a_color": "B",
+      "winner": "CPP",
+      "moves": 158
+    },
+    {
+      "game": 8,
+      "a_color": "W",
+      "winner": "CPP",
+      "moves": 161
+    },
+    {
+      "game": 9,
+      "a_color": "B",
+      "winner": "CPP",
+      "moves": 158
+    },
+    {
+      "game": 10,
+      "a_color": "W",
+      "winner": "CPP",
+      "moves": 173
+    },
+    {
+      "game": 11,
+      "a_color": "B",
+      "winner": "CPP",
+      "moves": 158
+    },
+    {
+      "game": 12,
+      "a_color": "W",
+      "winner": "CPP",
+      "moves": 159
+    },
+    {
+      "game": 13,
+      "a_color": "B",
+      "winner": "CPP",
+      "moves": 164
+    },
+    {
+      "game": 14,
+      "a_color": "W",
+      "winner": "CPP",
+      "moves": 165
+    },
+    {
+      "game": 15,
+      "a_color": "B",
+      "winner": "CPP",
+      "moves": 172
+    },
+    {
+      "game": 16,
+      "a_color": "W",
+      "winner": "CPP",
+      "moves": 157
+    },
+    {
+      "game": 17,
+      "a_color": "B",
+      "winner": "CPP",
+      "moves": 164
+    },
+    {
+      "game": 18,
+      "a_color": "W",
+      "winner": "CPP",
+      "moves": 165
+    },
+    {
+      "game": 19,
+      "a_color": "B",
+      "winner": "CPP",
+      "moves": 162
+    },
+    {
+      "game": 20,
+      "a_color": "W",
+      "winner": "CPP",
+      "moves": 157
+    },
+    {
+      "game": 21,
+      "a_color": "B",
+      "winner": "CPP",
+      "moves": 158
+    }
+  ]
+}

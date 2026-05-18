@@ -1,0 +1,29 @@
+/home/phiat/autogodin-work/autogo/src/alpha_go/agents/nn_mcts.py:241: UserWarning: CUDA is not available or torch_xla is imported. Disabling autocast.
+  with torch.autocast(device_type="cuda", dtype=torch.bfloat16):
+== bpoC iter4 gauntlet: Odin-trained vs C++-trained ==
+  ODIN ckpt: /home/phiat/gauntlet-bpoC/odin_iter4_best.pt
+  CPP  ckpt: /home/phiat/gauntlet-bpoC/cpp_iter4_best.pt
+  games=100 sims/move=200 temp=1.0 sample_until_move=10
+  c_puct=1.0 max_depth=160 move_cap=200
+  eval-backend: alpha_go_cpp = /home/phiat/autogodin-work/autogo/.venv/lib/python3.11/site-packages/alpha_go_cpp.cpython-311-x86_64-linux-gnu.so
+  Game   1/100: A=B winner=CPP moves=158  ODIN 0 - 1 CPP  (draws=0, odin_p=0.000 CI[0.000,0.793], 0.3 gpm)
+  Game   2/100: A=W winner=CPP moves=157  ODIN 0 - 2 CPP  (draws=0, odin_p=0.000 CI[0.000,0.658], 0.3 gpm)
+  Game   3/100: A=B winner=CPP moves=158  ODIN 0 - 3 CPP  (draws=0, odin_p=0.000 CI[0.000,0.562], 0.3 gpm)
+  Game   4/100: A=W winner=CPP moves=157  ODIN 0 - 4 CPP  (draws=0, odin_p=0.000 CI[0.000,0.490], 0.3 gpm)
+  Game   5/100: A=B winner=CPP moves=162  ODIN 0 - 5 CPP  (draws=0, odin_p=0.000 CI[0.000,0.434], 0.3 gpm)
+  Game   6/100: A=W winner=CPP moves=157  ODIN 0 - 6 CPP  (draws=0, odin_p=0.000 CI[0.000,0.390], 0.3 gpm)
+  Game   7/100: A=B winner=CPP moves=158  ODIN 0 - 7 CPP  (draws=0, odin_p=0.000 CI[0.000,0.354], 0.3 gpm)
+  Game   8/100: A=W winner=CPP moves=161  ODIN 0 - 8 CPP  (draws=0, odin_p=0.000 CI[0.000,0.324], 0.3 gpm)
+  Game   9/100: A=B winner=CPP moves=158  ODIN 0 - 9 CPP  (draws=0, odin_p=0.000 CI[0.000,0.299], 0.3 gpm)
+  Game  10/100: A=W winner=CPP moves=173  ODIN 0 - 10 CPP  (draws=0, odin_p=0.000 CI[0.000,0.278], 0.3 gpm)
+  Game  11/100: A=B winner=CPP moves=158  ODIN 0 - 11 CPP  (draws=0, odin_p=0.000 CI[0.000,0.259], 0.3 gpm)
+  Game  12/100: A=W winner=CPP moves=159  ODIN 0 - 12 CPP  (draws=0, odin_p=0.000 CI[0.000,0.243], 0.3 gpm)
+  Game  13/100: A=B winner=CPP moves=164  ODIN 0 - 13 CPP  (draws=0, odin_p=0.000 CI[0.000,0.228], 0.3 gpm)
+  Game  14/100: A=W winner=CPP moves=165  ODIN 0 - 14 CPP  (draws=0, odin_p=0.000 CI[0.000,0.215], 0.3 gpm)
+  Game  15/100: A=B winner=CPP moves=172  ODIN 0 - 15 CPP  (draws=0, odin_p=0.000 CI[0.000,0.204], 0.3 gpm)
+  Game  16/100: A=W winner=CPP moves=157  ODIN 0 - 16 CPP  (draws=0, odin_p=0.000 CI[0.000,0.194], 0.3 gpm)
+  Game  17/100: A=B winner=CPP moves=164  ODIN 0 - 17 CPP  (draws=0, odin_p=0.000 CI[0.000,0.184], 0.3 gpm)
+  Game  18/100: A=W winner=CPP moves=165  ODIN 0 - 18 CPP  (draws=0, odin_p=0.000 CI[0.000,0.176], 0.3 gpm)
+  Game  19/100: A=B winner=CPP moves=162  ODIN 0 - 19 CPP  (draws=0, odin_p=0.000 CI[0.000,0.168], 0.3 gpm)
+  Game  20/100: A=W winner=CPP moves=157  ODIN 0 - 20 CPP  (draws=0, odin_p=0.000 CI[0.000,0.161], 0.3 gpm)
+  Game  21/100: A=B winner=CPP moves=158  ODIN 0 - 21 CPP  (draws=0, odin_p=0.000 CI[0.000,0.155], 0.3 gpm)
